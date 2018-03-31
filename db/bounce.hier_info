@@ -1,5 +1,5 @@
 |bounce
-CLOCK_50 => CLOCK_50.IN8
+CLOCK_50 => CLOCK_50.IN7
 KEY[0] => datapath:player_data.dir_in[0]
 KEY[0] => WideOr0.IN0
 KEY[1] => datapath:player_data.dir_in[1]
@@ -8,7 +8,7 @@ KEY[2] => datapath:player_data.dir_in[2]
 KEY[2] => WideOr0.IN2
 KEY[3] => datapath:player_data.dir_in[3]
 KEY[3] => WideOr0.IN3
-SW[0] => resetn.IN2
+SW[0] => resetn.IN1
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
 SW[3] => ~NO_FANOUT~
@@ -26,67 +26,67 @@ SW[14] => ~NO_FANOUT~
 SW[15] => ~NO_FANOUT~
 SW[16] => ~NO_FANOUT~
 SW[17] => ~NO_FANOUT~
-LEDR[0] << <GND>
-LEDR[1] << <GND>
-LEDR[2] << <GND>
-LEDR[3] << <VCC>
-LEDR[4] << <GND>
-LEDR[5] << <GND>
-LEDR[6] << <VCC>
-LEDR[7] << <VCC>
-LEDR[8] << <GND>
-LEDR[9] << <GND>
-LEDR[10] << <GND>
-LEDR[11] << <GND>
-LEDR[12] << <GND>
-LEDR[13] << <GND>
-LEDR[14] << <GND>
-LEDR[15] << <GND>
-LEDR[16] << <GND>
-LEDR[17] << <GND>
-LEDG[0] << mechanics:mech.game_reset
-LEDG[1] << mechanics:mech.lives
-LEDG[2] << mechanics:mech.lives
-LEDG[3] << <GND>
-LEDG[4] << <GND>
-LEDG[5] << <GND>
-LEDG[6] << <GND>
-LEDG[7] << <GND>
-VGA_CLK << vga_adapter:VGA.VGA_CLK
-VGA_HS << vga_adapter:VGA.VGA_HS
-VGA_VS << vga_adapter:VGA.VGA_VS
-VGA_BLANK_N << vga_adapter:VGA.VGA_BLANK
-VGA_SYNC_N << vga_adapter:VGA.VGA_SYNC
-VGA_R[0] << vga_adapter:VGA.VGA_R
-VGA_R[1] << vga_adapter:VGA.VGA_R
-VGA_R[2] << vga_adapter:VGA.VGA_R
-VGA_R[3] << vga_adapter:VGA.VGA_R
-VGA_R[4] << vga_adapter:VGA.VGA_R
-VGA_R[5] << vga_adapter:VGA.VGA_R
-VGA_R[6] << vga_adapter:VGA.VGA_R
-VGA_R[7] << vga_adapter:VGA.VGA_R
-VGA_R[8] << vga_adapter:VGA.VGA_R
-VGA_R[9] << vga_adapter:VGA.VGA_R
-VGA_G[0] << vga_adapter:VGA.VGA_G
-VGA_G[1] << vga_adapter:VGA.VGA_G
-VGA_G[2] << vga_adapter:VGA.VGA_G
-VGA_G[3] << vga_adapter:VGA.VGA_G
-VGA_G[4] << vga_adapter:VGA.VGA_G
-VGA_G[5] << vga_adapter:VGA.VGA_G
-VGA_G[6] << vga_adapter:VGA.VGA_G
-VGA_G[7] << vga_adapter:VGA.VGA_G
-VGA_G[8] << vga_adapter:VGA.VGA_G
-VGA_G[9] << vga_adapter:VGA.VGA_G
-VGA_B[0] << vga_adapter:VGA.VGA_B
-VGA_B[1] << vga_adapter:VGA.VGA_B
-VGA_B[2] << vga_adapter:VGA.VGA_B
-VGA_B[3] << vga_adapter:VGA.VGA_B
-VGA_B[4] << vga_adapter:VGA.VGA_B
-VGA_B[5] << vga_adapter:VGA.VGA_B
-VGA_B[6] << vga_adapter:VGA.VGA_B
-VGA_B[7] << vga_adapter:VGA.VGA_B
-VGA_B[8] << vga_adapter:VGA.VGA_B
-VGA_B[9] << vga_adapter:VGA.VGA_B
+LEDR[0] <= <GND>
+LEDR[1] <= <GND>
+LEDR[2] <= <GND>
+LEDR[3] <= <GND>
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
+LEDR[10] <= <GND>
+LEDR[11] <= <GND>
+LEDR[12] <= <GND>
+LEDR[13] <= <GND>
+LEDR[14] <= <GND>
+LEDR[15] <= <GND>
+LEDR[16] <= <GND>
+LEDR[17] <= player_reset.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[0] <= <GND>
+LEDG[1] <= <GND>
+LEDG[2] <= <GND>
+LEDG[3] <= <GND>
+LEDG[4] <= <GND>
+LEDG[5] <= <GND>
+LEDG[6] <= <GND>
+LEDG[7] <= <GND>
+VGA_CLK <= vga_adapter:VGA.VGA_CLK
+VGA_HS <= vga_adapter:VGA.VGA_HS
+VGA_VS <= vga_adapter:VGA.VGA_VS
+VGA_BLANK_N <= vga_adapter:VGA.VGA_BLANK
+VGA_SYNC_N <= vga_adapter:VGA.VGA_SYNC
+VGA_R[0] <= vga_adapter:VGA.VGA_R
+VGA_R[1] <= vga_adapter:VGA.VGA_R
+VGA_R[2] <= vga_adapter:VGA.VGA_R
+VGA_R[3] <= vga_adapter:VGA.VGA_R
+VGA_R[4] <= vga_adapter:VGA.VGA_R
+VGA_R[5] <= vga_adapter:VGA.VGA_R
+VGA_R[6] <= vga_adapter:VGA.VGA_R
+VGA_R[7] <= vga_adapter:VGA.VGA_R
+VGA_R[8] <= vga_adapter:VGA.VGA_R
+VGA_R[9] <= vga_adapter:VGA.VGA_R
+VGA_G[0] <= vga_adapter:VGA.VGA_G
+VGA_G[1] <= vga_adapter:VGA.VGA_G
+VGA_G[2] <= vga_adapter:VGA.VGA_G
+VGA_G[3] <= vga_adapter:VGA.VGA_G
+VGA_G[4] <= vga_adapter:VGA.VGA_G
+VGA_G[5] <= vga_adapter:VGA.VGA_G
+VGA_G[6] <= vga_adapter:VGA.VGA_G
+VGA_G[7] <= vga_adapter:VGA.VGA_G
+VGA_G[8] <= vga_adapter:VGA.VGA_G
+VGA_G[9] <= vga_adapter:VGA.VGA_G
+VGA_B[0] <= vga_adapter:VGA.VGA_B
+VGA_B[1] <= vga_adapter:VGA.VGA_B
+VGA_B[2] <= vga_adapter:VGA.VGA_B
+VGA_B[3] <= vga_adapter:VGA.VGA_B
+VGA_B[4] <= vga_adapter:VGA.VGA_B
+VGA_B[5] <= vga_adapter:VGA.VGA_B
+VGA_B[6] <= vga_adapter:VGA.VGA_B
+VGA_B[7] <= vga_adapter:VGA.VGA_B
+VGA_B[8] <= vga_adapter:VGA.VGA_B
+VGA_B[9] <= vga_adapter:VGA.VGA_B
 
 
 |bounce|vga_adapter:VGA
@@ -189,50 +189,50 @@ mem_address[14] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |bounce|vga_adapter:VGA|altsyncram:VideoMemory
-wren_a => altsyncram_60g1:auto_generated.wren_a
+wren_a => altsyncram_emg1:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
 rden_b => ~NO_FANOUT~
-data_a[0] => altsyncram_60g1:auto_generated.data_a[0]
-data_a[1] => altsyncram_60g1:auto_generated.data_a[1]
-data_a[2] => altsyncram_60g1:auto_generated.data_a[2]
+data_a[0] => altsyncram_emg1:auto_generated.data_a[0]
+data_a[1] => altsyncram_emg1:auto_generated.data_a[1]
+data_a[2] => altsyncram_emg1:auto_generated.data_a[2]
 data_b[0] => ~NO_FANOUT~
 data_b[1] => ~NO_FANOUT~
 data_b[2] => ~NO_FANOUT~
-address_a[0] => altsyncram_60g1:auto_generated.address_a[0]
-address_a[1] => altsyncram_60g1:auto_generated.address_a[1]
-address_a[2] => altsyncram_60g1:auto_generated.address_a[2]
-address_a[3] => altsyncram_60g1:auto_generated.address_a[3]
-address_a[4] => altsyncram_60g1:auto_generated.address_a[4]
-address_a[5] => altsyncram_60g1:auto_generated.address_a[5]
-address_a[6] => altsyncram_60g1:auto_generated.address_a[6]
-address_a[7] => altsyncram_60g1:auto_generated.address_a[7]
-address_a[8] => altsyncram_60g1:auto_generated.address_a[8]
-address_a[9] => altsyncram_60g1:auto_generated.address_a[9]
-address_a[10] => altsyncram_60g1:auto_generated.address_a[10]
-address_a[11] => altsyncram_60g1:auto_generated.address_a[11]
-address_a[12] => altsyncram_60g1:auto_generated.address_a[12]
-address_a[13] => altsyncram_60g1:auto_generated.address_a[13]
-address_a[14] => altsyncram_60g1:auto_generated.address_a[14]
-address_b[0] => altsyncram_60g1:auto_generated.address_b[0]
-address_b[1] => altsyncram_60g1:auto_generated.address_b[1]
-address_b[2] => altsyncram_60g1:auto_generated.address_b[2]
-address_b[3] => altsyncram_60g1:auto_generated.address_b[3]
-address_b[4] => altsyncram_60g1:auto_generated.address_b[4]
-address_b[5] => altsyncram_60g1:auto_generated.address_b[5]
-address_b[6] => altsyncram_60g1:auto_generated.address_b[6]
-address_b[7] => altsyncram_60g1:auto_generated.address_b[7]
-address_b[8] => altsyncram_60g1:auto_generated.address_b[8]
-address_b[9] => altsyncram_60g1:auto_generated.address_b[9]
-address_b[10] => altsyncram_60g1:auto_generated.address_b[10]
-address_b[11] => altsyncram_60g1:auto_generated.address_b[11]
-address_b[12] => altsyncram_60g1:auto_generated.address_b[12]
-address_b[13] => altsyncram_60g1:auto_generated.address_b[13]
-address_b[14] => altsyncram_60g1:auto_generated.address_b[14]
+address_a[0] => altsyncram_emg1:auto_generated.address_a[0]
+address_a[1] => altsyncram_emg1:auto_generated.address_a[1]
+address_a[2] => altsyncram_emg1:auto_generated.address_a[2]
+address_a[3] => altsyncram_emg1:auto_generated.address_a[3]
+address_a[4] => altsyncram_emg1:auto_generated.address_a[4]
+address_a[5] => altsyncram_emg1:auto_generated.address_a[5]
+address_a[6] => altsyncram_emg1:auto_generated.address_a[6]
+address_a[7] => altsyncram_emg1:auto_generated.address_a[7]
+address_a[8] => altsyncram_emg1:auto_generated.address_a[8]
+address_a[9] => altsyncram_emg1:auto_generated.address_a[9]
+address_a[10] => altsyncram_emg1:auto_generated.address_a[10]
+address_a[11] => altsyncram_emg1:auto_generated.address_a[11]
+address_a[12] => altsyncram_emg1:auto_generated.address_a[12]
+address_a[13] => altsyncram_emg1:auto_generated.address_a[13]
+address_a[14] => altsyncram_emg1:auto_generated.address_a[14]
+address_b[0] => altsyncram_emg1:auto_generated.address_b[0]
+address_b[1] => altsyncram_emg1:auto_generated.address_b[1]
+address_b[2] => altsyncram_emg1:auto_generated.address_b[2]
+address_b[3] => altsyncram_emg1:auto_generated.address_b[3]
+address_b[4] => altsyncram_emg1:auto_generated.address_b[4]
+address_b[5] => altsyncram_emg1:auto_generated.address_b[5]
+address_b[6] => altsyncram_emg1:auto_generated.address_b[6]
+address_b[7] => altsyncram_emg1:auto_generated.address_b[7]
+address_b[8] => altsyncram_emg1:auto_generated.address_b[8]
+address_b[9] => altsyncram_emg1:auto_generated.address_b[9]
+address_b[10] => altsyncram_emg1:auto_generated.address_b[10]
+address_b[11] => altsyncram_emg1:auto_generated.address_b[11]
+address_b[12] => altsyncram_emg1:auto_generated.address_b[12]
+address_b[13] => altsyncram_emg1:auto_generated.address_b[13]
+address_b[14] => altsyncram_emg1:auto_generated.address_b[14]
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_60g1:auto_generated.clock0
-clock1 => altsyncram_60g1:auto_generated.clock1
+clock0 => altsyncram_emg1:auto_generated.clock0
+clock1 => altsyncram_emg1:auto_generated.clock1
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
 clocken2 => ~NO_FANOUT~
@@ -244,15 +244,15 @@ byteena_b[0] => ~NO_FANOUT~
 q_a[0] <= <GND>
 q_a[1] <= <GND>
 q_a[2] <= <GND>
-q_b[0] <= altsyncram_60g1:auto_generated.q_b[0]
-q_b[1] <= altsyncram_60g1:auto_generated.q_b[1]
-q_b[2] <= altsyncram_60g1:auto_generated.q_b[2]
+q_b[0] <= altsyncram_emg1:auto_generated.q_b[0]
+q_b[1] <= altsyncram_emg1:auto_generated.q_b[1]
+q_b[2] <= altsyncram_emg1:auto_generated.q_b[2]
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated
+|bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -527,7 +527,7 @@ wren_a => decode_lsa:decode2.enable
 wren_a => decode_lsa:wren_decode_a.enable
 
 
-|bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|decode_lsa:decode2
+|bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_lsa:decode2
 data[0] => w_anode105w[1].IN0
 data[0] => w_anode118w[1].IN1
 data[0] => w_anode126w[1].IN0
@@ -545,7 +545,7 @@ eq[1] <= w_anode118w[2].DB_MAX_OUTPUT_PORT_TYPE
 eq[2] <= w_anode126w[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|decode_e8a:rden_decode_b
+|bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_e8a:rden_decode_b
 data[0] => w_anode143w[1].IN0
 data[0] => w_anode157w[1].IN1
 data[0] => w_anode166w[1].IN0
@@ -559,7 +559,7 @@ eq[1] <= w_anode157w[2].DB_MAX_OUTPUT_PORT_TYPE
 eq[2] <= w_anode166w[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|decode_lsa:wren_decode_a
+|bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_lsa:wren_decode_a
 data[0] => w_anode105w[1].IN0
 data[0] => w_anode118w[1].IN1
 data[0] => w_anode126w[1].IN0
@@ -577,7 +577,7 @@ eq[1] <= w_anode118w[2].DB_MAX_OUTPUT_PORT_TYPE
 eq[2] <= w_anode126w[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|mux_0nb:mux3
+|bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3
 data[0] => data0_wire[0].IN0
 data[1] => data0_wire[1].IN0
 data[2] => data0_wire[2].IN0
@@ -836,71 +836,6 @@ mem_address[13] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 mem_address[14] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|bounce|mechanics:mech
-clk => ~NO_FANOUT~
-resetn => ~NO_FANOUT~
-user_x[0] => ~NO_FANOUT~
-user_x[1] => ~NO_FANOUT~
-user_x[2] => ~NO_FANOUT~
-user_x[3] => ~NO_FANOUT~
-user_x[4] => ~NO_FANOUT~
-user_x[5] => ~NO_FANOUT~
-user_x[6] => ~NO_FANOUT~
-user_y[0] => ~NO_FANOUT~
-user_y[1] => ~NO_FANOUT~
-user_y[2] => ~NO_FANOUT~
-user_y[3] => ~NO_FANOUT~
-user_y[4] => ~NO_FANOUT~
-user_y[5] => ~NO_FANOUT~
-user_y[6] => ~NO_FANOUT~
-user_c[0] => ~NO_FANOUT~
-user_c[1] => ~NO_FANOUT~
-user_c[2] => ~NO_FANOUT~
-user_writeEn[0] => ~NO_FANOUT~
-user_writeEn[1] => ~NO_FANOUT~
-user_writeEn[2] => ~NO_FANOUT~
-bee0_x[0] => ~NO_FANOUT~
-bee0_x[1] => ~NO_FANOUT~
-bee0_x[2] => ~NO_FANOUT~
-bee0_x[3] => ~NO_FANOUT~
-bee0_x[4] => ~NO_FANOUT~
-bee0_x[5] => ~NO_FANOUT~
-bee0_x[6] => ~NO_FANOUT~
-bee0_y[0] => ~NO_FANOUT~
-bee0_y[1] => ~NO_FANOUT~
-bee0_y[2] => ~NO_FANOUT~
-bee0_y[3] => ~NO_FANOUT~
-bee0_y[4] => ~NO_FANOUT~
-bee0_y[5] => ~NO_FANOUT~
-bee0_y[6] => ~NO_FANOUT~
-bee0_c[0] => ~NO_FANOUT~
-bee0_c[1] => ~NO_FANOUT~
-bee0_c[2] => ~NO_FANOUT~
-bee0_writeEn[0] => ~NO_FANOUT~
-bee0_writeEn[1] => ~NO_FANOUT~
-bee0_writeEn[2] => ~NO_FANOUT~
-game_reset <= <VCC>
-game_over <= <GND>
-lives[0] <= <GND>
-lives[1] <= <GND>
-score[0] <= <GND>
-score[1] <= <GND>
-score[2] <= <GND>
-score[3] <= <GND>
-score[4] <= <GND>
-score[5] <= <GND>
-score[6] <= <GND>
-score[7] <= <GND>
-high_score[0] <= <GND>
-high_score[1] <= <GND>
-high_score[2] <= <GND>
-high_score[3] <= <GND>
-high_score[4] <= <GND>
-high_score[5] <= <GND>
-high_score[6] <= <GND>
-high_score[7] <= <GND>
-
-
 |bounce|rate_divider:bee0_rd
 clk => count[0].CLK
 clk => count[1].CLK
@@ -1008,11 +943,13 @@ clk => x_val[3].CLK
 clk => x_val[4].CLK
 clk => x_val[5].CLK
 clk => x_val[6].CLK
-clk => up.CLK
+clk => x_val[7].CLK
 clk => c_out[0]~reg0.CLK
 clk => c_out[1]~reg0.CLK
 clk => c_out[2]~reg0.CLK
+clk => up.CLK
 clk => writeEn~reg0.CLK
+update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
@@ -1045,6 +982,7 @@ clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
+clear => x_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
@@ -1062,11 +1000,8 @@ waiting => c_out.OUTPUTSELECT
 waiting => c_out.OUTPUTSELECT
 waiting => writeEn.DATAA
 waiting => always1.IN1
-resetn => writeEn.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
 resetn => up.OUTPUTSELECT
+resetn => writeEn.OUTPUTSELECT
 resetn => y_val[3].ENA
 resetn => y_val[2].ENA
 resetn => y_val[1].ENA
@@ -1081,6 +1016,10 @@ resetn => x_val[3].ENA
 resetn => x_val[4].ENA
 resetn => x_val[5].ENA
 resetn => x_val[6].ENA
+resetn => x_val[7].ENA
+resetn => c_out[0]~reg0.ENA
+resetn => c_out[1]~reg0.ENA
+resetn => c_out[2]~reg0.ENA
 c_in[0] => c_out.DATAA
 c_in[0] => c_out.DATAA
 c_in[1] => c_out.DATAA
@@ -1097,6 +1036,7 @@ x_in[3] => x_val.DATAB
 x_in[4] => x_val.DATAB
 x_in[5] => x_val.DATAB
 x_in[6] => x_val.DATAB
+x_in[7] => x_val.DATAB
 y_in[0] => y_val.DATAB
 y_in[1] => y_val.DATAB
 y_in[2] => y_val.DATAB
@@ -1111,6 +1051,7 @@ dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
+dir_in[0] => x_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
@@ -1125,6 +1066,7 @@ dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
+dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
@@ -1139,6 +1081,7 @@ x_out[3] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[4] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[5] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[6] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+x_out[7] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 y_out[0] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
 y_out[1] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
 y_out[2] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
@@ -1155,13 +1098,14 @@ done <= done~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 |bounce|control:player_control
 clk => current_state~1.DATAIN
-slowClk => next_state.IN0
+slowClk => Selector0.IN3
+slowClk => Selector2.IN1
 resetn => ~NO_FANOUT~
 done => next_state.S_UPDATE.DATAB
 done => Selector2.IN3
-done => Selector0.IN2
+done => Selector0.IN1
 done => Selector1.IN2
-moved => next_state.IN1
+moved => ~NO_FANOUT~
 clear <= clear.DB_MAX_OUTPUT_PORT_TYPE
 update <= update.DB_MAX_OUTPUT_PORT_TYPE
 waiting <= waiting.DB_MAX_OUTPUT_PORT_TYPE
@@ -1187,11 +1131,13 @@ clk => x_val[3].CLK
 clk => x_val[4].CLK
 clk => x_val[5].CLK
 clk => x_val[6].CLK
-clk => up.CLK
+clk => x_val[7].CLK
 clk => c_out[0]~reg0.CLK
 clk => c_out[1]~reg0.CLK
 clk => c_out[2]~reg0.CLK
+clk => up.CLK
 clk => writeEn~reg0.CLK
+update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
@@ -1224,6 +1170,7 @@ clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
+clear => x_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
@@ -1241,11 +1188,8 @@ waiting => c_out.OUTPUTSELECT
 waiting => c_out.OUTPUTSELECT
 waiting => writeEn.DATAA
 waiting => always1.IN1
-resetn => writeEn.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
 resetn => up.OUTPUTSELECT
+resetn => writeEn.OUTPUTSELECT
 resetn => y_val[3].ENA
 resetn => y_val[2].ENA
 resetn => y_val[1].ENA
@@ -1260,6 +1204,10 @@ resetn => x_val[3].ENA
 resetn => x_val[4].ENA
 resetn => x_val[5].ENA
 resetn => x_val[6].ENA
+resetn => x_val[7].ENA
+resetn => c_out[0]~reg0.ENA
+resetn => c_out[1]~reg0.ENA
+resetn => c_out[2]~reg0.ENA
 c_in[0] => c_out.DATAA
 c_in[0] => c_out.DATAA
 c_in[1] => c_out.DATAA
@@ -1276,6 +1224,7 @@ x_in[3] => x_val.DATAB
 x_in[4] => x_val.DATAB
 x_in[5] => x_val.DATAB
 x_in[6] => x_val.DATAB
+x_in[7] => x_val.DATAB
 y_in[0] => y_val.DATAB
 y_in[1] => y_val.DATAB
 y_in[2] => y_val.DATAB
@@ -1290,6 +1239,7 @@ dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
+dir_in[0] => x_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
@@ -1304,6 +1254,7 @@ dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
+dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
@@ -1318,6 +1269,7 @@ x_out[3] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[4] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[5] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[6] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+x_out[7] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 y_out[0] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
 y_out[1] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
 y_out[2] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
@@ -1334,13 +1286,14 @@ done <= done~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 |bounce|control:bee0_control
 clk => current_state~1.DATAIN
-slowClk => next_state.IN0
+slowClk => Selector0.IN3
+slowClk => Selector2.IN1
 resetn => ~NO_FANOUT~
 done => next_state.S_UPDATE.DATAB
 done => Selector2.IN3
-done => Selector0.IN2
+done => Selector0.IN1
 done => Selector1.IN2
-moved => next_state.IN1
+moved => ~NO_FANOUT~
 clear <= clear.DB_MAX_OUTPUT_PORT_TYPE
 update <= update.DB_MAX_OUTPUT_PORT_TYPE
 waiting <= waiting.DB_MAX_OUTPUT_PORT_TYPE
@@ -1366,11 +1319,13 @@ clk => x_val[3].CLK
 clk => x_val[4].CLK
 clk => x_val[5].CLK
 clk => x_val[6].CLK
-clk => up.CLK
+clk => x_val[7].CLK
 clk => c_out[0]~reg0.CLK
 clk => c_out[1]~reg0.CLK
 clk => c_out[2]~reg0.CLK
+clk => up.CLK
 clk => writeEn~reg0.CLK
+update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
@@ -1403,6 +1358,7 @@ clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
+clear => x_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
@@ -1420,11 +1376,8 @@ waiting => c_out.OUTPUTSELECT
 waiting => c_out.OUTPUTSELECT
 waiting => writeEn.DATAA
 waiting => always1.IN1
-resetn => writeEn.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
 resetn => up.OUTPUTSELECT
+resetn => writeEn.OUTPUTSELECT
 resetn => y_val[3].ENA
 resetn => y_val[2].ENA
 resetn => y_val[1].ENA
@@ -1439,6 +1392,10 @@ resetn => x_val[3].ENA
 resetn => x_val[4].ENA
 resetn => x_val[5].ENA
 resetn => x_val[6].ENA
+resetn => x_val[7].ENA
+resetn => c_out[0]~reg0.ENA
+resetn => c_out[1]~reg0.ENA
+resetn => c_out[2]~reg0.ENA
 c_in[0] => c_out.DATAA
 c_in[0] => c_out.DATAA
 c_in[1] => c_out.DATAA
@@ -1455,6 +1412,7 @@ x_in[3] => x_val.DATAB
 x_in[4] => x_val.DATAB
 x_in[5] => x_val.DATAB
 x_in[6] => x_val.DATAB
+x_in[7] => x_val.DATAB
 y_in[0] => y_val.DATAB
 y_in[1] => y_val.DATAB
 y_in[2] => y_val.DATAB
@@ -1469,6 +1427,7 @@ dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
+dir_in[0] => x_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
@@ -1483,6 +1442,7 @@ dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
+dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
@@ -1497,6 +1457,7 @@ x_out[3] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[4] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[5] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[6] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+x_out[7] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 y_out[0] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
 y_out[1] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
 y_out[2] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
@@ -1513,13 +1474,14 @@ done <= done~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 |bounce|control:bee1_control
 clk => current_state~1.DATAIN
-slowClk => next_state.IN0
+slowClk => Selector0.IN3
+slowClk => Selector2.IN1
 resetn => ~NO_FANOUT~
 done => next_state.S_UPDATE.DATAB
 done => Selector2.IN3
-done => Selector0.IN2
+done => Selector0.IN1
 done => Selector1.IN2
-moved => next_state.IN1
+moved => ~NO_FANOUT~
 clear <= clear.DB_MAX_OUTPUT_PORT_TYPE
 update <= update.DB_MAX_OUTPUT_PORT_TYPE
 waiting <= waiting.DB_MAX_OUTPUT_PORT_TYPE
@@ -1545,11 +1507,13 @@ clk => x_val[3].CLK
 clk => x_val[4].CLK
 clk => x_val[5].CLK
 clk => x_val[6].CLK
-clk => up.CLK
+clk => x_val[7].CLK
 clk => c_out[0]~reg0.CLK
 clk => c_out[1]~reg0.CLK
 clk => c_out[2]~reg0.CLK
+clk => up.CLK
 clk => writeEn~reg0.CLK
+update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
@@ -1582,6 +1546,7 @@ clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
+clear => x_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
@@ -1599,11 +1564,8 @@ waiting => c_out.OUTPUTSELECT
 waiting => c_out.OUTPUTSELECT
 waiting => writeEn.DATAA
 waiting => always1.IN1
-resetn => writeEn.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
 resetn => up.OUTPUTSELECT
+resetn => writeEn.OUTPUTSELECT
 resetn => y_val[3].ENA
 resetn => y_val[2].ENA
 resetn => y_val[1].ENA
@@ -1618,6 +1580,10 @@ resetn => x_val[3].ENA
 resetn => x_val[4].ENA
 resetn => x_val[5].ENA
 resetn => x_val[6].ENA
+resetn => x_val[7].ENA
+resetn => c_out[0]~reg0.ENA
+resetn => c_out[1]~reg0.ENA
+resetn => c_out[2]~reg0.ENA
 c_in[0] => c_out.DATAA
 c_in[0] => c_out.DATAA
 c_in[1] => c_out.DATAA
@@ -1634,6 +1600,7 @@ x_in[3] => x_val.DATAB
 x_in[4] => x_val.DATAB
 x_in[5] => x_val.DATAB
 x_in[6] => x_val.DATAB
+x_in[7] => x_val.DATAB
 y_in[0] => y_val.DATAB
 y_in[1] => y_val.DATAB
 y_in[2] => y_val.DATAB
@@ -1648,6 +1615,7 @@ dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
+dir_in[0] => x_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
@@ -1662,6 +1630,7 @@ dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
+dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
@@ -1676,6 +1645,7 @@ x_out[3] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[4] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[5] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[6] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+x_out[7] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 y_out[0] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
 y_out[1] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
 y_out[2] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
@@ -1692,13 +1662,14 @@ done <= done~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 |bounce|control:bee2_control
 clk => current_state~1.DATAIN
-slowClk => next_state.IN0
+slowClk => Selector0.IN3
+slowClk => Selector2.IN1
 resetn => ~NO_FANOUT~
 done => next_state.S_UPDATE.DATAB
 done => Selector2.IN3
-done => Selector0.IN2
+done => Selector0.IN1
 done => Selector1.IN2
-moved => next_state.IN1
+moved => ~NO_FANOUT~
 clear <= clear.DB_MAX_OUTPUT_PORT_TYPE
 update <= update.DB_MAX_OUTPUT_PORT_TYPE
 waiting <= waiting.DB_MAX_OUTPUT_PORT_TYPE
@@ -1724,11 +1695,13 @@ clk => x_val[3].CLK
 clk => x_val[4].CLK
 clk => x_val[5].CLK
 clk => x_val[6].CLK
-clk => up.CLK
+clk => x_val[7].CLK
 clk => c_out[0]~reg0.CLK
 clk => c_out[1]~reg0.CLK
 clk => c_out[2]~reg0.CLK
+clk => up.CLK
 clk => writeEn~reg0.CLK
+update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
 update => x_val.OUTPUTSELECT
@@ -1761,6 +1734,7 @@ clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
 clear => x_val.OUTPUTSELECT
+clear => x_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
 clear => y_val.OUTPUTSELECT
@@ -1778,11 +1752,8 @@ waiting => c_out.OUTPUTSELECT
 waiting => c_out.OUTPUTSELECT
 waiting => writeEn.DATAA
 waiting => always1.IN1
-resetn => writeEn.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
-resetn => c_out.OUTPUTSELECT
 resetn => up.OUTPUTSELECT
+resetn => writeEn.OUTPUTSELECT
 resetn => y_val[3].ENA
 resetn => y_val[2].ENA
 resetn => y_val[1].ENA
@@ -1797,6 +1768,10 @@ resetn => x_val[3].ENA
 resetn => x_val[4].ENA
 resetn => x_val[5].ENA
 resetn => x_val[6].ENA
+resetn => x_val[7].ENA
+resetn => c_out[0]~reg0.ENA
+resetn => c_out[1]~reg0.ENA
+resetn => c_out[2]~reg0.ENA
 c_in[0] => c_out.DATAA
 c_in[0] => c_out.DATAA
 c_in[1] => c_out.DATAA
@@ -1813,6 +1788,7 @@ x_in[3] => x_val.DATAB
 x_in[4] => x_val.DATAB
 x_in[5] => x_val.DATAB
 x_in[6] => x_val.DATAB
+x_in[7] => x_val.DATAB
 y_in[0] => y_val.DATAB
 y_in[1] => y_val.DATAB
 y_in[2] => y_val.DATAB
@@ -1827,6 +1803,7 @@ dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
 dir_in[0] => x_val.OUTPUTSELECT
+dir_in[0] => x_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
 dir_in[1] => y_val.OUTPUTSELECT
@@ -1841,6 +1818,7 @@ dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
 dir_in[2] => y_val.OUTPUTSELECT
+dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
 dir_in[3] => x_val.OUTPUTSELECT
@@ -1855,6 +1833,7 @@ x_out[3] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[4] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[5] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 x_out[6] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
+x_out[7] <= Add5.DB_MAX_OUTPUT_PORT_TYPE
 y_out[0] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
 y_out[1] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
 y_out[2] <= Add6.DB_MAX_OUTPUT_PORT_TYPE
@@ -1871,13 +1850,14 @@ done <= done~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 |bounce|control:bee3_control
 clk => current_state~1.DATAIN
-slowClk => next_state.IN0
+slowClk => Selector0.IN3
+slowClk => Selector2.IN1
 resetn => ~NO_FANOUT~
 done => next_state.S_UPDATE.DATAB
 done => Selector2.IN3
-done => Selector0.IN2
+done => Selector0.IN1
 done => Selector1.IN2
-moved => next_state.IN1
+moved => ~NO_FANOUT~
 clear <= clear.DB_MAX_OUTPUT_PORT_TYPE
 update <= update.DB_MAX_OUTPUT_PORT_TYPE
 waiting <= waiting.DB_MAX_OUTPUT_PORT_TYPE

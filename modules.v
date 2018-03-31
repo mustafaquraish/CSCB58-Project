@@ -39,7 +39,7 @@ module mechanics(
     // Placeholder values, need to change these to
     // appropriate screen boundary vaues in pixels
     localparam LEFTEDGE     = 7'd1;   
-    localparam RIGHTEDGE    = 7'd124;   // x goes from 0 - 127
+    localparam RIGHTEDGE    = 8'd154;   // x goes from 0 - 160
     localparam TOPEDGE      = 7'd1;
     localparam BOTTOMEDGE   = 7'd116;   // y goes from 0 - 120
     
@@ -47,9 +47,9 @@ module mechanics(
     wire bees_collided, edges_collided;
     // Checking for collisions between all bees
     // (can do && with bees_enable index later...)
-    assign bees_collided = 
-        (   (user_x >= bee0_x - 2'd3) && (user_x <= bee0_x + 2'd3)
-        &&  (user_y >= bee0_y - 2'd3) && (user_y <= bee0_y + 2'd3));
+    assign bees_collided = 1'b0;
+//        (   (user_x >= bee0_x - 2'd3) && (user_x <= bee0_x + 2'd23)
+//        &&  (user_y >= bee0_y - 2'd3) && (user_y >= bee0_y + 2'd3));
 
 
     // Just for testing without any bees
@@ -64,15 +64,15 @@ module mechanics(
 
     assign collided = bees_collided || edges_collided;
 
-    reg cnt;
+    reg cnt = 1'b0;
     reg rscount = 10'd0;
     always @(posedge clk)
         begin
             if (rscount == 10'd1111111111)
-				begin
-                rscount = 10'd0;
-					 cnt = 1'b0;
-				end
+                begin
+                    rscount = 10'd0;
+                    cnt = 1'b0;
+                end
             else if (cnt)
                 rscount = rscount + 1'b1;
         end
@@ -133,10 +133,10 @@ module datapath(
     input resetn,
     input [2:0] c_in,
     input [2:0] c2_in,
-    input [6:0] x_in,
+    input [7:0] x_in,
     input [6:0] y_in,
     input [3:0] dir_in,
-    output [6:0] x_out,
+    output [7:0] x_out,
     output [6:0] y_out,
     output reg [2:0] c_out,
     output reg writeEn,
@@ -146,7 +146,7 @@ module datapath(
     // input registers
     reg [3:0] offset = 4'b0000;
     reg [2:0] c_val;
-    reg [6:0] x_val;
+    reg [7:0] x_val;
     reg [6:0] y_val;
 	 
 	 reg up = 1'b1;
@@ -158,15 +158,13 @@ module datapath(
 
         if (~resetn)
             begin
-                writeEn = 1'b1;
-					 c_out = 3'b000;
 					 up = 1'b1;
             end
 
         else begin
             if (clear)
                 begin
-                    c_out <= 3'b000;
+                    c_out <= 3'b111;
                     writeEn <= 1'b1;
                 end
             else if (update)  // UPDATE HERE
@@ -251,7 +249,7 @@ module control(
     always@(*)
     begin: state_table
             case (current_state)
-                S_WAIT: next_state = (moved && slowClk) ? S_CLEAR : S_WAIT; // Loop in current state until go signal goes low
+                S_WAIT: next_state = slowClk ? S_CLEAR : S_WAIT; // Loop in current state until go signal goes low
                 S_CLEAR: next_state = done ? S_UPDATE : S_CLEAR; // Loop in current state until value is input
                 S_UPDATE : next_state = S_DRAW;
                 S_DRAW: next_state = done ? S_WAIT : S_DRAW; // Draw state, Go back to X
