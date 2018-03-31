@@ -23,9 +23,8 @@ module datapath(
     reg [6:0] x_val;
     reg [6:0] y_val;
 	 
-	 reg up = 1'b0;
+	 reg up = 1'b1;
 	 
-
     // Registers x, y, c with respective input logic
     always@(posedge clk) begin
 	 
@@ -67,7 +66,7 @@ module datapath(
             else if (~waiting)      // DRAWING STATE
                 begin
                     writeEn = 1'b1;
-                    c_out = c_in;
+                    c_out = (offset[0]) ? c_in : 3'b000;
                 end
                 
         end
@@ -153,15 +152,14 @@ endmodule // control
 
 ////////////////////////////////////////// RATE DIVIDER ////////////////////////////////////////////////////
 
-module rate_divider(clk, load_val, compare, out);
+module rate_divider(clk, load_val, out);
 	input clk;
 	input [27:0] load_val;
-    input [27:0] compare;
-	output out;
+	output [27:0] out;
 	
 	reg [27:0] count;
 	
-	assign out = (count == compare) ? 1 : 0;
+    assign out = count;
 	
 	always @(posedge clk)
 	begin
@@ -171,46 +169,3 @@ module rate_divider(clk, load_val, compare, out);
 			count <= count - 1;
 	end
 endmodule 
-
-//////////////////////////////////////// BOING BOING ////////////////////////////////////////////////////////
-
-module boingboing (
-    input clk,
-    input resetn,
-    input [3:0] dir_in,
-    input [6:0] x,
-    input [6:0] y,
-    output reg [3:0] dir_out
-);
-
-always @(posedge clk)
-	begin
-        if (~resetn)
-            dir_out = dir_in;
-        else begin
-            if (x >= 7'd124)
-            begin
-                dir_out[0] = 1'b0;
-                dir_out[3] = 1'b1;
-            end
-            else if (x <= 7'd1)
-            begin
-                dir_out[0] = 1'b1;
-                dir_out[3] = 1'b0;
-            end
-            
-            if (y == 7'd116)
-            begin
-                dir_out[1] = 1'b1;
-                dir_out[2] = 1'b0;
-            end
-            else if (y == 7'd0)
-            begin
-                dir_out[1] = 1'b0;
-                dir_out[2] = 1'b1;
-            end
-        end
-	
-	end
-
- endmodule 
