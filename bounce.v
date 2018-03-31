@@ -89,7 +89,6 @@ module bounce
     wire player_update;
     wire player_done;
 	wire player_waiting;
-	wire player_load;
     
     wire tenHz;
     
@@ -131,7 +130,7 @@ module bounce
     datapath d0(
         // Inputs
         .clk(CLOCK_50),
-		//.resetn(SW[0]),
+		.resetn(SW[0]),
         .done(player_done),
         .update(player_update),
         .clear(player_clear),
@@ -140,7 +139,6 @@ module bounce
         .x_in(7'd80),
         .y_in(7'd60),
         .dir_in(dir),//dir),
-		  .load(player_load),
 
         // Outputs
         .x_out(x),
@@ -162,7 +160,6 @@ module bounce
         .clear(player_clear),
         .done(player_done),
 		.waiting(player_waiting),
-		.load(player_load),
         .led(LEDG[4:0])
     );
     

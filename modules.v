@@ -5,7 +5,7 @@ module datapath(
     input update,
     input clear,
 	input waiting,
-    input load,
+    input resetn,
     input [2:0] c_in,
     input [6:0] x_in,
     input [6:0] y_in,
@@ -23,16 +23,19 @@ module datapath(
     reg [6:0] x_val;
     reg [6:0] y_val;
 	 
+	 reg up = 1'b0;
+	 
 
     // Registers x, y, c with respective input logic
     always@(posedge clk) begin
 	 
 		writeEn = 1'b0;
 
-        if (load)
+        if (~resetn)
             begin
-                x_val = x_in;
-                y_val = y_in;
+                writeEn = 1'b1;
+					 c_out = 3'b000;
+					 up = 1'b1;
             end
 
         else begin
@@ -42,7 +45,15 @@ module datapath(
                     writeEn <= 1'b1;
                 end
             else if (update)  // UPDATE HERE
-                begin
+					
+					if (up)
+						begin
+							x_val = x_in;
+							y_val = y_in;
+							up = 1'b0;
+						end
+						
+                else begin
                     writeEn =	 1'b0;
                     if (dir_in[0] == 1'b1)  // RIGHT
                         x_val = x_val + 1;
@@ -65,15 +76,10 @@ module datapath(
     // Increment offset, first 2 bits for x,2nd for y
     always@(posedge clk) 
 	 begin
-        if (load)
-            begin
-            done = 1'b1;
-            offset = 4'b000;
-            end
         if (waiting || update)
             done = 1'b0;
 			
-        if (~waiting && ~update && ~done && ~load) 
+        if (~waiting && ~update && ~done) 
 		  begin
 		  
             if (offset == 4'b1111)
@@ -102,7 +108,6 @@ module control(
     output reg  clear,
     output reg update,
 	output reg waiting,
-    output reg load,
     output [4:0] led
     );
 
@@ -111,8 +116,7 @@ module control(
     localparam  S_CLEAR   	= 5'd1,
                 S_UPDATE 	= 5'd2,	
                 S_DRAW      = 5'd3,
-				S_WAIT		= 5'd4,
-                S_LOAD      = 5'd5; // DONT REMOVE EVERYTHING BREAKS
+				S_WAIT		= 5'd4;
 
     assign led [4:0] = current_state;
 
@@ -120,11 +124,10 @@ module control(
     always@(*)
     begin: state_table
             case (current_state)
-                S_WAIT: next_state = ((moved && slowClk) || ~resetn) ? S_CLEAR : S_WAIT; // Loop in current state until go signal goes low
-                S_CLEAR: next_state = done ? (~resetn ? S_LOAD : S_UPDATE) : S_CLEAR; // Loop in current state until value is input
+                S_WAIT: next_state = (moved && slowClk) ? S_CLEAR : S_WAIT; // Loop in current state until go signal goes low
+                S_CLEAR: next_state = done ? S_UPDATE : S_CLEAR; // Loop in current state until value is input
                 S_UPDATE : next_state = S_DRAW;
-                S_DRAW: next_state = done ? S_WAIT : S_DRAW; // Draw state, Go back to Load X
-                S_LOAD: next_state = S_WAIT;
+                S_DRAW: next_state = done ? S_WAIT : S_DRAW; // Draw state, Go back to X
             default:     next_state = S_CLEAR;
         endcase
     end // state_table
@@ -137,12 +140,10 @@ module control(
         clear = 1'b0;
         update = 1'b0;
 		waiting = 1'b0;
-        load = 1'b0;
         case (current_state)
 			S_WAIT:     waiting = 1'b1;
             S_CLEAR:    clear = 1'b1;
             S_UPDATE:   update = 1'b1;
-            S_LOAD:     load = 1'b1;
         endcase
     end // enable_signals
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for bounce
-Fri Mar 30 20:35:27 2018
+Fri Mar 30 21:21:36 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -60,13 +60,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Mar 30 20:35:27 2018       ;
+; Analysis & Synthesis Status        ; Successful - Fri Mar 30 21:21:36 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; bounce                                      ;
 ; Top-level Entity Name              ; bounce                                      ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 230                                         ;
-;     Total combinational functions  ; 225                                         ;
+; Total logic elements               ; 222                                         ;
+;     Total combinational functions  ; 217                                         ;
 ;     Dedicated logic registers      ; 90                                          ;
 ; Total registers                    ; 90                                          ;
 ; Total pins                         ; 84                                          ;
@@ -217,16 +217,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 230            ;
+; Estimated Total logic elements              ; 222            ;
 ;                                             ;                ;
-; Total combinational functions               ; 225            ;
+; Total combinational functions               ; 217            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 61             ;
-;     -- 3 input functions                    ; 48             ;
-;     -- <=2 input functions                  ; 116            ;
+;     -- 4 input functions                    ; 55             ;
+;     -- 3 input functions                    ; 49             ;
+;     -- <=2 input functions                  ; 113            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 112            ;
+;     -- normal mode                          ; 104            ;
 ;     -- arithmetic mode                      ; 113            ;
 ;                                             ;                ;
 ; Total registers                             ; 90             ;
@@ -243,8 +243,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 66             ;
-; Total fan-out                               ; 1289           ;
-; Average fan-out                             ; 2.61           ;
+; Total fan-out                               ; 1271           ;
+; Average fan-out                             ; 2.62           ;
 +---------------------------------------------+----------------+
 
 
@@ -253,9 +253,9 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |bounce                                                 ; 225 (18)            ; 90 (4)                    ; 57600       ; 0            ; 0       ; 0         ; 84   ; 0            ; |bounce                                                                                                ; bounce                 ; work         ;
-;    |control:c0|                                         ; 11 (11)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:c0                                                                                     ; control                ; work         ;
-;    |datapath:d0|                                        ; 61 (61)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:d0                                                                                    ; datapath               ; work         ;
+; |bounce                                                 ; 217 (18)            ; 90 (4)                    ; 57600       ; 0            ; 0       ; 0         ; 84   ; 0            ; |bounce                                                                                                ; bounce                 ; work         ;
+;    |control:c0|                                         ; 8 (8)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:c0                                                                                     ; control                ; work         ;
+;    |datapath:d0|                                        ; 56 (56)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:d0                                                                                    ; datapath               ; work         ;
 ;    |rate_divider:tenmil|                                ; 37 (37)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|rate_divider:tenmil                                                                            ; rate_divider           ; work         ;
 ;    |vga_adapter:VGA|                                    ; 98 (2)              ; 30 (0)                    ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 12 (0)              ; 4 (0)                     ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
@@ -282,17 +282,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |bounce|control:c0|current_state                                                                                             ;
-+------------------------+----------------------+----------------------+----------------------+------------------------+-----------------------+
-; Name                   ; current_state.S_LOAD ; current_state.S_WAIT ; current_state.S_DRAW ; current_state.S_UPDATE ; current_state.S_CLEAR ;
-+------------------------+----------------------+----------------------+----------------------+------------------------+-----------------------+
-; current_state.S_CLEAR  ; 0                    ; 0                    ; 0                    ; 0                      ; 0                     ;
-; current_state.S_UPDATE ; 0                    ; 0                    ; 0                    ; 1                      ; 1                     ;
-; current_state.S_DRAW   ; 0                    ; 0                    ; 1                    ; 0                      ; 1                     ;
-; current_state.S_WAIT   ; 0                    ; 1                    ; 0                    ; 0                      ; 1                     ;
-; current_state.S_LOAD   ; 1                    ; 0                    ; 0                    ; 0                      ; 1                     ;
-+------------------------+----------------------+----------------------+----------------------+------------------------+-----------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bounce|control:c0|current_state                                                                      ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
+; Name                   ; current_state.S_DRAW ; current_state.S_UPDATE ; current_state.S_CLEAR ; current_state.S_WAIT ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
+; current_state.S_CLEAR  ; 0                    ; 0                      ; 0                     ; 0                    ;
+; current_state.S_UPDATE ; 0                    ; 1                      ; 1                     ; 0                    ;
+; current_state.S_DRAW   ; 1                    ; 0                      ; 1                     ; 0                    ;
+; current_state.S_WAIT   ; 0                    ; 0                      ; 1                     ; 1                    ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
 
 
 +------------------------------------------------------------+
@@ -302,8 +301,7 @@ Encoding Type:  One-Hot
 +---------------------------------------+--------------------+
 ; control:c0|current_state~2            ; Lost fanout        ;
 ; control:c0|current_state~3            ; Lost fanout        ;
-; control:c0|current_state~4            ; Lost fanout        ;
-; Total Number of Removed Registers = 3 ;                    ;
+; Total Number of Removed Registers = 2 ;                    ;
 +---------------------------------------+--------------------+
 
 
@@ -313,8 +311,8 @@ Encoding Type:  One-Hot
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 90    ;
-; Number of registers using Synchronous Clear  ; 10    ;
-; Number of registers using Synchronous Load   ; 34    ;
+; Number of registers using Synchronous Clear  ; 1     ;
+; Number of registers using Synchronous Load   ; 44    ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 17    ;
@@ -338,13 +336,11 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |bounce|datapath:d0|c_out[2]                                                                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |bounce|datapath:d0|offset[1]                                                                             ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |bounce|vga_adapter:VGA|vga_controller:controller|yCounter[9]                                             ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:d0|y_val[3]                                                                              ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:d0|x_val[2]                                                                              ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:d0|y_val[2]                                                                              ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:d0|x_val[0]                                                                              ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |bounce|vga_adapter:VGA|vga_controller:controller|yCounter[0]                                             ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |bounce|datapath:d0|c_out[1]                                                                              ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|mux_0nb:mux3|result_node[0] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |bounce|control:c0|next_state.S_LOAD                                                                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------+
 
 
@@ -932,26 +928,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cycloneiii_ff         ; 90                          ;
 ;     CLR               ; 20                          ;
 ;     ENA               ; 3                           ;
-;     ENA SCLR          ; 8                           ;
-;     ENA SLD           ; 6                           ;
-;     SCLR              ; 2                           ;
-;     SLD               ; 28                          ;
-;     plain             ; 23                          ;
-; cycloneiii_lcell_comb ; 228                         ;
+;     ENA SLD           ; 14                          ;
+;     SCLR              ; 1                           ;
+;     SLD               ; 30                          ;
+;     plain             ; 22                          ;
+; cycloneiii_lcell_comb ; 221                         ;
 ;     arith             ; 113                         ;
 ;         2 data inputs ; 80                          ;
 ;         3 data inputs ; 33                          ;
-;     normal            ; 115                         ;
+;     normal            ; 108                         ;
 ;         0 data inputs ; 4                           ;
-;         1 data inputs ; 11                          ;
-;         2 data inputs ; 24                          ;
-;         3 data inputs ; 15                          ;
-;         4 data inputs ; 61                          ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 21                          ;
+;         3 data inputs ; 16                          ;
+;         4 data inputs ; 55                          ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 9                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.20                        ;
+; Average LUT depth     ; 3.19                        ;
 +-----------------------+-----------------------------+
 
 
@@ -970,14 +965,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Mar 30 20:35:18 2018
+    Info: Processing started: Fri Mar 30 21:21:25 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bounce -c bounce
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 3 design units, including 3 entities, in source file modules.v
     Info (12023): Found entity 1: datapath File: /home/mustafa/Desktop/bounce/modules.v Line: 3
-    Info (12023): Found entity 2: control File: /home/mustafa/Desktop/bounce/modules.v Line: 96
-    Info (12023): Found entity 3: rate_divider File: /home/mustafa/Desktop/bounce/modules.v Line: 158
+    Info (12023): Found entity 2: control File: /home/mustafa/Desktop/bounce/modules.v Line: 102
+    Info (12023): Found entity 3: rate_divider File: /home/mustafa/Desktop/bounce/modules.v Line: 159
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_pll.v
     Info (12023): Found entity 1: vga_pll File: /home/mustafa/Desktop/bounce/vga_adapter/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_controller.v
@@ -1039,17 +1034,17 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: /home/mustafa/Desktop/bounce/vga_adapter/vga_adapter.v Line: 252
-Info (12128): Elaborating entity "rate_divider" for hierarchy "rate_divider:tenmil" File: /home/mustafa/Desktop/bounce/bounce.v Line: 96
-Warning (10230): Verilog HDL assignment warning at modules.v(165): truncated value with size 32 to match size of target (1) File: /home/mustafa/Desktop/bounce/modules.v Line: 165
-Warning (10230): Verilog HDL assignment warning at modules.v(172): truncated value with size 32 to match size of target (28) File: /home/mustafa/Desktop/bounce/modules.v Line: 172
-Info (12128): Elaborating entity "datapath" for hierarchy "datapath:d0" File: /home/mustafa/Desktop/bounce/bounce.v Line: 150
-Warning (10230): Verilog HDL assignment warning at modules.v(48): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/bounce/modules.v Line: 48
-Warning (10230): Verilog HDL assignment warning at modules.v(50): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/bounce/modules.v Line: 50
-Warning (10230): Verilog HDL assignment warning at modules.v(52): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/bounce/modules.v Line: 52
-Warning (10230): Verilog HDL assignment warning at modules.v(54): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/bounce/modules.v Line: 54
-Info (12128): Elaborating entity "control" for hierarchy "control:c0" File: /home/mustafa/Desktop/bounce/bounce.v Line: 167
-Warning (10270): Verilog HDL Case Statement warning at modules.v(141): incomplete case statement has no default case item File: /home/mustafa/Desktop/bounce/modules.v Line: 141
-Info (10264): Verilog HDL Case Statement information at modules.v(141): all case item expressions in this case statement are onehot File: /home/mustafa/Desktop/bounce/modules.v Line: 141
+Info (12128): Elaborating entity "rate_divider" for hierarchy "rate_divider:tenmil" File: /home/mustafa/Desktop/bounce/bounce.v Line: 95
+Warning (10230): Verilog HDL assignment warning at modules.v(166): truncated value with size 32 to match size of target (1) File: /home/mustafa/Desktop/bounce/modules.v Line: 166
+Warning (10230): Verilog HDL assignment warning at modules.v(173): truncated value with size 32 to match size of target (28) File: /home/mustafa/Desktop/bounce/modules.v Line: 173
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:d0" File: /home/mustafa/Desktop/bounce/bounce.v Line: 148
+Warning (10230): Verilog HDL assignment warning at modules.v(59): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/bounce/modules.v Line: 59
+Warning (10230): Verilog HDL assignment warning at modules.v(61): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/bounce/modules.v Line: 61
+Warning (10230): Verilog HDL assignment warning at modules.v(63): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/bounce/modules.v Line: 63
+Warning (10230): Verilog HDL assignment warning at modules.v(65): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/bounce/modules.v Line: 65
+Info (12128): Elaborating entity "control" for hierarchy "control:c0" File: /home/mustafa/Desktop/bounce/bounce.v Line: 164
+Warning (10270): Verilog HDL Case Statement warning at modules.v(143): incomplete case statement has no default case item File: /home/mustafa/Desktop/bounce/modules.v Line: 143
+Info (10264): Verilog HDL Case Statement information at modules.v(143): all case item expressions in this case statement are onehot File: /home/mustafa/Desktop/bounce/modules.v Line: 143
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 25
@@ -1071,7 +1066,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDG[7]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: /home/mustafa/Desktop/bounce/bounce.v Line: 34
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/mustafa/Desktop/bounce/output_files/bounce.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
@@ -1094,17 +1089,17 @@ Warning (21074): Design contains 18 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[15]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 23
     Warning (15610): No output dependent on input pin "SW[16]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 23
     Warning (15610): No output dependent on input pin "SW[17]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 23
-Info (21057): Implemented 327 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 319 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 61 output pins
-    Info (21061): Implemented 233 logic cells
+    Info (21061): Implemented 225 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
     Info: Peak virtual memory: 1014 megabytes
-    Info: Processing ended: Fri Mar 30 20:35:27 2018
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:20
+    Info: Processing ended: Fri Mar 30 21:21:36 2018
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:23
 
 
 +------------------------------------------+
