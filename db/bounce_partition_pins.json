@@ -8,6 +8,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "LEDG[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDG[1]",
+					"strict" : false
+				},
+				{
 					"name" : "VGA_HS",
 					"strict" : false
 				},
@@ -160,7 +168,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[0]",
+					"name" : "SW[3]",
 					"strict" : false
 				}
 			]

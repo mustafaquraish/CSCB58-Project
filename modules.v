@@ -47,10 +47,9 @@ module mechanics(
     wire bees_collided, edges_collided;
     // Checking for collisions between all bees
     // (can do && with bees_enable index later...)
-    assign bees_collided = 1'b0;
-//        (   (user_x >= bee0_x - 2'd3) && (user_x <= bee0_x + 2'd23)
-//        &&  (user_y >= bee0_y - 2'd3) && (user_y >= bee0_y + 2'd3));
-
+    // assign bees_collided = 1'b0;
+    //     (   (user_x >= bee0_x - 2'd3) && (user_x <= bee0_x + 2'd23)
+    //     &&  (user_y >= bee0_y - 2'd3) && (user_y >= bee0_y + 2'd3));
 
     // Just for testing without any bees
     // assign bees_collided = 1'b0;

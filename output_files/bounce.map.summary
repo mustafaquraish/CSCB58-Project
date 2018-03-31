@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Sat Mar 31 14:32:37 2018
-Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Analysis & Synthesis Status : Successful - Sat Mar 31 17:27:18 2018
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : bounce
 Top-level Entity Name : bounce
 Family : Cyclone IV E
-Total logic elements : 342
-    Total combinational functions : 337
-    Dedicated logic registers : 118
-Total registers : 118
+Total logic elements : 603
+    Total combinational functions : 598
+    Dedicated logic registers : 216
+Total registers : 216
 Total pins : 84
 Total virtual pins : 0
 Total memory bits : 57,600
