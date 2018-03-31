@@ -107,8 +107,7 @@ module control(
 	input moved,
     output reg  clear,
     output reg update,
-	output reg waiting,
-    output [4:0] led
+	output reg waiting
     );
 
     reg [2:0] current_state, next_state;
@@ -117,8 +116,6 @@ module control(
                 S_UPDATE 	= 5'd2,	
                 S_DRAW      = 5'd3,
 				S_WAIT		= 5'd4;
-
-    assign led [4:0] = current_state;
 
     // Next state logic aka our state table
     always@(*)
@@ -156,14 +153,15 @@ endmodule // control
 
 ////////////////////////////////////////// RATE DIVIDER ////////////////////////////////////////////////////
 
-module rate_divider(clk, load_val, out);
+module rate_divider(clk, load_val, compare, out);
 	input clk;
 	input [27:0] load_val;
+    input [27:0] compare;
 	output out;
 	
 	reg [27:0] count;
 	
-	assign out = (count == 28'h0000000) ? 1 : 0;
+	assign out = (count == compare) ? 1 : 0;
 	
 	always @(posedge clk)
 	begin
@@ -173,3 +171,46 @@ module rate_divider(clk, load_val, out);
 			count <= count - 1;
 	end
 endmodule 
+
+//////////////////////////////////////// BOING BOING ////////////////////////////////////////////////////////
+
+module boingboing (
+    input clk,
+    input resetn,
+    input [3:0] dir_in,
+    input [6:0] x,
+    input [6:0] y,
+    output reg [3:0] dir_out
+);
+
+always @(posedge clk)
+	begin
+        if (~resetn)
+            dir_out = dir_in;
+        else begin
+            if (x >= 7'd124)
+            begin
+                dir_out[0] = 1'b0;
+                dir_out[3] = 1'b1;
+            end
+            else if (x <= 7'd1)
+            begin
+                dir_out[0] = 1'b1;
+                dir_out[3] = 1'b0;
+            end
+            
+            if (y == 7'd116)
+            begin
+                dir_out[1] = 1'b1;
+                dir_out[2] = 1'b0;
+            end
+            else if (y == 7'd0)
+            begin
+                dir_out[1] = 1'b0;
+                dir_out[2] = 1'b1;
+            end
+        end
+	
+	end
+
+ endmodule 
