@@ -179,7 +179,7 @@ endmodule
 
 module hex_display(IN, OUT);
     input [3:0] IN;
-	 output reg [7:0] OUT;
+	 output reg [6:0] OUT;
 	 
 	 always @(*)
 	 begin

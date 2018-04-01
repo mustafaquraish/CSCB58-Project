@@ -37,7 +37,6 @@ module bounce
     output	[9:0]	VGA_R;   				//	VGA Red[9:0]
     output	[9:0]	VGA_G;	 				//	VGA Green[9:0]
     output	[9:0]	VGA_B;   				//	VGA Blue[9:0]
-    
     wire resetn;
     assign resetn = SW[17];
     
@@ -105,19 +104,22 @@ module bounce
 	 wire walls_collided = 	(player_x >= 8'd152) || (player_x <= 7'd4)
 								|| (player_y == 7'd112) || (player_y == 7'd24);
 								
-	assign bees_collided = 1'b0;
-//        (   (player_x >= bee0_x - 2'd3) && (player_x <= bee0_x + 2'd3)
-//        &&  (player_y >= bee0_y - 2'd3) && (player_y <= bee0_y + 2'd3))
-//        ||
-//        (   (player_x >= bee1_x - 2'd3) && (player_x <= bee1_x + 2'd3)
-//        &&  (player_y >= bee1_y - 2'd3) && (player_y <= bee1_y + 2'd3))
-//        ||
-//        (   (player_x >= bee2_x - 2'd3) && (player_x <= bee2_x + 2'd3)
-//        &&  (player_y >= bee2_y - 2'd3) && (player_y <= bee2_y + 2'd3))
-//        ||
-//        (   (player_x >= bee3_x - 2'd3) && (player_x <= bee3_x + 2'd3)
-//        &&  (player_y >= bee3_y - 2'd3) && (player_y <= bee3_y + 2'd3)
-//        && bee3_enable);
+	assign bees_collided = //1'b0;
+        (   (player_x >= bee0_x - 2'd3) && (player_x <= bee0_x + 2'd3)
+        &&  (player_y >= bee0_y - 2'd3) && (player_y <= bee0_y + 2'd3)
+		  && bee0_enable)
+        ||
+        (   (player_x >= bee1_x - 2'd3) && (player_x <= bee1_x + 2'd3)
+        &&  (player_y >= bee1_y - 2'd3) && (player_y <= bee1_y + 2'd3)
+		  && bee1_enable)
+        ||
+        (   (player_x >= bee2_x - 2'd3) && (player_x <= bee2_x + 2'd3)
+        &&  (player_y >= bee2_y - 2'd3) && (player_y <= bee2_y + 2'd3)
+		  && bee2_enable)
+        ||
+        (   (player_x >= bee3_x - 2'd3) && (player_x <= bee3_x + 2'd3)
+        &&  (player_y >= bee3_y - 2'd3) && (player_y <= bee3_y + 2'd3)
+        && bee3_enable);
 
     assign LEDR[0] = bees_collided;
     
@@ -151,6 +153,7 @@ module bounce
                                 end
                         end 
     end
+		
 
     ////////////////////////////////////// RATE DIVIDER /////////////////////////////////////////////////////////////
 
@@ -178,28 +181,28 @@ module bounce
             begin
                 x = bee0_x;
                 y = bee0_y;
-                color = bee0_c;
+                color = bee0_enable ? bee0_c : 3'b111;
                 writeEn = 1'b1;
             end 
        else if (bee1_writeEn)
            begin
                x = bee1_x;
                y = bee1_y;
-               color = bee1_c;
+               color = bee1_enable ? bee1_c : 3'b111;
                writeEn = 1'b1;
-           end 
+           end
        else if (bee2_writeEn)
        begin
            x = bee2_x;
            y = bee2_y;
-           color = bee2_c;
+           color = bee2_enable ? bee2_c : 3'b111;
            writeEn = 1'b1;
        end
        else if (bee3_writeEn)
        begin
            x = bee3_x;
            y = bee3_y;
-           color = bee3_c;
+           color = bee3_enable ? bee3_c : 3'b111;;
            writeEn = 1'b1;
        end 
 	 end
@@ -230,15 +233,15 @@ module bounce
 
     hex_display liveshex(.IN(player_lives), .OUT(HEX0));
 	
-	 always @(player_lives)
-	 begin
-	 	case (player_lives)
-	 		2'b00: player_color_in = 3'b100;
-	 		2'b01: player_color_in = 3'b110;
-	 		2'b10: player_color_in = 3'b010;
-	 		2'b11: player_color_in = 3'b001;
-	 	endcase
-	 end
+//	 always @(player_lives)
+//	 begin
+//	 	case (player_lives)
+//	 		2'b00: player_color_in = 3'b100;
+//	 		2'b01: player_color_in = 3'b110;
+//	 		2'b10: player_color_in = 3'b001;
+//	 		2'b11: player_color_in = 3'b001;
+//	 	endcase
+//	 end
 	
 	
     // Instansiate datapath for Player
@@ -277,6 +280,18 @@ module bounce
     wire bee0_slow;
     assign bee0_slow = rate_out == bee0_offset;
 
+	 wire bee0_enable;
+    reg bee0_reset = 1'b1;
+	 assign bee0_enable = SW[0];
+
+    always @(bee0_enable)
+    begin
+        if (bee0_enable)
+            bee0_reset = 1'b1;
+        else
+            bee0_reset = 1'b0;
+
+    end
    always @(posedge bee0_slow)
 	    begin
        begin
@@ -317,9 +332,21 @@ module bounce
     reg [3:0] bee1_dir = 4'b1100;
     reg [27:0] bee1_offset = 27'd200;
     // wire [27:0] bee1_offset;
+	 wire bee1_enable;
+    reg bee1_reset = 1'b1;
+	 assign bee1_enable = SW[1];
+
+    always @(bee1_enable)
+    begin
+        if (bee1_enable)
+            bee1_reset = 1'b1;
+        else
+            bee1_reset = 1'b0;
+
+    end
+	 
 	
 	// assign bee1_offset = {11'd0, SW[17:1]};
-
     wire bee1_slow;
     assign bee1_slow = rate_out == bee1_offset;
 
@@ -362,9 +389,22 @@ module bounce
     reg [6:0] bee2_y_in = 7'd89;
     reg [3:0] bee2_dir   = 4'b0011;
     reg [27:0] bee2_offset = 28'd300;
-
+	
     wire bee2_slow;
     assign bee2_slow = rate_out == bee2_offset;
+	 
+	 wire bee2_enable;
+    reg bee2_reset = 1'b1;
+	 assign bee2_enable = SW[2];
+
+    always @(bee2_enable)
+    begin
+        if (bee2_enable)
+            bee2_reset = 1'b1;
+        else
+            bee2_reset = 1'b0;
+
+    end
 
     always @(posedge bee2_slow)
 	    begin
@@ -401,15 +441,15 @@ module bounce
     wire [6:0] bee3_y;
     wire [2:0] bee3_c;
 
-    wire bee3_enable;
-    assign bee3_enable = SW[3];
 
     reg [7:0] bee3_x_in = 8'd67;
     reg [6:0] bee3_y_in = 7'd100;
     reg [3:0] bee3_dir   = 4'b0101;
     reg [27:0] bee3_offset = 28'd400;
-
+	 
+	 wire bee3_enable;
     reg bee3_reset = 1'b1;
+	 assign bee3_enable = SW[3];
 
     always @(bee3_enable)
     begin
@@ -417,7 +457,6 @@ module bounce
             bee3_reset = 1'b1;
         else
             bee3_reset = 1'b0;
-
     end
 
     wire bee3_slow;
@@ -436,7 +475,7 @@ module bounce
     // Instansiate datapath for Bee 3
     datapath bee3_data(
         // Inputs
-        .clk(CLOCK_50), .resetn(bee3_reset), .done(bee3_done), .update(bee3_update), .clear(bee3_clear), .bee(1'b1),
+        .clk(CLOCK_50), .resetn(1'b1), .done(bee3_done), .update(bee3_update), .clear(bee3_clear), .bee(1'b1),
 		.waiting(bee3_waiting), .c_in(3'b110), .c2_in(3'b000), .x_in(bee3_x_in), .y_in(bee3_y_in), .dir_in(bee3_dir),
         // Outputs
         .x_out(bee3_x), .y_out(bee3_y), .c_out(bee3_c), .writeEn(bee3_writeEn)
