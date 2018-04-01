@@ -1,126 +1,3 @@
-///////////////////////////////////// MECHANICS ///////////////////////////////////////////////////////
-module mechanics(
-    input clk,
-    input resetn,
-
-    // User 
-    input [6:0] user_x,
-    input [6:0] user_y,
-    input [2:0] user_c,
-    input [2:0] user_writeEn,
-
-    // Bees
-    input [6:0] bee0_x,
-    input [6:0] bee0_y,
-    input [2:0] bee0_c,
-    input [2:0] bee0_writeEn,
-
-
-    // Outputs for game
-    output reg game_reset,
-    output reg game_over,
-    output reg [1:0] lives,
-    output reg [7:0] score,
-    output reg [7:0] high_score
-
-    // // Outputs for VGA
-    // output reg [6:0] vga_x,
-    // output reg [6:0] vga_y,
-    // output reg [2:0] vga_c,
-    // output reg vga_writeEn
-    );
-
-    initial begin
-        lives       = 2'b11;
-        score       = 8'h00;
-        high_score  = 8'h00;
-    end
-
-    // Placeholder values, need to change these to
-    // appropriate screen boundary vaues in pixels
-    localparam LEFTEDGE     = 7'd1;   
-    localparam RIGHTEDGE    = 8'd154;   // x goes from 0 - 160
-    localparam TOPEDGE      = 7'd1;
-    localparam BOTTOMEDGE   = 7'd116;   // y goes from 0 - 120
-    
-
-    wire bees_collided, edges_collided;
-    // Checking for collisions between all bees
-    // (can do && with bees_enable index later...)
-    // assign bees_collided = 1'b0;
-    //     (   (user_x >= bee0_x - 2'd3) && (user_x <= bee0_x + 2'd23)
-    //     &&  (user_y >= bee0_y - 2'd3) && (user_y >= bee0_y + 2'd3));
-
-    // Just for testing without any bees
-    // assign bees_collided = 1'b0;
-
-
-    assign edges_collided = 
-        (user_x >= RIGHTEDGE) ||
-        (user_x <= LEFTEDGE)  ||
-        (user_y <= TOPEDGE)   ||
-        (user_y >= BOTTOMEDGE);
-
-    assign collided = bees_collided || edges_collided;
-
-    reg cnt = 1'b0;
-    reg rscount = 10'd0;
-    always @(posedge clk)
-        begin
-            if (rscount == 10'd1111111111)
-                begin
-                    rscount = 10'd0;
-                    cnt = 1'b0;
-                end
-            else if (cnt)
-                rscount = rscount + 1'b1;
-        end
-
-    // Actual logic for game events here
-    // Including collisions, game over, etc...
-    always @(*)
-    begin
-        game_reset = 1'b0;
-        game_over = 1'b0;
-
-        if (cnt)
-            game_reset = 1'b1;
-
-        // If reset is pressed
-        else if (resetn)
-            begin
-                game_reset = 1'b1;
-                score      = 1'b0;
-                lives      = 2'b11;
-            end
-        
-        // If player has collided with something 
-        else if (collided)
-            begin
-                // If no more lives, want to end game (TODO)
-                if (lives == 2'b01)
-                    begin
-                        cnt = 1'b1; 
-                        game_over = 1'b1;		// Figure out Game over. Maybe new state in FSM?
-                        game_reset = 1'b1;      
-                        lives = 2'b11;        // For now just resetting lives
-                        score = 8'h00;
-                    end
-                // Else just reset and reduce one life
-                else
-                    begin
-                        game_reset = 1'b1;
-                        lives = lives - 1'b1;
-                    end
-            end
-
-        // Update high score (Hopefully useful after scoring works)
-        if (score >= high_score)
-            high_score = score;
-    end
-
-endmodule
-
 //////////////////////////////////////// DATAPATH /////////////////////////////////////////////////////
 
 module datapath(
@@ -297,3 +174,35 @@ module rate_divider(clk, load_val, out);
 			count <= count - 1;
 	end
 endmodule 
+
+/////////////////////////////////////////// HEX DISPLAY /////////////////////////////////////////////////////////
+
+module hex_display(IN, OUT);
+    input [3:0] IN;
+	 output reg [7:0] OUT;
+	 
+	 always @(*)
+	 begin
+		case(IN[3:0])
+			4'b0000: OUT = 7'b1000000;
+			4'b0001: OUT = 7'b1111001;
+			4'b0010: OUT = 7'b0100100;
+			4'b0011: OUT = 7'b0110000;
+			4'b0100: OUT = 7'b0011001;
+			4'b0101: OUT = 7'b0010010;
+			4'b0110: OUT = 7'b0000010;
+			4'b0111: OUT = 7'b1111000;
+			4'b1000: OUT = 7'b0000000;
+			4'b1001: OUT = 7'b0011000;
+			4'b1010: OUT = 7'b0001000;
+			4'b1011: OUT = 7'b0000011;
+			4'b1100: OUT = 7'b1000110;
+			4'b1101: OUT = 7'b0100001;
+			4'b1110: OUT = 7'b0000110;
+			4'b1111: OUT = 7'b0001110;
+			
+			default: OUT = 7'b0111111;
+		endcase
+
+	end
+endmodule

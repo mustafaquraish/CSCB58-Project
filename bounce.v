@@ -8,6 +8,7 @@ module bounce
         SW,
 		  LEDR,
           LEDG,
+          HEX0,
         // The ports below are for the VGA output.  Do not change.
         VGA_CLK,   						//	VGA Clock
         VGA_HS,							//	VGA H_SYNC
@@ -24,6 +25,7 @@ module bounce
     input   [3:0]   KEY;
 	 output 	[17:0]  LEDR;
      output 	[7:0]  LEDG;
+     output 	[6:0]  HEX0;
 	  
     // Declare your inputs and outputs here
     // Do not change the following outputs
@@ -93,11 +95,12 @@ module bounce
 
     reg player_reset = 1'b0;
 	 reg game_over = 1'b0;
-    reg [1:0] player_lives = 2'b11;
+    reg [1:0] player_lives = 2'b10;
     reg [7:0] score = 8'd0;
     reg [7:0] high_score = 8'd0;
 
     assign LEDG[1:0] = player_lives;
+	 assign LEDG[3] = player_lives == 2'b00;
 	 
 	 wire walls_collided = 	(player_x >= 8'd152) || (player_x <= 7'd4)
 								|| (player_y == 7'd112) || (player_y == 7'd24);
@@ -124,18 +127,28 @@ module bounce
             else 
                     if (walls_collided || bees_collided) 
                         begin
-                            if (player_lives == 2'b00)
+                            if (player_lives[1:0] == 2'b00)
                                 begin
                                     player_reset = 1'b1;
                                     game_over = 1'b1;
-                                    player_lives = 2'b11;
+                                    player_lives = 2'b10;
                                     score = 1'b0;
                                 end
-                            else
-											begin
-												player_lives = player_lives - 1'b1;
-												player_reset = 1'b1;
-											end
+                            else if (player_lives[1:0] == 2'b01)
+                                begin
+                                    player_reset = 1'b1;
+                                    player_lives = 2'b00;
+                                end
+									 else if (player_lives[1:0] == 2'b10)
+                                begin
+                                    player_reset = 1'b1;
+                                    player_lives = 2'b01;
+                                end
+									 else if (player_lives[1:0] == 2'b11)
+                                begin
+                                    player_reset = 1'b1;
+                                    player_lives = 2'b10;
+                                end
                         end 
     end
 
@@ -212,13 +225,27 @@ module bounce
     assign player_slow = rate_out == player_offset;
 	 
 	 assign LEDR[17] = player_reset;
+	
+	reg [2:0] player_color_in = 3'b001;
 
+    hex_display liveshex(.IN(player_lives), .OUT(HEX0));
+	
+	 always @(player_lives)
+	 begin
+	 	case (player_lives)
+	 		2'b00: player_color_in = 3'b100;
+	 		2'b01: player_color_in = 3'b110;
+	 		2'b10: player_color_in = 3'b010;
+	 		2'b11: player_color_in = 3'b001;
+	 	endcase
+	 end
+	
 	
     // Instansiate datapath for Player
     datapath player_data(
         // Inputs
         .clk(CLOCK_50), .resetn(~player_reset), .done(player_done), .update(player_update), .clear(player_clear),  .bee(1'b0),
-		.waiting(player_waiting), .c_in(3'b001), .c2_in(3'b000), .x_in(player_x_in), .y_in(player_y_in), .dir_in(player_dir),
+		.waiting(player_waiting), .c_in(player_color_in), .c2_in(3'b000), .x_in(player_x_in), .y_in(player_y_in), .dir_in(player_dir),
         // Outputs
         .x_out(player_x), .y_out(player_y), .c_out(player_c), .writeEn(player_writeEn)
     );

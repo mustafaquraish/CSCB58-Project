@@ -1,6 +1,6 @@
 Assembler report for bounce
-Sat Mar 31 17:27:42 2018
-Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Sun Apr  1 00:51:37 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
 ---------------------
@@ -18,27 +18,26 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
-Your use of Altera Corporation's design tools, logic functions 
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
-to the terms and conditions of the Altera Program License 
-Subscription Agreement, the Altera Quartus Prime License Agreement,
-the Altera MegaCore Function License Agreement, or other 
-applicable license agreement, including, without limitation, 
-that your use is for the sole purpose of programming logic 
-devices manufactured by Altera and sold by Altera or its 
-authorized distributors.  Please refer to the applicable 
-agreement for further details.
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
 
 
 
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sat Mar 31 17:27:42 2018 ;
+; Assembler Status      ; Successful - Sun Apr  1 00:51:37 2018 ;
 ; Revision Name         ; bounce                                ;
 ; Top-level Entity Name ; bounce                                ;
 ; Family                ; Cyclone IV E                          ;
@@ -53,13 +52,13 @@ agreement for further details.
 +--------+---------+---------------+
 
 
-+---------------------------+
-; Assembler Generated Files ;
-+---------------------------+
-; File Name                 ;
-+---------------------------+
-; bounce.sof                ;
-+---------------------------+
++------------------------------------------------------+
+; Assembler Generated Files                            ;
++------------------------------------------------------+
+; File Name                                            ;
++------------------------------------------------------+
+; /home/mustafa/Desktop/bounce/output_files/bounce.sof ;
++------------------------------------------------------+
 
 
 +--------------------------------------+
@@ -67,9 +66,8 @@ agreement for further details.
 +----------------+---------------------+
 ; Option         ; Setting             ;
 +----------------+---------------------+
-; Device         ; EP4CE115F29C7       ;
-; JTAG usercode  ; 0x00747526          ;
-; Checksum       ; 0x00747526          ;
+; JTAG usercode  ; 0x00753F65          ;
+; Checksum       ; 0x00753F65          ;
 +----------------+---------------------+
 
 
@@ -78,15 +76,16 @@ agreement for further details.
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
-    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Sat Mar 31 17:27:39 2018
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Sun Apr  1 00:51:35 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off bounce -c bounce
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
-Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 1083 megabytes
-    Info: Processing ended: Sat Mar 31 17:27:42 2018
-    Info: Elapsed time: 00:00:03
+Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 826 megabytes
+    Info: Processing ended: Sun Apr  1 00:51:37 2018
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:03
 
 

@@ -3,43 +3,43 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -8.407
-TNS   : -783.350
+Slack : -8.040
+TNS   : -735.853
 
 Type  : Slow 1200mV 85C Model Setup 'datapath:bee0_data|writeEn'
-Slack : -7.314
-TNS   : -110.143
+Slack : -6.857
+TNS   : -114.304
 
 Type  : Slow 1200mV 85C Model Setup 'rate_divider:bee0_rd|count[0]'
-Slack : -3.676
-TNS   : -29.826
+Slack : -3.254
+TNS   : -39.593
 
 Type  : Slow 1200mV 85C Model Setup 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 33.095
+Slack : 33.158
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'rate_divider:bee0_rd|count[0]'
-Slack : -1.093
-TNS   : -12.693
+Slack : -0.712
+TNS   : -4.448
+
+Type  : Slow 1200mV 85C Model Hold 'datapath:bee0_data|writeEn'
+Slack : 0.358
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.238
+Slack : 0.385
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'VGA|mypll|altpll_component|pll|clk[0]'
 Slack : 0.404
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'datapath:bee0_data|writeEn'
-Slack : 0.642
-TNS   : 0.000
-
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'rate_divider:bee0_rd|count[0]'
 Slack : -1.285
-TNS   : -28.270
+TNS   : -30.840
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'datapath:bee0_data|writeEn'
-Slack : 0.432
+Slack : 0.424
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
@@ -47,83 +47,83 @@ Slack : 9.554
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 19.707
+Slack : 19.709
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -7.584
-TNS   : -704.124
+Slack : -7.202
+TNS   : -660.579
 
 Type  : Slow 1200mV 0C Model Setup 'datapath:bee0_data|writeEn'
-Slack : -6.903
-TNS   : -103.736
+Slack : -6.452
+TNS   : -107.711
 
 Type  : Slow 1200mV 0C Model Setup 'rate_divider:bee0_rd|count[0]'
-Slack : -3.342
-TNS   : -26.621
+Slack : -2.940
+TNS   : -35.343
 
 Type  : Slow 1200mV 0C Model Setup 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 33.765
+Slack : 33.784
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'rate_divider:bee0_rd|count[0]'
-Slack : -1.011
-TNS   : -11.446
+Slack : -0.626
+TNS   : -4.031
+
+Type  : Slow 1200mV 0C Model Hold 'datapath:bee0_data|writeEn'
+Slack : 0.327
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.216
+Slack : 0.339
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 0.356
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'datapath:bee0_data|writeEn'
-Slack : 0.668
+Slack : 0.355
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'rate_divider:bee0_rd|count[0]'
 Slack : -1.285
-TNS   : -28.270
+TNS   : -30.840
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'datapath:bee0_data|writeEn'
-Slack : 0.357
+Slack : 0.343
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.559
+Slack : 9.560
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 19.711
+Slack : 19.709
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -4.158
-TNS   : -354.889
+Slack : -3.863
+TNS   : -329.287
 
 Type  : Fast 1200mV 0C Model Setup 'datapath:bee0_data|writeEn'
-Slack : -3.404
-TNS   : -50.397
+Slack : -3.199
+TNS   : -52.747
 
 Type  : Fast 1200mV 0C Model Setup 'rate_divider:bee0_rd|count[0]'
-Slack : -1.431
-TNS   : -8.414
+Slack : -1.211
+TNS   : -12.185
 
 Type  : Fast 1200mV 0C Model Setup 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 36.582
+Slack : 36.589
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'rate_divider:bee0_rd|count[0]'
-Slack : -0.411
-TNS   : -3.738
+Slack : -0.141
+TNS   : -0.404
 
 Type  : Fast 1200mV 0C Model Hold 'datapath:bee0_data|writeEn'
-Slack : 0.017
+Slack : 0.096
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.106
+Slack : 0.145
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'VGA|mypll|altpll_component|pll|clk[0]'
@@ -132,18 +132,18 @@ TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'rate_divider:bee0_rd|count[0]'
 Slack : -1.000
-TNS   : -22.000
+TNS   : -24.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'datapath:bee0_data|writeEn'
-Slack : 0.373
+Slack : 0.391
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.202
+Slack : 9.201
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 19.755
+Slack : 19.754
 TNS   : 0.000
 
 ------------------------------------------------------------

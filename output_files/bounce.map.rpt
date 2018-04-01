@@ -1,6 +1,6 @@
 Analysis & Synthesis report for bounce
-Sat Mar 31 17:27:18 2018
-Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Sun Apr  1 00:51:18 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
 ---------------------
@@ -42,48 +42,48 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
  34. Port Connectivity Checks: "control:bee0_control"
  35. Port Connectivity Checks: "datapath:bee0_data"
  36. Port Connectivity Checks: "datapath:player_data"
- 37. Port Connectivity Checks: "rate_divider:bee0_rd"
- 38. Port Connectivity Checks: "vga_adapter:VGA"
- 39. Post-Synthesis Netlist Statistics for Top Partition
- 40. Elapsed Time Per Partition
- 41. Analysis & Synthesis Messages
- 42. Analysis & Synthesis Suppressed Messages
+ 37. Port Connectivity Checks: "hex_display:liveshex"
+ 38. Port Connectivity Checks: "rate_divider:bee0_rd"
+ 39. Port Connectivity Checks: "vga_adapter:VGA"
+ 40. Post-Synthesis Netlist Statistics for Top Partition
+ 41. Elapsed Time Per Partition
+ 42. Analysis & Synthesis Messages
+ 43. Analysis & Synthesis Suppressed Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
-Your use of Altera Corporation's design tools, logic functions 
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
-to the terms and conditions of the Altera Program License 
-Subscription Agreement, the Altera Quartus Prime License Agreement,
-the Altera MegaCore Function License Agreement, or other 
-applicable license agreement, including, without limitation, 
-that your use is for the sole purpose of programming logic 
-devices manufactured by Altera and sold by Altera or its 
-authorized distributors.  Please refer to the applicable 
-agreement for further details.
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
 
 
 
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Mar 31 17:27:18 2018       ;
-; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Sun Apr  1 00:51:18 2018       ;
+; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; bounce                                      ;
 ; Top-level Entity Name              ; bounce                                      ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 603                                         ;
-;     Total combinational functions  ; 598                                         ;
-;     Dedicated logic registers      ; 216                                         ;
-; Total registers                    ; 216                                         ;
-; Total pins                         ; 84                                          ;
+; Total logic elements               ; 611                                         ;
+;     Total combinational functions  ; 606                                         ;
+;     Dedicated logic registers      ; 218                                         ;
+; Total registers                    ; 218                                         ;
+; Total pins                         ; 91                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 57,600                                      ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -105,7 +105,7 @@ agreement for further details.
 ; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
 ; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
 ; Preserve fewer node names                                                  ; On                 ; On                 ;
-; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Intel FPGA IP Evaluation Mode                                              ; Enable             ; Enable             ;
 ; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
 ; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
 ; State Machine Processing                                                   ; Auto               ; Auto               ;
@@ -158,7 +158,7 @@ agreement for further details.
 ; Report Connectivity Checks                                                 ; On                 ; On                 ;
 ; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
 ; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
-; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; Power Optimization During Synthesis                                        ; Normal compilation ; Normal compilation ;
 ; HDL message level                                                          ; Level2             ; Level2             ;
 ; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
 ; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
@@ -174,51 +174,56 @@ agreement for further details.
 ; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
 ; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
 ; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
-; Synthesis Seed                                                             ; 1                  ; 1                  ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 4      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                      ;
-+--------------------------------------+-----------------+----------------------------------+---------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path     ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                          ; Library ;
-+--------------------------------------+-----------------+----------------------------------+---------------------------------------------------------------------------------------+---------+
-; image.colour.mif                     ; yes             ; User Memory Initialization File  ; /courses/courses/cscb58w18/syedsee1/CSCB58P2/image.colour.mif                         ;         ;
-; modules.v                            ; yes             ; User Verilog HDL File            ; /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v                                ;         ;
-; vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File       ; /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_pll.v                    ;         ;
-; vga_adapter/vga_controller.v         ; yes             ; User Verilog HDL File            ; /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_controller.v             ;         ;
-; vga_adapter/vga_address_translator.v ; yes             ; User Verilog HDL File            ; /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_address_translator.v     ;         ;
-; vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File            ; /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_adapter.v                ;         ;
-; bounce.v                             ; yes             ; User Verilog HDL File            ; /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v                                 ;         ;
-; altsyncram.tdf                       ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc                ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                          ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                       ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal160.inc                       ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/aglobal160.inc        ;         ;
-; a_rdenreg.inc                        ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                           ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                           ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                         ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_emg1.tdf               ; yes             ; Auto-Generated Megafunction      ; /courses/courses/cscb58w18/syedsee1/CSCB58P2/db/altsyncram_emg1.tdf                   ;         ;
-; db/decode_lsa.tdf                    ; yes             ; Auto-Generated Megafunction      ; /courses/courses/cscb58w18/syedsee1/CSCB58P2/db/decode_lsa.tdf                        ;         ;
-; db/decode_e8a.tdf                    ; yes             ; Auto-Generated Megafunction      ; /courses/courses/cscb58w18/syedsee1/CSCB58P2/db/decode_e8a.tdf                        ;         ;
-; db/mux_0nb.tdf                       ; yes             ; Auto-Generated Megafunction      ; /courses/courses/cscb58w18/syedsee1/CSCB58P2/db/mux_0nb.tdf                           ;         ;
-; altpll.tdf                           ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altpll.tdf            ;         ;
-; stratix_pll.inc                      ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
-; stratixii_pll.inc                    ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
-; cycloneii_pll.inc                    ; yes             ; Megafunction                     ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
-+--------------------------------------+-----------------+----------------------------------+---------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                        ;
++--------------------------------------+-----------------+----------------------------------+-----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path     ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                            ; Library ;
++--------------------------------------+-----------------+----------------------------------+-----------------------------------------------------------------------------------------+---------+
+; image.colour.mif                     ; yes             ; User Memory Initialization File  ; /home/mustafa/Desktop/bounce/image.colour.mif                                           ;         ;
+; modules.v                            ; yes             ; User Verilog HDL File            ; /home/mustafa/Desktop/bounce/modules.v                                                  ;         ;
+; vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File       ; /home/mustafa/Desktop/bounce/vga_adapter/vga_pll.v                                      ;         ;
+; vga_adapter/vga_controller.v         ; yes             ; User Verilog HDL File            ; /home/mustafa/Desktop/bounce/vga_adapter/vga_controller.v                               ;         ;
+; vga_adapter/vga_address_translator.v ; yes             ; User Verilog HDL File            ; /home/mustafa/Desktop/bounce/vga_adapter/vga_address_translator.v                       ;         ;
+; vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File            ; /home/mustafa/Desktop/bounce/vga_adapter/vga_adapter.v                                  ;         ;
+; bounce.v                             ; yes             ; User Verilog HDL File            ; /home/mustafa/Desktop/bounce/bounce.v                                                   ;         ;
+; altsyncram.tdf                       ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc                ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                          ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                       ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal171.inc                       ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc        ;         ;
+; a_rdenreg.inc                        ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                           ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                           ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                         ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_emg1.tdf               ; yes             ; Auto-Generated Megafunction      ; /home/mustafa/Desktop/bounce/db/altsyncram_emg1.tdf                                     ;         ;
+; db/decode_lsa.tdf                    ; yes             ; Auto-Generated Megafunction      ; /home/mustafa/Desktop/bounce/db/decode_lsa.tdf                                          ;         ;
+; db/decode_e8a.tdf                    ; yes             ; Auto-Generated Megafunction      ; /home/mustafa/Desktop/bounce/db/decode_e8a.tdf                                          ;         ;
+; db/mux_0nb.tdf                       ; yes             ; Auto-Generated Megafunction      ; /home/mustafa/Desktop/bounce/db/mux_0nb.tdf                                             ;         ;
+; altpll.tdf                           ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altpll.tdf            ;         ;
+; stratix_pll.inc                      ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
+; stratixii_pll.inc                    ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
+; cycloneii_pll.inc                    ; yes             ; Megafunction                     ; /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
++--------------------------------------+-----------------+----------------------------------+-----------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -226,23 +231,23 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 603            ;
+; Estimated Total logic elements              ; 611            ;
 ;                                             ;                ;
-; Total combinational functions               ; 598            ;
+; Total combinational functions               ; 606            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 171            ;
-;     -- 3 input functions                    ; 182            ;
-;     -- <=2 input functions                  ; 245            ;
+;     -- 4 input functions                    ; 174            ;
+;     -- 3 input functions                    ; 185            ;
+;     -- <=2 input functions                  ; 247            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 326            ;
+;     -- normal mode                          ; 334            ;
 ;     -- arithmetic mode                      ; 272            ;
 ;                                             ;                ;
-; Total registers                             ; 216            ;
-;     -- Dedicated logic registers            ; 216            ;
+; Total registers                             ; 218            ;
+;     -- Dedicated logic registers            ; 218            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
-; I/O pins                                    ; 84             ;
+; I/O pins                                    ; 91             ;
 ; Total memory bits                           ; 57600          ;
 ;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
@@ -251,41 +256,42 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 177            ;
-; Total fan-out                               ; 2697           ;
-; Average fan-out                             ; 2.72           ;
+; Maximum fan-out                             ; 179            ;
+; Total fan-out                               ; 2743           ;
+; Average fan-out                             ; 2.70           ;
 +---------------------------------------------+----------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                  ;
-+---------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; Compilation Hierarchy Node                              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Entity Name            ; Library Name ;
-+---------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |bounce                                                 ; 598 (146)         ; 216 (19)     ; 57600       ; 0            ; 0       ; 0         ; 84   ; 0            ; |bounce                                                                                                ; bounce                 ; work         ;
-;    |control:bee0_control|                               ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee0_control                                                                           ; control                ; work         ;
-;    |control:bee1_control|                               ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee1_control                                                                           ; control                ; work         ;
-;    |control:bee2_control|                               ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee2_control                                                                           ; control                ; work         ;
-;    |control:bee3_control|                               ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee3_control                                                                           ; control                ; work         ;
-;    |control:player_control|                             ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:player_control                                                                         ; control                ; work         ;
-;    |datapath:bee0_data|                                 ; 57 (57)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee0_data                                                                             ; datapath               ; work         ;
-;    |datapath:bee1_data|                                 ; 57 (57)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee1_data                                                                             ; datapath               ; work         ;
-;    |datapath:bee2_data|                                 ; 57 (57)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee2_data                                                                             ; datapath               ; work         ;
-;    |datapath:bee3_data|                                 ; 58 (58)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee3_data                                                                             ; datapath               ; work         ;
-;    |datapath:player_data|                               ; 56 (56)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:player_data                                                                           ; datapath               ; work         ;
-;    |rate_divider:bee0_rd|                               ; 49 (49)           ; 28 (28)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|rate_divider:bee0_rd                                                                           ; rate_divider           ; work         ;
-;    |vga_adapter:VGA|                                    ; 98 (2)            ; 30 (0)       ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
-;       |altsyncram:VideoMemory|                          ; 12 (0)            ; 4 (0)        ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
-;          |altsyncram_emg1:auto_generated|               ; 12 (0)            ; 4 (4)        ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated                          ; altsyncram_emg1        ; work         ;
-;             |decode_e8a:rden_decode_b|                  ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_e8a:rden_decode_b ; decode_e8a             ; work         ;
-;             |decode_lsa:decode2|                        ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_lsa:decode2       ; decode_lsa             ; work         ;
-;             |mux_0nb:mux3|                              ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3             ; mux_0nb                ; work         ;
-;       |vga_address_translator:user_input_translator|    ; 18 (18)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_address_translator:user_input_translator                                   ; vga_address_translator ; work         ;
-;       |vga_controller:controller|                       ; 66 (48)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_controller:controller                                                      ; vga_controller         ; work         ;
-;          |vga_address_translator:controller_translator| ; 18 (18)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator         ; vga_address_translator ; work         ;
-;       |vga_pll:mypll|                                   ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_pll:mypll                                                                  ; vga_pll                ; work         ;
-;          |altpll:altpll_component|                      ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component                                          ; altpll                 ; work         ;
-+---------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                 ;
++---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
+; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Entity Name            ; Library Name ;
++---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
+; |bounce                                                 ; 606 (149)           ; 218 (19)                  ; 57600       ; 0            ; 0       ; 0         ; 91   ; 0            ; |bounce                                                                                                ; bounce                 ; work         ;
+;    |control:bee0_control|                               ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee0_control                                                                           ; control                ; work         ;
+;    |control:bee1_control|                               ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee1_control                                                                           ; control                ; work         ;
+;    |control:bee2_control|                               ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee2_control                                                                           ; control                ; work         ;
+;    |control:bee3_control|                               ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee3_control                                                                           ; control                ; work         ;
+;    |control:player_control|                             ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:player_control                                                                         ; control                ; work         ;
+;    |datapath:bee0_data|                                 ; 57 (57)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee0_data                                                                             ; datapath               ; work         ;
+;    |datapath:bee1_data|                                 ; 57 (57)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee1_data                                                                             ; datapath               ; work         ;
+;    |datapath:bee2_data|                                 ; 57 (57)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee2_data                                                                             ; datapath               ; work         ;
+;    |datapath:bee3_data|                                 ; 58 (58)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee3_data                                                                             ; datapath               ; work         ;
+;    |datapath:player_data|                               ; 59 (59)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:player_data                                                                           ; datapath               ; work         ;
+;    |hex_display:liveshex|                               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|hex_display:liveshex                                                                           ; hex_display            ; work         ;
+;    |rate_divider:bee0_rd|                               ; 49 (49)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|rate_divider:bee0_rd                                                                           ; rate_divider           ; work         ;
+;    |vga_adapter:VGA|                                    ; 98 (2)              ; 30 (0)                    ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
+;       |altsyncram:VideoMemory|                          ; 12 (0)              ; 4 (0)                     ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
+;          |altsyncram_emg1:auto_generated|               ; 12 (0)              ; 4 (4)                     ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated                          ; altsyncram_emg1        ; work         ;
+;             |decode_e8a:rden_decode_b|                  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_e8a:rden_decode_b ; decode_e8a             ; work         ;
+;             |decode_lsa:decode2|                        ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_lsa:decode2       ; decode_lsa             ; work         ;
+;             |mux_0nb:mux3|                              ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3             ; mux_0nb                ; work         ;
+;       |vga_address_translator:user_input_translator|    ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_address_translator:user_input_translator                                   ; vga_address_translator ; work         ;
+;       |vga_controller:controller|                       ; 66 (48)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_controller:controller                                                      ; vga_controller         ; work         ;
+;          |vga_address_translator:controller_translator| ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator         ; vga_address_translator ; work         ;
+;       |vga_pll:mypll|                                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_pll:mypll                                                                  ; vga_pll                ; work         ;
+;          |altpll:altpll_component|                      ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component                                          ; altpll                 ; work         ;
++---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -391,29 +397,27 @@ Encoding Type:  One-Hot
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                 ;
-+----------------------------------------+-------------------------------------------+
-; Register name                          ; Reason for Removal                        ;
-+----------------------------------------+-------------------------------------------+
-; datapath:bee2_data|c_out[2]            ; Merged with datapath:bee2_data|c_out[1]   ;
-; datapath:bee1_data|c_out[2]            ; Merged with datapath:bee1_data|c_out[1]   ;
-; datapath:bee0_data|c_out[2]            ; Merged with datapath:bee0_data|c_out[1]   ;
-; datapath:bee3_data|c_out[2]            ; Merged with datapath:bee3_data|c_out[1]   ;
-; datapath:player_data|c_out[2]          ; Merged with datapath:player_data|c_out[1] ;
-; datapath:player_data|c_out[0]          ; Stuck at VCC due to stuck port data_in    ;
-; control:bee3_control|current_state~2   ; Lost fanout                               ;
-; control:bee3_control|current_state~3   ; Lost fanout                               ;
-; control:bee2_control|current_state~2   ; Lost fanout                               ;
-; control:bee2_control|current_state~3   ; Lost fanout                               ;
-; control:bee1_control|current_state~2   ; Lost fanout                               ;
-; control:bee1_control|current_state~3   ; Lost fanout                               ;
-; control:bee0_control|current_state~2   ; Lost fanout                               ;
-; control:bee0_control|current_state~3   ; Lost fanout                               ;
-; control:player_control|current_state~2 ; Lost fanout                               ;
-; control:player_control|current_state~3 ; Lost fanout                               ;
-; Total Number of Removed Registers = 16 ;                                           ;
-+----------------------------------------+-------------------------------------------+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++----------------------------------------+-----------------------------------------+
+; Register name                          ; Reason for Removal                      ;
++----------------------------------------+-----------------------------------------+
+; datapath:bee2_data|c_out[2]            ; Merged with datapath:bee2_data|c_out[1] ;
+; datapath:bee1_data|c_out[2]            ; Merged with datapath:bee1_data|c_out[1] ;
+; datapath:bee0_data|c_out[2]            ; Merged with datapath:bee0_data|c_out[1] ;
+; datapath:bee3_data|c_out[2]            ; Merged with datapath:bee3_data|c_out[1] ;
+; control:bee3_control|current_state~2   ; Lost fanout                             ;
+; control:bee3_control|current_state~3   ; Lost fanout                             ;
+; control:bee2_control|current_state~2   ; Lost fanout                             ;
+; control:bee2_control|current_state~3   ; Lost fanout                             ;
+; control:bee1_control|current_state~2   ; Lost fanout                             ;
+; control:bee1_control|current_state~3   ; Lost fanout                             ;
+; control:bee0_control|current_state~2   ; Lost fanout                             ;
+; control:bee0_control|current_state~3   ; Lost fanout                             ;
+; control:player_control|current_state~2 ; Lost fanout                             ;
+; control:player_control|current_state~3 ; Lost fanout                             ;
+; Total Number of Removed Registers = 14 ;                                         ;
++----------------------------------------+-----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -421,12 +425,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 216   ;
+; Total registers                              ; 218   ;
 ; Number of registers using Synchronous Clear  ; 18    ;
 ; Number of registers using Synchronous Load   ; 57    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 85    ;
+; Number of registers using Clock Enable       ; 87    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -436,8 +440,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
-; player_lives[0]                         ; 3       ;
-; player_lives[1]                         ; 2       ;
+; player_lives[1]                         ; 8       ;
 ; datapath:player_data|up                 ; 16      ;
 ; bee2_dir[1]                             ; 8       ;
 ; datapath:bee2_data|up                   ; 16      ;
@@ -451,7 +454,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; bee2_dir[0]                             ; 2       ;
 ; bee3_dir[0]                             ; 2       ;
 ; bee0_dir[3]                             ; 9       ;
-; Total number of inverted registers = 15 ;         ;
+; Total number of inverted registers = 14 ;         ;
 +-----------------------------------------+---------+
 
 
@@ -460,20 +463,20 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |bounce|datapath:player_data|c_out[0]                                                                     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |bounce|datapath:player_data|c_out[2]                                                                     ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |bounce|vga_adapter:VGA|vga_controller:controller|yCounter[7]                                             ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee3_data|x_val[0]                                                                       ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee2_data|x_val[1]                                                                       ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee1_data|x_val[7]                                                                       ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee0_data|x_val[6]                                                                       ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee3_data|y_val[1]                                                                       ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee2_data|y_val[0]                                                                       ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee1_data|y_val[0]                                                                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee2_data|y_val[1]                                                                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee1_data|y_val[1]                                                                       ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee0_data|y_val[1]                                                                       ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:player_data|x_val[5]                                                                     ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:player_data|y_val[1]                                                                     ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3|result_node[1] ;
-; 5:1                ; 17 bits   ; 51 LEs        ; 51 LEs               ; 0 LEs                  ; No         ; |bounce|x[1]                                                                                              ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:player_data|x_val[0]                                                                     ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:player_data|y_val[4]                                                                     ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3|result_node[2] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |bounce|x[2]                                                                                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------+
 
 
@@ -1138,8 +1141,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port       ; Type  ; Severity ; Details          ;
 +------------+-------+----------+------------------+
 ; bee        ; Input ; Info     ; Stuck at GND     ;
-; c_in[2..1] ; Input ; Info     ; Stuck at GND     ;
-; c_in[0]    ; Input ; Info     ; Stuck at VCC     ;
 ; c2_in      ; Input ; Info     ; Stuck at GND     ;
 ; x_in[3..0] ; Input ; Info     ; Stuck at GND     ;
 ; x_in[7]    ; Input ; Info     ; Stuck at GND     ;
@@ -1150,6 +1151,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; y_in[1..0] ; Input ; Info     ; Stuck at GND     ;
 ; y_in[6]    ; Input ; Info     ; Stuck at GND     ;
 +------------+-------+----------+------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "hex_display:liveshex"                                                                   ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; IN[3..2] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; OUT[7]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------+
@@ -1183,27 +1194,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 84                          ;
-; cycloneiii_ff         ; 216                         ;
-;     ENA               ; 10                          ;
+; boundary_port         ; 91                          ;
+; cycloneiii_ff         ; 218                         ;
+;     ENA               ; 12                          ;
 ;     ENA SCLR          ; 18                          ;
 ;     ENA SLD           ; 57                          ;
 ;     plain             ; 131                         ;
-; cycloneiii_lcell_comb ; 601                         ;
+; cycloneiii_lcell_comb ; 609                         ;
 ;     arith             ; 272                         ;
 ;         2 data inputs ; 161                         ;
 ;         3 data inputs ; 111                         ;
-;     normal            ; 329                         ;
+;     normal            ; 337                         ;
 ;         0 data inputs ; 4                           ;
-;         1 data inputs ; 32                          ;
-;         2 data inputs ; 51                          ;
-;         3 data inputs ; 71                          ;
-;         4 data inputs ; 171                         ;
+;         1 data inputs ; 31                          ;
+;         2 data inputs ; 54                          ;
+;         3 data inputs ; 74                          ;
+;         4 data inputs ; 174                         ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 9                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.70                        ;
-; Average LUT depth     ; 3.46                        ;
+; Max LUT depth         ; 6.30                        ;
+; Average LUT depth     ; 3.47                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1221,66 +1232,66 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Sat Mar 31 17:27:07 2018
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Sun Apr  1 00:51:07 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bounce -c bounce
-Warning (20028): Parallel compilation is not licensed and has been disabled
-Warning (10229): Verilog HDL Expression warning at modules.v(70): truncated literal to match 10 bits File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 70
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 4 design units, including 4 entities, in source file modules.v
-    Info (12023): Found entity 1: mechanics File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 2
-    Info (12023): Found entity 2: datapath File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 126
-    Info (12023): Found entity 3: control File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 229
-    Info (12023): Found entity 4: rate_divider File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 283
+    Info (12023): Found entity 1: datapath File: /home/mustafa/Desktop/bounce/modules.v Line: 3
+    Info (12023): Found entity 2: control File: /home/mustafa/Desktop/bounce/modules.v Line: 106
+    Info (12023): Found entity 3: rate_divider File: /home/mustafa/Desktop/bounce/modules.v Line: 160
+    Info (12023): Found entity 4: hex_display File: /home/mustafa/Desktop/bounce/modules.v Line: 180
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_pll.v
-    Info (12023): Found entity 1: vga_pll File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_pll.v Line: 36
+    Info (12023): Found entity 1: vga_pll File: /home/mustafa/Desktop/bounce/vga_adapter/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_controller.v
-    Info (12023): Found entity 1: vga_controller File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_controller.v Line: 9
+    Info (12023): Found entity 1: vga_controller File: /home/mustafa/Desktop/bounce/vga_adapter/vga_controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_address_translator.v
-    Info (12023): Found entity 1: vga_address_translator File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_address_translator.v Line: 4
+    Info (12023): Found entity 1: vga_address_translator File: /home/mustafa/Desktop/bounce/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_adapter.v
-    Info (12023): Found entity 1: vga_adapter File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_adapter.v Line: 78
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(232): ignored dangling comma in List of Port Connections File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 232
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(278): ignored dangling comma in List of Port Connections File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 278
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(324): ignored dangling comma in List of Port Connections File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 324
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(367): ignored dangling comma in List of Port Connections File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 367
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(424): ignored dangling comma in List of Port Connections File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 424
+    Info (12023): Found entity 1: vga_adapter File: /home/mustafa/Desktop/bounce/vga_adapter/vga_adapter.v Line: 78
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(259): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/bounce/bounce.v Line: 259
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(305): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/bounce/bounce.v Line: 305
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(351): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/bounce/bounce.v Line: 351
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(394): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/bounce/bounce.v Line: 394
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(451): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/bounce/bounce.v Line: 451
 Info (12021): Found 1 design units, including 1 entities, in source file bounce.v
-    Info (12023): Found entity 1: bounce File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 3
-Warning (10236): Verilog HDL Implicit Net warning at modules.v(64): created implicit net for "collided" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 64
-Warning (10236): Verilog HDL Implicit Net warning at bounce.v(105): created implicit net for "bees_collided" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 105
+    Info (12023): Found entity 1: bounce File: /home/mustafa/Desktop/bounce/bounce.v Line: 3
+Warning (10236): Verilog HDL Implicit Net warning at bounce.v(108): created implicit net for "bees_collided" File: /home/mustafa/Desktop/bounce/bounce.v Line: 108
 Info (12127): Elaborating entity "bounce" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at bounce.v(39): object "resetn" assigned a value but never read File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 39
-Warning (10036): Verilog HDL or VHDL warning at bounce.v(95): object "game_over" assigned a value but never read File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 95
-Warning (10036): Verilog HDL or VHDL warning at bounce.v(97): object "score" assigned a value but never read File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 97
-Warning (10036): Verilog HDL or VHDL warning at bounce.v(98): object "high_score" assigned a value but never read File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 98
-Warning (10240): Verilog HDL Always Construct warning at bounce.v(156): inferring latch(es) for variable "x", which holds its previous value in one or more paths through the always construct File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 156
-Warning (10240): Verilog HDL Always Construct warning at bounce.v(156): inferring latch(es) for variable "y", which holds its previous value in one or more paths through the always construct File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 156
-Warning (10240): Verilog HDL Always Construct warning at bounce.v(156): inferring latch(es) for variable "color", which holds its previous value in one or more paths through the always construct File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 156
-Warning (10034): Output port "LEDR[16..1]" at bounce.v(25) has no driver File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-Warning (10034): Output port "LEDG[7..2]" at bounce.v(26) has no driver File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 26
-Info (10041): Inferred latch for "color[0]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "color[1]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "color[2]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "y[0]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "y[1]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "y[2]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "y[3]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "y[4]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "y[5]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "y[6]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "x[0]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "x[1]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "x[2]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "x[3]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "x[4]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "x[5]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "x[6]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (10041): Inferred latch for "x[7]" at bounce.v(164) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 79
-Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_adapter.v Line: 192
-Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_adapter.v Line: 213
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_adapter.v Line: 213
-Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_adapter.v Line: 213
+Warning (10036): Verilog HDL or VHDL warning at bounce.v(41): object "resetn" assigned a value but never read File: /home/mustafa/Desktop/bounce/bounce.v Line: 41
+Warning (10036): Verilog HDL or VHDL warning at bounce.v(97): object "game_over" assigned a value but never read File: /home/mustafa/Desktop/bounce/bounce.v Line: 97
+Warning (10036): Verilog HDL or VHDL warning at bounce.v(99): object "score" assigned a value but never read File: /home/mustafa/Desktop/bounce/bounce.v Line: 99
+Warning (10036): Verilog HDL or VHDL warning at bounce.v(100): object "high_score" assigned a value but never read File: /home/mustafa/Desktop/bounce/bounce.v Line: 100
+Warning (10240): Verilog HDL Always Construct warning at bounce.v(169): inferring latch(es) for variable "x", which holds its previous value in one or more paths through the always construct File: /home/mustafa/Desktop/bounce/bounce.v Line: 169
+Warning (10240): Verilog HDL Always Construct warning at bounce.v(169): inferring latch(es) for variable "y", which holds its previous value in one or more paths through the always construct File: /home/mustafa/Desktop/bounce/bounce.v Line: 169
+Warning (10240): Verilog HDL Always Construct warning at bounce.v(169): inferring latch(es) for variable "color", which holds its previous value in one or more paths through the always construct File: /home/mustafa/Desktop/bounce/bounce.v Line: 169
+Warning (10034): Output port "LEDR[16..1]" at bounce.v(26) has no driver File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+Warning (10034): Output port "LEDG[7..4]" at bounce.v(27) has no driver File: /home/mustafa/Desktop/bounce/bounce.v Line: 27
+Warning (10034): Output port "LEDG[2]" at bounce.v(27) has no driver File: /home/mustafa/Desktop/bounce/bounce.v Line: 27
+Info (10041): Inferred latch for "color[0]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "color[1]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "color[2]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "y[0]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "y[1]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "y[2]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "y[3]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "y[4]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "y[5]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "y[6]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "x[0]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "x[1]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "x[2]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "x[3]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "x[4]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "x[5]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "x[6]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (10041): Inferred latch for "x[7]" at bounce.v(177) File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: /home/mustafa/Desktop/bounce/bounce.v Line: 81
+Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: /home/mustafa/Desktop/bounce/vga_adapter/vga_adapter.v Line: 192
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: /home/mustafa/Desktop/bounce/vga_adapter/vga_adapter.v Line: 213
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: /home/mustafa/Desktop/bounce/vga_adapter/vga_adapter.v Line: 213
+Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: /home/mustafa/Desktop/bounce/vga_adapter/vga_adapter.v Line: 213
     Info (12134): Parameter "WIDTH_A" = "3"
     Info (12134): Parameter "WIDTH_B" = "3"
     Info (12134): Parameter "INTENDED_DEVICE_FAMILY" = "Cyclone II"
@@ -1297,21 +1308,21 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory"
     Info (12134): Parameter "POWER_UP_UNINITIALIZED" = "FALSE"
     Info (12134): Parameter "INIT_FILE" = "image.colour.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_emg1.tdf
-    Info (12023): Found entity 1: altsyncram_emg1 File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/db/altsyncram_emg1.tdf Line: 34
-Info (12128): Elaborating entity "altsyncram_emg1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated" File: /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+    Info (12023): Found entity 1: altsyncram_emg1 File: /home/mustafa/Desktop/bounce/db/altsyncram_emg1.tdf Line: 33
+Info (12128): Elaborating entity "altsyncram_emg1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated" File: /home/mustafa/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_lsa.tdf
-    Info (12023): Found entity 1: decode_lsa File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/db/decode_lsa.tdf Line: 23
-Info (12128): Elaborating entity "decode_lsa" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_lsa:decode2" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/db/altsyncram_emg1.tdf Line: 47
+    Info (12023): Found entity 1: decode_lsa File: /home/mustafa/Desktop/bounce/db/decode_lsa.tdf Line: 22
+Info (12128): Elaborating entity "decode_lsa" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_lsa:decode2" File: /home/mustafa/Desktop/bounce/db/altsyncram_emg1.tdf Line: 46
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_e8a.tdf
-    Info (12023): Found entity 1: decode_e8a File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/db/decode_e8a.tdf Line: 23
-Info (12128): Elaborating entity "decode_e8a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_e8a:rden_decode_b" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/db/altsyncram_emg1.tdf Line: 48
+    Info (12023): Found entity 1: decode_e8a File: /home/mustafa/Desktop/bounce/db/decode_e8a.tdf Line: 22
+Info (12128): Elaborating entity "decode_e8a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_e8a:rden_decode_b" File: /home/mustafa/Desktop/bounce/db/altsyncram_emg1.tdf Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_0nb.tdf
-    Info (12023): Found entity 1: mux_0nb File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/db/mux_0nb.tdf Line: 23
-Info (12128): Elaborating entity "mux_0nb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/db/altsyncram_emg1.tdf Line: 50
-Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_adapter.v Line: 231
-Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_pll.v Line: 53
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_pll.v Line: 53
-Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_pll.v Line: 53
+    Info (12023): Found entity 1: mux_0nb File: /home/mustafa/Desktop/bounce/db/mux_0nb.tdf Line: 22
+Info (12128): Elaborating entity "mux_0nb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3" File: /home/mustafa/Desktop/bounce/db/altsyncram_emg1.tdf Line: 49
+Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: /home/mustafa/Desktop/bounce/vga_adapter/vga_adapter.v Line: 231
+Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: /home/mustafa/Desktop/bounce/vga_adapter/vga_pll.v Line: 53
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: /home/mustafa/Desktop/bounce/vga_adapter/vga_pll.v Line: 53
+Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: /home/mustafa/Desktop/bounce/vga_adapter/vga_pll.v Line: 53
     Info (12134): Parameter "operation_mode" = "NORMAL"
     Info (12134): Parameter "intended_device_family" = "Cyclone II"
     Info (12134): Parameter "lpm_type" = "altpll"
@@ -1323,117 +1334,118 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_divide_by" = "2"
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/vga_adapter/vga_adapter.v Line: 252
-Info (12128): Elaborating entity "rate_divider" for hierarchy "rate_divider:bee0_rd" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 151
-Warning (10230): Verilog HDL assignment warning at modules.v(297): truncated value with size 32 to match size of target (28) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 297
-Info (12128): Elaborating entity "datapath" for hierarchy "datapath:player_data" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 224
-Warning (10230): Verilog HDL assignment warning at modules.v(181): truncated value with size 32 to match size of target (8) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 181
-Warning (10230): Verilog HDL assignment warning at modules.v(183): truncated value with size 32 to match size of target (8) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 183
-Warning (10230): Verilog HDL assignment warning at modules.v(185): truncated value with size 32 to match size of target (7) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 185
-Warning (10230): Verilog HDL assignment warning at modules.v(187): truncated value with size 32 to match size of target (7) File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 187
-Info (12128): Elaborating entity "control" for hierarchy "control:player_control" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 232
-Warning (10270): Verilog HDL Case Statement warning at modules.v(267): incomplete case statement has no default case item File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 267
-Info (10264): Verilog HDL Case Statement information at modules.v(267): all case item expressions in this case statement are onehot File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 267
-Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "color[1]" merged with LATCH primitive "color[2]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-Warning (13012): Latch x[7] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch x[6] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch x[5] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch y[6] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch y[5] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch y[4] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch y[3] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch y[2] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch y[1] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch y[0] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch color[2] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch x[0] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch x[1] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch x[2] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch x[3] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch x[4] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
-Warning (13012): Latch color[0] has unsafe behavior File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 164
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/modules.v Line: 141
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: /home/mustafa/Desktop/bounce/vga_adapter/vga_adapter.v Line: 252
+Info (12128): Elaborating entity "rate_divider" for hierarchy "rate_divider:bee0_rd" File: /home/mustafa/Desktop/bounce/bounce.v Line: 164
+Warning (10230): Verilog HDL assignment warning at modules.v(174): truncated value with size 32 to match size of target (28) File: /home/mustafa/Desktop/bounce/modules.v Line: 174
+Info (12128): Elaborating entity "hex_display" for hierarchy "hex_display:liveshex" File: /home/mustafa/Desktop/bounce/bounce.v Line: 231
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:player_data" File: /home/mustafa/Desktop/bounce/bounce.v Line: 251
+Warning (10230): Verilog HDL assignment warning at modules.v(58): truncated value with size 32 to match size of target (8) File: /home/mustafa/Desktop/bounce/modules.v Line: 58
+Warning (10230): Verilog HDL assignment warning at modules.v(60): truncated value with size 32 to match size of target (8) File: /home/mustafa/Desktop/bounce/modules.v Line: 60
+Warning (10230): Verilog HDL assignment warning at modules.v(62): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/bounce/modules.v Line: 62
+Warning (10230): Verilog HDL assignment warning at modules.v(64): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/bounce/modules.v Line: 64
+Info (12128): Elaborating entity "control" for hierarchy "control:player_control" File: /home/mustafa/Desktop/bounce/bounce.v Line: 259
+Warning (10270): Verilog HDL Case Statement warning at modules.v(144): incomplete case statement has no default case item File: /home/mustafa/Desktop/bounce/modules.v Line: 144
+Info (10264): Verilog HDL Case Statement information at modules.v(144): all case item expressions in this case statement are onehot File: /home/mustafa/Desktop/bounce/modules.v Line: 144
+Warning (13012): Latch x[7] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch x[6] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch x[5] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch y[6] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch y[5] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch y[4] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch y[3] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch y[2] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch y[1] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch y[0] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch color[2] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch x[0] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch x[1] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch x[2] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch x[3] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch x[4] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch color[1] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
+Warning (13012): Latch color[0] has unsafe behavior File: /home/mustafa/Desktop/bounce/bounce.v Line: 177
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/bounce/modules.v Line: 18
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[10]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[11]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[12]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[13]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[14]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[15]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDR[16]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 25
-    Warning (13410): Pin "LEDG[2]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 26
-    Warning (13410): Pin "LEDG[3]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 26
-    Warning (13410): Pin "LEDG[4]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 26
-    Warning (13410): Pin "LEDG[5]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 26
-    Warning (13410): Pin "LEDG[6]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 26
-    Warning (13410): Pin "LEDG[7]" is stuck at GND File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 26
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 34
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[10]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[11]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[12]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[13]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[14]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[15]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDR[16]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 26
+    Warning (13410): Pin "LEDG[2]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 27
+    Warning (13410): Pin "LEDG[4]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 27
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 27
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 27
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 27
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: /home/mustafa/Desktop/bounce/bounce.v Line: 28
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: /home/mustafa/Desktop/bounce/bounce.v Line: 36
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 10 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file /courses/courses/cscb58w18/syedsee1/CSCB58P2/output_files/bounce.map.smsg
+Info (144001): Generated suppressed messages file /home/mustafa/Desktop/bounce/output_files/bounce.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 17 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[1]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[2]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[4]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[5]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[6]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[7]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[8]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[9]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[10]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[11]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[12]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[13]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[14]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[15]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[16]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[17]" File: /courses/courses/cscb58w18/syedsee1/CSCB58P2/bounce.v Line: 23
-Info (21057): Implemented 704 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "SW[0]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[1]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[2]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[4]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[5]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[6]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[7]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[8]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[9]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[10]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[11]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[12]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[13]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[14]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[15]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[16]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[17]" File: /home/mustafa/Desktop/bounce/bounce.v Line: 24
+Info (21057): Implemented 721 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
-    Info (21059): Implemented 61 output pins
-    Info (21061): Implemented 610 logic cells
+    Info (21059): Implemented 68 output pins
+    Info (21061): Implemented 620 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 101 warnings
-    Info: Peak virtual memory: 1289 megabytes
-    Info: Processing ended: Sat Mar 31 17:27:18 2018
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 102 warnings
+    Info: Peak virtual memory: 1019 megabytes
+    Info: Processing ended: Sun Apr  1 00:51:18 2018
     Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Total CPU time (on all processors): 00:00:25
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in /courses/courses/cscb58w18/syedsee1/CSCB58P2/output_files/bounce.map.smsg.
+The suppressed messages can be found in /home/mustafa/Desktop/bounce/output_files/bounce.map.smsg.
 
 
