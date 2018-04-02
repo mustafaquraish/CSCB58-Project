@@ -34,7 +34,7 @@ module datapath(
 
         if (~resetn)
             begin
-					 up = 1'b1;
+				up = 1'b1;
             end
 
         else begin
@@ -45,35 +45,40 @@ module datapath(
                 end
             else if (update)  // UPDATE HERE
 					
-					if (up)
-						begin
-							x_val = x_in;
-							y_val = y_in;
-							up = 1'b0;
-						end
+                if (up)
+                    begin
+                        x_val = x_in;
+                        y_val = y_in;
+                        up = 1'b0;
+                    end
 						
-                else begin
-                    writeEn =	 1'b0;
-                    if (dir_in[0] == 1'b1)  // RIGHT
-                        x_val = x_val + 1;
-                    if (dir_in[3] == 1'b1)	// LEFT
-                        x_val = x_val - 1;
-                    if (dir_in[2] == 1'b1)	// DOWN
-                        y_val = y_val + 1;
-                    if (dir_in[1] == 1'b1)	// UP
-                        y_val = y_val - 1;
-                end 
+                else 
+                    begin
+                        writeEn =	 1'b0;
+                        if (dir_in[0] == 1'b1)  // RIGHT
+                            x_val = x_val + 1;
+                        if (dir_in[3] == 1'b1)	// LEFT
+                            x_val = x_val - 1;
+                        if (dir_in[2] == 1'b1)	// DOWN
+                            y_val = y_val + 1;
+                        if (dir_in[1] == 1'b1)	// UP
+                            y_val = y_val - 1;
+                    end 
+
             else if (~waiting)      // DRAWING STATE
                 begin
                     writeEn = 1'b1;
                     // Checks what type of object it is and draws shape
                     if (bee)
-                        c_out = (offset[0]) ? c2_in : c_in;
+						// This one draws a blue pixel for the wing
+                        c_out = (offset[0]) ?  ((x_val+1 == x_out && y_val == y_out) ? 3'b011 : c2_in) : c_in;
+                        // Use this one to get rid of it.
+                        // c_out = (offset[0]) ? c2_in : c_in;
+
                     else
                         c_out = c_in;
                         
-                end
-                
+                end      
         end
     end
 
@@ -96,8 +101,8 @@ module datapath(
         end
     end
 
-        assign x_out = x_val + offset[1:0];
-        assign y_out = y_val + offset[3:2];
+    assign x_out = x_val + offset[1:0];
+    assign y_out = y_val + offset[3:2];
 
 endmodule // datapath
 
@@ -124,12 +129,12 @@ module control(
     // Next state logic aka our state table
     always@(*)
     begin: state_table
-            case (current_state)
-                S_WAIT: next_state = slowClk ? S_CLEAR : S_WAIT; // Loop in current state until go signal goes low
-                S_CLEAR: next_state = done ? S_UPDATE : S_CLEAR; // Loop in current state until value is input
-                S_UPDATE : next_state = S_DRAW;
-                S_DRAW: next_state = done ? S_WAIT : S_DRAW; // Draw state, Go back to X
-            default:     next_state = S_CLEAR;
+        case (current_state)
+            S_WAIT: next_state = slowClk ? S_CLEAR : S_WAIT; // Loop in current state until go signal goes low
+            S_CLEAR: next_state = done ? S_UPDATE : S_CLEAR; // Loop in current state until value is input
+            S_UPDATE : next_state = S_DRAW;
+            S_DRAW: next_state = done ? S_WAIT : S_DRAW; // Draw state, Go back to X
+        default:     next_state = S_CLEAR;
         endcase
     end // state_table
 

@@ -28,12 +28,12 @@ module bounce
         VGA_B   						//	VGA Blue[9:0]
     );
 
-    input			CLOCK_50;				//	50 MHz
-    input   [17:0]   SW;
+    input	        CLOCK_50;				//	50 MHz
+    input   [17:0]  SW;
     input   [3:0]   KEY;
     output 	[17:0]  LEDR;
-    output 	[7:0]  LEDG;
-    output 	[6:0]  HEX0;
+    output 	[7:0]   LEDG;
+    output 	[6:0]   HEX0;
 //    output 	[6:0]  HEX1;
 //    output 	[6:0]  HEX2;
 //    output 	[6:0]  HEX3;
@@ -52,8 +52,10 @@ module bounce
     output	[9:0]	VGA_R;   				//	VGA Red[9:0]
     output	[9:0]	VGA_G;	 				//	VGA Green[9:0]
     output	[9:0]	VGA_B;   				//	VGA Blue[9:0]
-    wire resetn;
-    assign resetn = SW[17];
+
+    // Unused.
+    // wire resetn;
+    // assign resetn = SW[17];
     
     // Create the colour, x, y and writeEn wires that are inputs to the controller.
     reg [2:0] color;
@@ -61,19 +63,6 @@ module bounce
     reg [6:0] y;
     reg writeEn;
 	
-    // for Debugging
-	 //assign LEDR[17:0] = bee1_offset[17:0];
-//	assign LEDR[0] = x == 7'd80;
-//    assign LEDR[1] = y == 7'd60;
-    // assign LEDG[0] = bee0_load;
-    // assign LEDG[1] = bee0_clear;
-    // assign LEDG[2] = bee0_waiting;
-    // assign LEDG[3] = bee0_done;
-	 
-	//assign LEDG[0] = reset_game;
-	//assign LEDG[2:1] = lives;
-
-
     // Create an Instance of a VGA controller - there can be only one!
     // Define the number of colours as well as the initial background
     // image file (.MIF) for the controller.
@@ -97,29 +86,26 @@ module bounce
         defparam VGA.MONOCHROME = "FALSE";
         defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
         defparam VGA.BACKGROUND_IMAGE = "image.colour.mif";
-//		  
-
-//		 assign LEDR[0] = bee0_writeEn;
-//		 assign LEDR[1] = bee1_writeEn;
-//            
+       
     // Put your code here. Your code should produce signals x,y,colour and writeEn/plot
     // for the VGA controller, in addition to any other functionality your design may require.
 
     ///////////////////////////////// GAME MECHANICS /////////////////////////////////////////////////////////
 
+    // Defining all registers needed.
     reg player_reset = 1'b0;
-	 reg game_over = 1'b0;
+	reg game_over = 1'b0;
     reg [1:0] player_lives = 2'b11;
     reg [7:0] score = 8'd0;
     reg [7:0] high_score = 8'd0;
 
-    assign LEDG[1:0] = player_lives;
-	assign LEDG[3] = player_lives == 2'b00;
-	 
+    // Checking collisions with borders	 
 	wire walls_collided = 	(player_x >= 8'd152) || (player_x <= 7'd4)
 								|| (player_y == 7'd112) || (player_y == 7'd24);
 								
-	assign bees_collided = //1'b0;
+	// Checking collisions with bees
+    // But only the enabled ones
+    assign bees_collided =
         (   (player_x >= bee0_x - 2'd3) && (player_x <= bee0_x + 2'd3)
         &&  (player_y >= bee0_y - 2'd3) && (player_y <= bee0_y + 2'd3)
 		  && bee0_enable)
@@ -136,80 +122,93 @@ module bounce
         &&  (player_y >= bee3_y - 2'd3) && (player_y <= bee3_y + 2'd3)
         && bee3_enable);
 
-    assign LEDR[0] = bees_collided;
     
-   always @(posedge CLOCK_50)
-       begin
-				// Default cases
-				game_over = 1'b0;
-		 
-           if 		 (player_reset && player_slow) 		  player_reset = 1'b0;
-           else 
-                   if ((walls_collided || bees_collided) && player_slow) 
-                       begin
-                           if (player_lives[1:0] == 2'b00)
-                               begin
-												game_over = 1'b1;
-                                   player_reset = 1'b1;
-                                   player_lives = 2'b10;
-                               end
-                           else if (player_lives[1:0] == 2'b01)
-                               begin
-                                   player_reset = 1'b1;
-                                   player_lives = 2'b00;
-                               end
-									 else if (player_lives[1:0] == 2'b10)
-                               begin
-                                   player_reset = 1'b1;
-                                   player_lives = 2'b01;
-                               end
-									 else if (player_lives[1:0] == 2'b11)
-                               begin
-                                   player_reset = 1'b1;
-                                   player_lives = 2'b10;
-                               end
-                       end 
-   end
+    // Main logic here
+    always @(posedge CLOCK_50)
+        begin
+            // Default cases
+            game_over = 1'b0;
+
+            // This is to make sure reset isn't left on.
+            if (player_reset && player_slow)
+                player_reset = 1'b0;
+            
+            // Otherwise if collided
+            else if ((walls_collided || bees_collided) && player_slow)
+                // The following is just checking logic for all lives.
+                begin
+                    if (player_lives[1:0] == 2'b00)
+                        begin
+                            game_over = 1'b1;   // Game over is lives = 0 and collision
+                            player_reset = 1'b1;
+                            player_lives = 2'b10;
+                        end
+                    else if (player_lives[1:0] == 2'b01)
+                        begin
+                            player_reset = 1'b1;
+                            player_lives = 2'b00;
+                        end
+                    else if (player_lives[1:0] == 2'b10)
+                        begin
+                            player_reset = 1'b1;
+                            player_lives = 2'b01;
+                        end
+                    else if (player_lives[1:0] == 2'b11)
+                        begin
+                            player_reset = 1'b1;
+                            player_lives = 2'b10;
+                        end
+                end 
+    end
 	
 
     ////////////////////////////////////// SCORE  /////////////////////////////////////////////////////////////
-		
+
+
+	// These are the wires used in the rate divider
+    // That handles the interval for scoring	
     wire [27:0] score_rdout;
     wire sctime;
     assign sctime = (score_rdout == 28'd0);
 
+    // Rate divider for scoring.
+    // Currently set to 3 seconds.
     rate_divider score_rd(
         .clk(CLOCK_50),
         .load_val(28'd100000000),
         .out(score_rdout)
     );
 
+    // Update score. If game over, reset.
+    // Update high score when needed.
     always @(posedge CLOCK_50)
     begin
-			if (game_over)
-				score = 1'b0;
-			else if (sctime)
-				score = score + 1'b1;
-				
-			if (score >= high_score)
-				high_score = score;
+        if (game_over)
+            score = 1'b0;
+        else if (sctime)
+            score = score + 1'b1;
+            
+        if (score >= high_score)
+            high_score = score;
     end
 	 
 	// Display Score
 	hex_display sc1(.IN(score[3:0]), .OUT(HEX4));
-   hex_display sc2(.IN(score[7:4]), .OUT(HEX5));
+    hex_display sc2(.IN(score[7:4]), .OUT(HEX5));
 	 
 	// Display high score
 	hex_display highsc1(.IN(high_score[3:0]), .OUT(HEX6));
-   hex_display highsc2(.IN(high_score[7:4]), .OUT(HEX7));
+    hex_display highsc2(.IN(high_score[7:4]), .OUT(HEX7));
 	 
 
     ////////////////////////////////////// RATE DIVIDER /////////////////////////////////////////////////////////////
 
+    // Controls the speed of the game
     wire [27:0] rate_out;
-	 wire [27:0] main_rd_in = SW[16] ? 28'd500000 : 28'd1000000; 
+    // Can switch between 2 speeds using Switch.
+	wire [27:0] main_rd_in = SW[17] ? 28'd500000 : 28'd1000000; 
 
-    // Instantiate Rate divider for Bee 0
+    // Instantiate Rate divider game speed
     rate_divider bee0_rd(
         .clk(CLOCK_50), 
         .load_val(main_rd_in), 
@@ -217,45 +216,46 @@ module bounce
     );
 
     ////////////////////////////////////// WHICH ONE DRAWS ///////////////////////////////////////////////////////////
-	 
-	 always @(*) begin
-        writeEn = 1'b0;
-		  if (player_writeEn)
-            begin
-                x = player_x;
-                y = player_y;
-                color = player_c;
-                writeEn = 1'b1;
-            end 
-		  else if (bee0_writeEn)
-            begin
-                x = bee0_x;
-                y = bee0_y;
-                color = bee0_enable ? bee0_c : 3'b111;
-                writeEn = 1'b1;
-            end 
-       else if (bee1_writeEn)
-           begin
-               x = bee1_x;
-               y = bee1_y;
-               color = bee1_enable ? bee1_c : 3'b111;
-               writeEn = 1'b1;
-           end
-       else if (bee2_writeEn)
-       begin
-           x = bee2_x;
-           y = bee2_y;
-           color = bee2_enable ? bee2_c : 3'b111;
-           writeEn = 1'b1;
-       end
-       else if (bee3_writeEn)
-       begin
-           x = bee3_x;
-           y = bee3_y;
-           color = bee3_enable ? bee3_c : 3'b111;;
-           writeEn = 1'b1;
-       end 
-	 end
+	
+    // Handles sending the appropriate input to the VGA
+    always @(*) begin
+    writeEn = 1'b0;
+        if (player_writeEn)
+        begin
+            x = player_x;
+            y = player_y;
+            color = player_c;
+            writeEn = 1'b1;
+        end 
+        else if (bee0_writeEn)
+        begin
+            x = bee0_x;
+            y = bee0_y;
+            color = bee0_enable ? bee0_c : 3'b111;
+            writeEn = 1'b1;
+        end 
+    else if (bee1_writeEn)
+        begin
+            x = bee1_x;
+            y = bee1_y;
+            color = bee1_enable ? bee1_c : 3'b111;
+            writeEn = 1'b1;
+        end
+    else if (bee2_writeEn)
+    begin
+        x = bee2_x;
+        y = bee2_y;
+        color = bee2_enable ? bee2_c : 3'b111;
+        writeEn = 1'b1;
+    end
+    else if (bee3_writeEn)
+    begin
+        x = bee3_x;
+        y = bee3_y;
+        color = bee3_enable ? bee3_c : 3'b111;;
+        writeEn = 1'b1;
+    end 
+    end
 
     /////////////////////////////////////////// PLAYER INSTANTIATION //////////////////////////////////////////////////////
     
@@ -265,8 +265,6 @@ module bounce
     wire [6:0] player_y;
     wire [2:0] player_c;
 	 
-	 //assign LEDG[3:0] = player_dir;
-
     reg [7:0] player_x_in = 8'd80;
     reg [6:0] player_y_in = 7'd60;
     reg [27:0] player_offset  = 28'd0; 
@@ -276,9 +274,7 @@ module bounce
 
     wire player_slow;
     assign player_slow = rate_out == player_offset;
-	 
-	 assign LEDR[17] = player_reset;
-	
+	 	
 	reg [2:0] player_color_in = 3'b001;
 
     hex_display liveshex(.IN(player_lives), .OUT(HEX0));
@@ -320,8 +316,6 @@ module bounce
     wire [6:0] bee0_y;
     wire [2:0] bee0_c;
 	 
-	 //assign LEDG[3:0] = bee0_dir;
-
     reg [7:0] bee0_x_in = 8'd30;
     reg [6:0] bee0_y_in = 7'd48;
     reg [3:0] bee0_dir   = 4'b1010;
@@ -330,26 +324,17 @@ module bounce
     wire bee0_slow;
     assign bee0_slow = rate_out == bee0_offset;
 
-	 wire bee0_enable;
-    reg bee0_reset = 1'b1;
-	 assign bee0_enable = SW[0];
+    // Can enable/disable the bee. 
+	wire bee0_enable;
+	assign bee0_enable = SW[0];
 
-    always @(bee0_enable)
-    begin
-        if (bee0_enable)
-            bee0_reset = 1'b1;
-        else
-            bee0_reset = 1'b0;
-
-    end
-   always @(posedge bee0_slow)
-	    begin
-       begin
-           if      (bee0_x >= 8'd152)  bee0_dir = {1'b1, bee0_dir[2:1], 1'b0};
-           else if (bee0_x <= 7'd4)    bee0_dir = {1'b0, bee0_dir[2:1], 1'b1};
-           if      (bee0_y == 7'd112)  bee0_dir = {bee0_dir[3], 2'b01, bee0_dir[0]};
-           else if (bee0_y == 7'd24)    bee0_dir = {bee0_dir[3], 2'b10, bee0_dir[0]};
-       end
+    // Handles the boing boing
+    always @(posedge bee0_slow)
+	begin
+        if      (bee0_x >= 8'd152)  bee0_dir = {1'b1, bee0_dir[2:1], 1'b0};
+        else if (bee0_x <= 7'd4)    bee0_dir = {1'b0, bee0_dir[2:1], 1'b1};
+        if      (bee0_y == 7'd112)  bee0_dir = {bee0_dir[3], 2'b01, bee0_dir[0]};
+        else if (bee0_y == 7'd24)    bee0_dir = {bee0_dir[3], 2'b10, bee0_dir[0]};
 	end
 	
     // Instansiate datapath for Bee 0
@@ -381,33 +366,21 @@ module bounce
     reg [6:0] bee1_y_in = 7'd74;
     reg [3:0] bee1_dir = 4'b1100;
     reg [27:0] bee1_offset = 27'd200;
-    // wire [27:0] bee1_offset;
-	 wire bee1_enable;
-    reg bee1_reset = 1'b1;
-	 assign bee1_enable = SW[1];
 
-    always @(bee1_enable)
-    begin
-        if (bee1_enable)
-            bee1_reset = 1'b1;
-        else
-            bee1_reset = 1'b0;
-
-    end
-	 
-	
-	// assign bee1_offset = {11'd0, SW[17:1]};
     wire bee1_slow;
     assign bee1_slow = rate_out == bee1_offset;
 
+    // Can enable/disable the bee. 
+    wire bee1_enable;
+    assign bee1_enable = SW[1];
+
+    // Handles the boing boing
     always @(posedge bee1_slow)
-	    begin
-        begin
-            if      (bee1_x >= 8'd152)  bee1_dir = {1'b1, bee1_dir[2:1], 1'b0};
-            else if (bee1_x <= 7'd4)    bee1_dir = {1'b0, bee1_dir[2:1], 1'b1};
-            if      (bee1_y == 7'd112)  bee1_dir = {bee1_dir[3], 2'b01, bee1_dir[0]};
-            else if (bee1_y == 7'd24)    bee1_dir = {bee1_dir[3], 2'b10, bee1_dir[0]};
-        end
+	begin
+        if      (bee1_x >= 8'd152)  bee1_dir = {1'b1, bee1_dir[2:1], 1'b0};
+        else if (bee1_x <= 7'd4)    bee1_dir = {1'b0, bee1_dir[2:1], 1'b1};
+        if      (bee1_y == 7'd112)  bee1_dir = {bee1_dir[3], 2'b01, bee1_dir[0]};
+        else if (bee1_y == 7'd24)    bee1_dir = {bee1_dir[3], 2'b10, bee1_dir[0]};
 	end
 	
     // Instansiate datapath for Bee 1
@@ -442,28 +415,18 @@ module bounce
 	
     wire bee2_slow;
     assign bee2_slow = rate_out == bee2_offset;
-	 
-	 wire bee2_enable;
-    reg bee2_reset = 1'b1;
-	 assign bee2_enable = SW[2];
+	
+    // Can enable/disable the bee.
+    wire bee2_enable;
+    assign bee2_enable = SW[2];
 
-    always @(bee2_enable)
-    begin
-        if (bee2_enable)
-            bee2_reset = 1'b1;
-        else
-            bee2_reset = 1'b0;
-
-    end
-
+    // Handles the boing boing
     always @(posedge bee2_slow)
-	    begin
-        begin
-            if      (bee2_x >= 8'd152)  bee2_dir = {1'b1, bee2_dir[2:1], 1'b0};
-            else if (bee2_x <= 7'd4)    bee2_dir = {1'b0, bee2_dir[2:1], 1'b1};
-            if      (bee2_y == 7'd112)  bee2_dir = {bee2_dir[3], 2'b01, bee2_dir[0]};
-            else if (bee2_y == 7'd24)    bee2_dir = {bee2_dir[3], 2'b10, bee2_dir[0]};
-        end
+	begin
+        if      (bee2_x >= 8'd152)  bee2_dir = {1'b1, bee2_dir[2:1], 1'b0};
+        else if (bee2_x <= 7'd4)    bee2_dir = {1'b0, bee2_dir[2:1], 1'b1};
+        if      (bee2_y == 7'd112)  bee2_dir = {bee2_dir[3], 2'b01, bee2_dir[0]};
+        else if (bee2_y == 7'd24)    bee2_dir = {bee2_dir[3], 2'b10, bee2_dir[0]};
 	end
 	
     // Instansiate datapath for Bee 2
@@ -497,29 +460,20 @@ module bounce
     reg [3:0] bee3_dir   = 4'b0101;
     reg [27:0] bee3_offset = 28'd400;
 	 
-	 wire bee3_enable;
-    reg bee3_reset = 1'b1;
-	 assign bee3_enable = SW[3];
-
-    always @(bee3_enable)
-    begin
-        if (bee3_enable)
-            bee3_reset = 1'b1;
-        else
-            bee3_reset = 1'b0;
-    end
-
-    wire bee3_slow;
+	wire bee3_slow;
     assign bee3_slow = rate_out == bee3_offset;
+    
+    // Can enable/disable the bee.
+    wire bee3_enable;
+	assign bee3_enable = SW[3];
 
+    // Handles the boing boing
     always @(posedge bee3_slow)
-	    begin
-        begin
-            if      (bee3_x >= 8'd152)  bee3_dir = {1'b1, bee3_dir[2:1], 1'b0};
-            else if (bee3_x <= 7'd4)    bee3_dir = {1'b0, bee3_dir[2:1], 1'b1};
-            if      (bee3_y == 7'd112)  bee3_dir = {bee3_dir[3], 2'b01, bee3_dir[0]};
-            else if (bee3_y == 7'd24)    bee3_dir = {bee3_dir[3], 2'b10, bee3_dir[0]};
-        end
+    begin
+        if      (bee3_x >= 8'd152)  bee3_dir = {1'b1, bee3_dir[2:1], 1'b0};
+        else if (bee3_x <= 7'd4)    bee3_dir = {1'b0, bee3_dir[2:1], 1'b1};
+        if      (bee3_y == 7'd112)  bee3_dir = {bee3_dir[3], 2'b01, bee3_dir[0]};
+        else if (bee3_y == 7'd24)    bee3_dir = {bee3_dir[3], 2'b10, bee3_dir[0]};
 	end
 	
     // Instansiate datapath for Bee 3
