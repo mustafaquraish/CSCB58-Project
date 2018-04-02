@@ -206,3 +206,4 @@ module hex_display(IN, OUT);
 
 	end
 endmodule
+

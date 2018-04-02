@@ -1,5 +1,5 @@
 Flow report for bounce
-Sun Apr  1 15:56:14 2018
+Mon Apr  2 02:14:11 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Apr  1 15:56:14 2018       ;
+; Flow Status                        ; Successful - Mon Apr  2 02:14:11 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; bounce                                      ;
 ; Top-level Entity Name              ; bounce                                      ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 867 / 114,480 ( < 1 % )                     ;
-;     Total combinational functions  ; 851 / 114,480 ( < 1 % )                     ;
-;     Dedicated logic registers      ; 213 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 221                                         ;
-; Total pins                         ; 91 / 529 ( 17 % )                           ;
+; Total logic elements               ; 988 / 114,480 ( < 1 % )                     ;
+;     Total combinational functions  ; 968 / 114,480 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 260 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 268                                         ;
+; Total pins                         ; 119 / 529 ( 22 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 57,600 / 3,981,312 ( 1 % )                  ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/01/2018 15:55:25 ;
+; Start date & time ; 04/02/2018 02:13:33 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; bounce              ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 52848285502115.152261252509549         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 30902511514127.152264961319296         ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -96,26 +96,26 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:14     ; 1.0                     ; 964 MB              ; 00:00:32                           ;
-; Fitter                    ; 00:00:24     ; 1.0                     ; 1454 MB             ; 00:00:32                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 828 MB              ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.1                     ; 889 MB              ; 00:00:03                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 1071 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:46     ; --                      ; --                  ; 00:01:11                           ;
+; Analysis & Synthesis      ; 00:00:11     ; 1.0                     ; 969 MB              ; 00:00:25                           ;
+; Fitter                    ; 00:00:18     ; 1.0                     ; 1454 MB             ; 00:00:25                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 833 MB              ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.1                     ; 905 MB              ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 1083 MB             ; 00:00:01                           ;
+; Total                     ; 00:00:35     ; --                      ; --                  ; 00:00:56                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                           ;
-+---------------------------+------------------+--------------+------------+----------------+
-; Module Name               ; Machine Hostname ; OS Name      ; OS Version ; Processor type ;
-+---------------------------+------------------+--------------+------------+----------------+
-; Analysis & Synthesis      ; MSUN             ; Ubuntu 17.10 ; 17         ; x86_64         ;
-; Fitter                    ; MSUN             ; Ubuntu 17.10 ; 17         ; x86_64         ;
-; Assembler                 ; MSUN             ; Ubuntu 17.10 ; 17         ; x86_64         ;
-; TimeQuest Timing Analyzer ; MSUN             ; Ubuntu 17.10 ; 17         ; x86_64         ;
-; EDA Netlist Writer        ; MSUN             ; Ubuntu 17.10 ; 17         ; x86_64         ;
-+---------------------------+------------------+--------------+------------+----------------+
++---------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                             ;
++---------------------------+------------------+----------------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
++---------------------------+------------------+----------------+------------+----------------+
+; Analysis & Synthesis      ; Mustafa          ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; Fitter                    ; Mustafa          ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; Assembler                 ; Mustafa          ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; TimeQuest Timing Analyzer ; Mustafa          ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; EDA Netlist Writer        ; Mustafa          ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
++---------------------------+------------------+----------------+------------+----------------+
 
 
 ------------

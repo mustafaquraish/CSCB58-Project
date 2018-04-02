@@ -6,9 +6,17 @@ module bounce
         // Your inputs and outputs here
         KEY,
         SW,
-		  LEDR,
-          LEDG,
-          HEX0,
+        LEDR,
+        LEDG,
+        HEX0,
+//        HEX1,
+//        HEX2,
+//        HEX3,
+        HEX4,
+        HEX5,
+        HEX6,
+        HEX7,
+
         // The ports below are for the VGA output.  Do not change.
         VGA_CLK,   						//	VGA Clock
         VGA_HS,							//	VGA H_SYNC
@@ -23,9 +31,16 @@ module bounce
     input			CLOCK_50;				//	50 MHz
     input   [17:0]   SW;
     input   [3:0]   KEY;
-	 output 	[17:0]  LEDR;
-     output 	[7:0]  LEDG;
-     output 	[6:0]  HEX0;
+    output 	[17:0]  LEDR;
+    output 	[7:0]  LEDG;
+    output 	[6:0]  HEX0;
+//    output 	[6:0]  HEX1;
+//    output 	[6:0]  HEX2;
+//    output 	[6:0]  HEX3;
+    output 	[6:0]  HEX4;
+    output 	[6:0]  HEX5;
+    output 	[6:0]  HEX6;
+    output 	[6:0]  HEX7;
 	  
     // Declare your inputs and outputs here
     // Do not change the following outputs
@@ -94,14 +109,14 @@ module bounce
 
     reg player_reset = 1'b0;
 	 reg game_over = 1'b0;
-    reg [1:0] player_lives = 2'b10;
+    reg [1:0] player_lives = 2'b11;
     reg [7:0] score = 8'd0;
     reg [7:0] high_score = 8'd0;
 
     assign LEDG[1:0] = player_lives;
-	 assign LEDG[3] = player_lives == 2'b00;
+	assign LEDG[3] = player_lives == 2'b00;
 	 
-	 wire walls_collided = 	(player_x >= 8'd152) || (player_x <= 7'd4)
+	wire walls_collided = 	(player_x >= 8'd152) || (player_x <= 7'd4)
 								|| (player_y == 7'd112) || (player_y == 7'd24);
 								
 	assign bees_collided = //1'b0;
@@ -123,46 +138,81 @@ module bounce
 
     assign LEDR[0] = bees_collided;
     
-    always @(posedge player_slow)
-        begin
-            if 		 (player_reset) 		  player_reset = 1'b0;
-            else 
-                    if (walls_collided || bees_collided) 
-                        begin
-                            if (player_lives[1:0] == 2'b00)
-                                begin
-                                    player_reset = 1'b1;
-                                    game_over = 1'b1;
-                                    player_lives = 2'b10;
-                                    score = 1'b0;
-                                end
-                            else if (player_lives[1:0] == 2'b01)
-                                begin
-                                    player_reset = 1'b1;
-                                    player_lives = 2'b00;
-                                end
+   always @(posedge CLOCK_50)
+       begin
+				// Default cases
+				game_over = 1'b0;
+		 
+           if 		 (player_reset && player_slow) 		  player_reset = 1'b0;
+           else 
+                   if ((walls_collided || bees_collided) && player_slow) 
+                       begin
+                           if (player_lives[1:0] == 2'b00)
+                               begin
+												game_over = 1'b1;
+                                   player_reset = 1'b1;
+                                   player_lives = 2'b10;
+                               end
+                           else if (player_lives[1:0] == 2'b01)
+                               begin
+                                   player_reset = 1'b1;
+                                   player_lives = 2'b00;
+                               end
 									 else if (player_lives[1:0] == 2'b10)
-                                begin
-                                    player_reset = 1'b1;
-                                    player_lives = 2'b01;
-                                end
+                               begin
+                                   player_reset = 1'b1;
+                                   player_lives = 2'b01;
+                               end
 									 else if (player_lives[1:0] == 2'b11)
-                                begin
-                                    player_reset = 1'b1;
-                                    player_lives = 2'b10;
-                                end
-                        end 
-    end
+                               begin
+                                   player_reset = 1'b1;
+                                   player_lives = 2'b10;
+                               end
+                       end 
+   end
+	
+
+    ////////////////////////////////////// SCORE  /////////////////////////////////////////////////////////////
 		
+    wire [27:0] score_rdout;
+    wire sctime;
+    assign sctime = (score_rdout == 28'd0);
+
+    rate_divider score_rd(
+        .clk(CLOCK_50),
+        .load_val(28'd100000000),
+        .out(score_rdout)
+    );
+
+    always @(posedge CLOCK_50)
+    begin
+			if (game_over)
+				score = 1'b0;
+			else if (sctime)
+				score = score + 1'b1;
+				
+			if (score >= high_score)
+				high_score = score;
+    end
+	 
+	// Display Score
+	hex_display sc1(.IN(score[3:0]), .OUT(HEX4));
+   hex_display sc2(.IN(score[7:4]), .OUT(HEX5));
+	 
+	// Display high score
+	hex_display highsc1(.IN(high_score[3:0]), .OUT(HEX6));
+   hex_display highsc2(.IN(high_score[7:4]), .OUT(HEX7));
+	 
 
     ////////////////////////////////////// RATE DIVIDER /////////////////////////////////////////////////////////////
 
     wire [27:0] rate_out;
+	 wire [27:0] main_rd_in = SW[16] ? 28'd500000 : 28'd1000000; 
 
     // Instantiate Rate divider for Bee 0
     rate_divider bee0_rd(
         .clk(CLOCK_50), 
-        .load_val(28'd500000), 
+        .load_val(main_rd_in), 
         .out(rate_out)
     );
 
@@ -233,15 +283,15 @@ module bounce
 
     hex_display liveshex(.IN(player_lives), .OUT(HEX0));
 	
-//	 always @(player_lives)
-//	 begin
-//	 	case (player_lives)
-//	 		2'b00: player_color_in = 3'b100;
-//	 		2'b01: player_color_in = 3'b110;
-//	 		2'b10: player_color_in = 3'b001;
-//	 		2'b11: player_color_in = 3'b001;
-//	 	endcase
-//	 end
+	 always @(player_lives)
+	 begin
+	 	case (player_lives)
+	 		2'b00: player_color_in = 3'b100;
+	 		2'b01: player_color_in = 3'b101;
+	 		2'b10: player_color_in = 3'b001;
+	 		2'b11: player_color_in = 3'b001;
+	 	endcase
+	 end
 	
 	
     // Instansiate datapath for Player
