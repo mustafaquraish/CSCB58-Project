@@ -1,2 +1,2 @@
 Warning (10268): Verilog HDL information at modules.v(31): always construct contains both blocking and non-blocking assignments File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 31
-Warning (10268): Verilog HDL information at modules.v(84): always construct contains both blocking and non-blocking assignments File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 84
+Warning (10268): Verilog HDL information at modules.v(86): always construct contains both blocking and non-blocking assignments File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 86
