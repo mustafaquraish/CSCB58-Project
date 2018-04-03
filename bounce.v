@@ -174,7 +174,7 @@ module bounce
     // Turn on all LEDS when game over
     // assign LEDR[17] = over;
     // assign LEDR[16] = over;
-    // assign LEDR[15] = over;
+    assign LEDR[15] = over;     // Indicates switch to reset
     // assign LEDR[14] = over;
     // assign LEDR[13] = over;
     // assign LEDR[12] = over;
@@ -209,7 +209,7 @@ module bounce
     wire [6:0] hex6;
     wire [6:0] hex7;
 
-    assign HEX0 = over ? 7'b0101111 : hex0;
+    assign HEX0 = over ? 7'b0101111 : hex0;  
     assign HEX1 = over ? 7'b0000110 : 7'b1111111;
     assign HEX2 = over ? 7'b1000001 : 7'b1111111;
     assign HEX3 = over ? 7'b1000000 : 7'b1111111;
@@ -222,13 +222,14 @@ module bounce
     reg overoff = 1'b0;
 
     always @(posedge CLOCK_50)
-        if (game_over) over = 1'b1;
-        else if (SW[15] && ~overoff) 
+        if (game_over) 
             begin
-                over = 1'b0;
-                overoff = 1'b1;
+                over = 1'b1;
+                overoff = 1'b0;
             end
-        else if (SW[15] && overoff) 
+        else if (SW[15])
+                overoff = 1'b1;
+        else if (~SW[15] && overoff) 
             begin
                 over = 1'b0;
                 overoff = 1'b0;
@@ -236,9 +237,14 @@ module bounce
 
     ///////////////////////////////////// LIVES DRAW /////////////////////////////////////////////////////////
 
+    // Instanciating Datapaths and Controls for blocks
+    // In the top right of screen that show number of lives
+
     wire lives1_slow = rate_out == 28'd1000;
     wire lives2_slow = rate_out == 28'd900;
     wire lives3_slow = rate_out == 28'd800;
+
+    // ------------------------------------------- Lives 1 ------------------------------------------------------ //
 
     wire lives1_clear, lives1_update, lives1_done, lives1_waiting;
     wire lives1_rdout, lives1_writeEn;
@@ -250,7 +256,7 @@ module bounce
     datapath lives1_data(
         // Inputs
         .clk(CLOCK_50), .resetn(1'b1), .done(lives1_done), .update(lives1_update), .clear(lives1_clear),  .bee(1'b0),
-        .waiting(lives1_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd140), .y_in(7'd12), .dir_in(4'b000),
+        .waiting(lives1_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd142), .y_in(7'd12), .dir_in(4'b000),
         // Outputs
         .x_out(lives1_x), .y_out(lives1_y), .c_out(lives1_c), .writeEn(lives1_writeEn)
     );
@@ -263,6 +269,8 @@ module bounce
         .update(lives1_update), .clear(lives1_clear), .done(lives1_done), .waiting(lives1_waiting),
     );
 
+    // ------------------------------------------- Lives 2 ------------------------------------------------------ //
+
     wire lives2_clear, lives2_update, lives2_done, lives2_waiting;
     wire lives2_rdout, lives2_writeEn;
     wire [7:0] lives2_x;
@@ -273,7 +281,7 @@ module bounce
     datapath lives2_data(
         // Inputs
         .clk(CLOCK_50), .resetn(1'b1), .done(lives2_done), .update(lives2_update), .clear(lives2_clear),  .bee(1'b0),
-        .waiting(lives2_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd132), .y_in(7'd12), .dir_in(4'b000),
+        .waiting(lives2_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd134), .y_in(7'd12), .dir_in(4'b000),
         // Outputs
         .x_out(lives2_x), .y_out(lives2_y), .c_out(lives2_c), .writeEn(lives2_writeEn)
     );
@@ -286,6 +294,8 @@ module bounce
         .update(lives2_update), .clear(lives2_clear), .done(lives2_done), .waiting(lives2_waiting),
     );
 
+    // ------------------------------------------- Lives 3 ------------------------------------------------------ //
+
     wire lives3_clear, lives3_update, lives3_done, lives3_waiting;
     wire lives3_rdout, lives3_writeEn;
     wire [7:0] lives3_x;
@@ -296,7 +306,7 @@ module bounce
     datapath lives3_data(
         // Inputs
         .clk(CLOCK_50), .resetn(1'b1), .done(lives3_done), .update(lives3_update), .clear(lives3_clear),  .bee(1'b0),
-        .waiting(lives3_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd124), .y_in(7'd12), .dir_in(4'b000),
+        .waiting(lives3_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd126), .y_in(7'd12), .dir_in(4'b000),
         // Outputs
         .x_out(lives3_x), .y_out(lives3_y), .c_out(lives3_c), .writeEn(lives3_writeEn)
     );
@@ -472,7 +482,7 @@ module bounce
          
     reg [2:0] player_color_in = 3'b001;
 
-    hex_display liveshex(.IN(player_lives), .OUT(hex0));
+    hex_display liveshex(.IN(player_lives + 1'b1), .OUT(hex0));
     
      always @(player_lives)
      begin
@@ -781,7 +791,5 @@ module bounce
         // Outputs
         .update(bee5_update), .clear(bee5_clear), .done(bee5_done), .waiting(bee5_waiting),
     );
-    
-    
     
 endmodule
