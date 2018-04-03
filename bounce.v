@@ -85,7 +85,7 @@ module bounce
         defparam VGA.RESOLUTION = "160x120";
         defparam VGA.MONOCHROME = "FALSE";
         defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-        defparam VGA.BACKGROUND_IMAGE = "image.colour.mif";
+        defparam VGA.BACKGROUND_IMAGE = "bees2.mif";
        
     // Put your code here. Your code should produce signals x,y,colour and writeEn/plot
     // for the VGA controller, in addition to any other functionality your design may require.
@@ -256,7 +256,7 @@ module bounce
     datapath lives1_data(
         // Inputs
         .clk(CLOCK_50), .resetn(1'b1), .done(lives1_done), .update(lives1_update), .clear(lives1_clear),  .bee(1'b0),
-        .waiting(lives1_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd142), .y_in(7'd12), .dir_in(4'b000),
+        .waiting(lives1_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd144), .y_in(7'd12), .dir_in(4'b000),
         // Outputs
         .x_out(lives1_x), .y_out(lives1_y), .c_out(lives1_c), .writeEn(lives1_writeEn)
     );
@@ -281,7 +281,7 @@ module bounce
     datapath lives2_data(
         // Inputs
         .clk(CLOCK_50), .resetn(1'b1), .done(lives2_done), .update(lives2_update), .clear(lives2_clear),  .bee(1'b0),
-        .waiting(lives2_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd134), .y_in(7'd12), .dir_in(4'b000),
+        .waiting(lives2_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd136), .y_in(7'd12), .dir_in(4'b000),
         // Outputs
         .x_out(lives2_x), .y_out(lives2_y), .c_out(lives2_c), .writeEn(lives2_writeEn)
     );
@@ -306,7 +306,7 @@ module bounce
     datapath lives3_data(
         // Inputs
         .clk(CLOCK_50), .resetn(1'b1), .done(lives3_done), .update(lives3_update), .clear(lives3_clear),  .bee(1'b0),
-        .waiting(lives3_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd126), .y_in(7'd12), .dir_in(4'b000),
+        .waiting(lives3_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd128), .y_in(7'd12), .dir_in(4'b000),
         // Outputs
         .x_out(lives3_x), .y_out(lives3_y), .c_out(lives3_c), .writeEn(lives3_writeEn)
     );

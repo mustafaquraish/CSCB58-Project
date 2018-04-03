@@ -1,12 +1,12 @@
-Fitter Status : Successful - Tue Apr  3 01:26:54 2018
+Fitter Status : Successful - Tue Apr  3 14:00:21 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : bounce
 Top-level Entity Name : bounce
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 1,537 / 114,480 ( 1 % )
-    Total combinational functions : 1,511 / 114,480 ( 1 % )
+Total logic elements : 1,524 / 114,480 ( 1 % )
+    Total combinational functions : 1,502 / 114,480 ( 1 % )
     Dedicated logic registers : 371 / 114,480 ( < 1 % )
 Total registers : 392
 Total pins : 140 / 529 ( 26 % )
