@@ -1,5 +1,5 @@
 Analysis & Synthesis report for bounce
-Mon Apr  2 22:40:29 2018
+Tue Apr  3 00:53:15 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -21,40 +21,50 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  13. State Machine - |bounce|control:bee1_control|current_state
  14. State Machine - |bounce|control:bee0_control|current_state
  15. State Machine - |bounce|control:player_control|current_state
- 16. User-Specified and Inferred Latches
- 17. Registers Removed During Synthesis
- 18. General Register Statistics
- 19. Inverted Register Statistics
- 20. Multiplexer Restructuring Statistics (Restructuring Performed)
- 21. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated
- 22. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 23. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 24. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 25. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 26. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 27. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 28. altsyncram Parameter Settings by Entity Instance
- 29. altpll Parameter Settings by Entity Instance
- 30. Port Connectivity Checks: "control:bee5_control"
- 31. Port Connectivity Checks: "datapath:bee5_data"
- 32. Port Connectivity Checks: "control:bee4_control"
- 33. Port Connectivity Checks: "datapath:bee4_data"
- 34. Port Connectivity Checks: "control:bee3_control"
- 35. Port Connectivity Checks: "datapath:bee3_data"
- 36. Port Connectivity Checks: "control:bee2_control"
- 37. Port Connectivity Checks: "datapath:bee2_data"
- 38. Port Connectivity Checks: "control:bee1_control"
- 39. Port Connectivity Checks: "datapath:bee1_data"
- 40. Port Connectivity Checks: "control:bee0_control"
- 41. Port Connectivity Checks: "datapath:bee0_data"
- 42. Port Connectivity Checks: "datapath:player_data"
- 43. Port Connectivity Checks: "hex_display:liveshex"
- 44. Port Connectivity Checks: "rate_divider:score_rd"
- 45. Port Connectivity Checks: "vga_adapter:VGA"
- 46. Post-Synthesis Netlist Statistics for Top Partition
- 47. Elapsed Time Per Partition
- 48. Analysis & Synthesis Messages
- 49. Analysis & Synthesis Suppressed Messages
+ 16. State Machine - |bounce|control:lives3_control|current_state
+ 17. State Machine - |bounce|control:lives2_control|current_state
+ 18. State Machine - |bounce|control:lives1_control|current_state
+ 19. User-Specified and Inferred Latches
+ 20. Registers Removed During Synthesis
+ 21. Removed Registers Triggering Further Register Optimizations
+ 22. General Register Statistics
+ 23. Inverted Register Statistics
+ 24. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 25. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated
+ 26. Parameter Settings for User Entity Instance: vga_adapter:VGA
+ 27. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
+ 28. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
+ 29. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+ 30. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
+ 31. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
+ 32. altsyncram Parameter Settings by Entity Instance
+ 33. altpll Parameter Settings by Entity Instance
+ 34. Port Connectivity Checks: "control:bee5_control"
+ 35. Port Connectivity Checks: "datapath:bee5_data"
+ 36. Port Connectivity Checks: "control:bee4_control"
+ 37. Port Connectivity Checks: "datapath:bee4_data"
+ 38. Port Connectivity Checks: "control:bee3_control"
+ 39. Port Connectivity Checks: "datapath:bee3_data"
+ 40. Port Connectivity Checks: "control:bee2_control"
+ 41. Port Connectivity Checks: "datapath:bee2_data"
+ 42. Port Connectivity Checks: "control:bee1_control"
+ 43. Port Connectivity Checks: "datapath:bee1_data"
+ 44. Port Connectivity Checks: "control:bee0_control"
+ 45. Port Connectivity Checks: "datapath:bee0_data"
+ 46. Port Connectivity Checks: "datapath:player_data"
+ 47. Port Connectivity Checks: "hex_display:liveshex"
+ 48. Port Connectivity Checks: "rate_divider:score_rd"
+ 49. Port Connectivity Checks: "control:lives3_control"
+ 50. Port Connectivity Checks: "datapath:lives3_data"
+ 51. Port Connectivity Checks: "control:lives2_control"
+ 52. Port Connectivity Checks: "datapath:lives2_data"
+ 53. Port Connectivity Checks: "control:lives1_control"
+ 54. Port Connectivity Checks: "datapath:lives1_data"
+ 55. Port Connectivity Checks: "vga_adapter:VGA"
+ 56. Post-Synthesis Netlist Statistics for Top Partition
+ 57. Elapsed Time Per Partition
+ 58. Analysis & Synthesis Messages
+ 59. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -80,16 +90,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Apr  2 22:40:29 2018       ;
+; Analysis & Synthesis Status        ; Successful - Tue Apr  3 00:53:15 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; bounce                                      ;
 ; Top-level Entity Name              ; bounce                                      ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,402                                       ;
-;     Total combinational functions  ; 1,387                                       ;
-;     Dedicated logic registers      ; 340                                         ;
-; Total registers                    ; 340                                         ;
-; Total pins                         ; 119                                         ;
+; Total logic elements               ; 1,517                                       ;
+;     Total combinational functions  ; 1,504                                       ;
+;     Dedicated logic registers      ; 373                                         ;
+; Total registers                    ; 373                                         ;
+; Total pins                         ; 140                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 57,600                                      ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -237,23 +247,23 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,402          ;
+; Estimated Total logic elements              ; 1,517          ;
 ;                                             ;                ;
-; Total combinational functions               ; 1387           ;
+; Total combinational functions               ; 1504           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 354            ;
-;     -- 3 input functions                    ; 446            ;
-;     -- <=2 input functions                  ; 587            ;
+;     -- 4 input functions                    ; 396            ;
+;     -- 3 input functions                    ; 475            ;
+;     -- <=2 input functions                  ; 633            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 678            ;
+;     -- normal mode                          ; 795            ;
 ;     -- arithmetic mode                      ; 709            ;
 ;                                             ;                ;
-; Total registers                             ; 340            ;
-;     -- Dedicated logic registers            ; 340            ;
+; Total registers                             ; 373            ;
+;     -- Dedicated logic registers            ; 373            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
-; I/O pins                                    ; 119            ;
+; I/O pins                                    ; 140            ;
 ; Total memory bits                           ; 57600          ;
 ;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
@@ -262,9 +272,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 296            ;
-; Total fan-out                               ; 5280           ;
-; Average fan-out                             ; 2.67           ;
+; Maximum fan-out                             ; 329            ;
+; Total fan-out                               ; 5731           ;
+; Average fan-out                             ; 2.64           ;
 +---------------------------------------------+----------------+
 
 
@@ -273,13 +283,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |bounce                                                 ; 1387 (618)          ; 340 (51)                  ; 57600       ; 0            ; 0       ; 0         ; 119  ; 0            ; |bounce                                                                                                ; bounce                 ; work         ;
+; |bounce                                                 ; 1504 (658)          ; 373 (51)                  ; 57600       ; 0            ; 0       ; 0         ; 140  ; 0            ; |bounce                                                                                                ; bounce                 ; work         ;
 ;    |control:bee0_control|                               ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee0_control                                                                           ; control                ; work         ;
 ;    |control:bee1_control|                               ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee1_control                                                                           ; control                ; work         ;
 ;    |control:bee2_control|                               ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee2_control                                                                           ; control                ; work         ;
 ;    |control:bee3_control|                               ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee3_control                                                                           ; control                ; work         ;
 ;    |control:bee4_control|                               ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee4_control                                                                           ; control                ; work         ;
 ;    |control:bee5_control|                               ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:bee5_control                                                                           ; control                ; work         ;
+;    |control:lives1_control|                             ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:lives1_control                                                                         ; control                ; work         ;
+;    |control:lives2_control|                             ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:lives2_control                                                                         ; control                ; work         ;
+;    |control:lives3_control|                             ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:lives3_control                                                                         ; control                ; work         ;
 ;    |control:player_control|                             ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|control:player_control                                                                         ; control                ; work         ;
 ;    |datapath:bee0_data|                                 ; 76 (76)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee0_data                                                                             ; datapath               ; work         ;
 ;    |datapath:bee1_data|                                 ; 76 (76)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee1_data                                                                             ; datapath               ; work         ;
@@ -287,19 +300,22 @@ refer to the applicable agreement for further details.
 ;    |datapath:bee3_data|                                 ; 76 (76)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee3_data                                                                             ; datapath               ; work         ;
 ;    |datapath:bee4_data|                                 ; 76 (76)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee4_data                                                                             ; datapath               ; work         ;
 ;    |datapath:bee5_data|                                 ; 76 (76)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:bee5_data                                                                             ; datapath               ; work         ;
+;    |datapath:lives1_data|                               ; 9 (9)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:lives1_data                                                                           ; datapath               ; work         ;
+;    |datapath:lives2_data|                               ; 9 (9)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:lives2_data                                                                           ; datapath               ; work         ;
+;    |datapath:lives3_data|                               ; 9 (9)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:lives3_data                                                                           ; datapath               ; work         ;
 ;    |datapath:player_data|                               ; 58 (58)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|datapath:player_data                                                                           ; datapath               ; work         ;
-;    |hex_display:highsc1|                                ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|hex_display:highsc1                                                                            ; hex_display            ; work         ;
-;    |hex_display:highsc2|                                ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|hex_display:highsc2                                                                            ; hex_display            ; work         ;
-;    |hex_display:liveshex|                               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|hex_display:liveshex                                                                           ; hex_display            ; work         ;
-;    |hex_display:sc1|                                    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|hex_display:sc1                                                                                ; hex_display            ; work         ;
-;    |hex_display:sc2|                                    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|hex_display:sc2                                                                                ; hex_display            ; work         ;
+;    |hex_display:highsc1|                                ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|hex_display:highsc1                                                                            ; hex_display            ; work         ;
+;    |hex_display:highsc2|                                ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|hex_display:highsc2                                                                            ; hex_display            ; work         ;
+;    |hex_display:liveshex|                               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|hex_display:liveshex                                                                           ; hex_display            ; work         ;
+;    |hex_display:sc1|                                    ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|hex_display:sc1                                                                                ; hex_display            ; work         ;
+;    |hex_display:sc2|                                    ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|hex_display:sc2                                                                                ; hex_display            ; work         ;
 ;    |rate_divider:bee0_rd|                               ; 54 (54)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|rate_divider:bee0_rd                                                                           ; rate_divider           ; work         ;
-;    |rate_divider:score_rd|                              ; 44 (44)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|rate_divider:score_rd                                                                          ; rate_divider           ; work         ;
-;    |vga_adapter:VGA|                                    ; 98 (2)              ; 30 (0)                    ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
-;       |altsyncram:VideoMemory|                          ; 12 (0)              ; 4 (0)                     ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
-;          |altsyncram_emg1:auto_generated|               ; 12 (0)              ; 4 (4)                     ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated                          ; altsyncram_emg1        ; work         ;
+;    |rate_divider:score_rd|                              ; 54 (54)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|rate_divider:score_rd                                                                          ; rate_divider           ; work         ;
+;    |vga_adapter:VGA|                                    ; 100 (2)             ; 30 (0)                    ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
+;       |altsyncram:VideoMemory|                          ; 14 (0)              ; 4 (0)                     ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
+;          |altsyncram_emg1:auto_generated|               ; 14 (0)              ; 4 (4)                     ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated                          ; altsyncram_emg1        ; work         ;
 ;             |decode_e8a:rden_decode_b|                  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_e8a:rden_decode_b ; decode_e8a             ; work         ;
-;             |decode_lsa:decode2|                        ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_lsa:decode2       ; decode_lsa             ; work         ;
+;             |decode_lsa:decode2|                        ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_lsa:decode2       ; decode_lsa             ; work         ;
 ;             |mux_0nb:mux3|                              ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3             ; mux_0nb                ; work         ;
 ;       |vga_address_translator:user_input_translator|    ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_address_translator:user_input_translator                                   ; vga_address_translator ; work         ;
 ;       |vga_controller:controller|                       ; 66 (48)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bounce|vga_adapter:VGA|vga_controller:controller                                                      ; vga_controller         ; work         ;
@@ -410,6 +426,45 @@ Encoding Type:  One-Hot
 +------------------------+----------------------+------------------------+-----------------------+----------------------+
 
 
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bounce|control:lives3_control|current_state                                                          ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
+; Name                   ; current_state.S_DRAW ; current_state.S_UPDATE ; current_state.S_CLEAR ; current_state.S_WAIT ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
+; current_state.S_CLEAR  ; 0                    ; 0                      ; 0                     ; 0                    ;
+; current_state.S_UPDATE ; 0                    ; 1                      ; 1                     ; 0                    ;
+; current_state.S_DRAW   ; 1                    ; 0                      ; 1                     ; 0                    ;
+; current_state.S_WAIT   ; 0                    ; 0                      ; 1                     ; 1                    ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bounce|control:lives2_control|current_state                                                          ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
+; Name                   ; current_state.S_DRAW ; current_state.S_UPDATE ; current_state.S_CLEAR ; current_state.S_WAIT ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
+; current_state.S_CLEAR  ; 0                    ; 0                      ; 0                     ; 0                    ;
+; current_state.S_UPDATE ; 0                    ; 1                      ; 1                     ; 0                    ;
+; current_state.S_DRAW   ; 1                    ; 0                      ; 1                     ; 0                    ;
+; current_state.S_WAIT   ; 0                    ; 0                      ; 1                     ; 1                    ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bounce|control:lives1_control|current_state                                                          ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
+; Name                   ; current_state.S_DRAW ; current_state.S_UPDATE ; current_state.S_CLEAR ; current_state.S_WAIT ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
+; current_state.S_CLEAR  ; 0                    ; 0                      ; 0                     ; 0                    ;
+; current_state.S_UPDATE ; 0                    ; 1                      ; 1                     ; 0                    ;
+; current_state.S_DRAW   ; 1                    ; 0                      ; 1                     ; 0                    ;
+; current_state.S_WAIT   ; 0                    ; 0                      ; 1                     ; 1                    ;
++------------------------+----------------------+------------------------+-----------------------+----------------------+
+
+
 +----------------------------------------------------------------------------------------------------+
 ; User-Specified and Inferred Latches                                                                ;
 +-----------------------------------------------------+---------------------+------------------------+
@@ -438,33 +493,87 @@ Encoding Type:  One-Hot
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; main_rd_in[0..3,10,11,21..27]          ; Stuck at GND due to stuck port data_in ;
-; main_rd_in[16,17]                      ; Stuck at VCC due to stuck port data_in ;
-; main_rd_in[19]                         ; Merged with main_rd_in[14]             ;
-; main_rd_in[5,8]                        ; Merged with main_rd_in[13]             ;
-; main_rd_in[4,7]                        ; Merged with main_rd_in[12]             ;
-; main_rd_in[9]                          ; Merged with main_rd_in[6]              ;
-; control:bee5_control|current_state~2   ; Lost fanout                            ;
-; control:bee5_control|current_state~3   ; Lost fanout                            ;
-; control:bee4_control|current_state~2   ; Lost fanout                            ;
-; control:bee4_control|current_state~3   ; Lost fanout                            ;
-; control:bee3_control|current_state~2   ; Lost fanout                            ;
-; control:bee3_control|current_state~3   ; Lost fanout                            ;
-; control:bee2_control|current_state~2   ; Lost fanout                            ;
-; control:bee2_control|current_state~3   ; Lost fanout                            ;
-; control:bee1_control|current_state~2   ; Lost fanout                            ;
-; control:bee1_control|current_state~3   ; Lost fanout                            ;
-; control:bee0_control|current_state~2   ; Lost fanout                            ;
-; control:bee0_control|current_state~3   ; Lost fanout                            ;
-; control:player_control|current_state~2 ; Lost fanout                            ;
-; control:player_control|current_state~3 ; Lost fanout                            ;
-; Total Number of Removed Registers = 35 ;                                        ;
-+----------------------------------------+----------------------------------------+
++------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                 ;
++----------------------------------------+-------------------------------------------+
+; Register name                          ; Reason for Removal                        ;
++----------------------------------------+-------------------------------------------+
+; main_rd_in[0..3,10,11]                 ; Stuck at GND due to stuck port data_in    ;
+; main_rd_in[16,17]                      ; Stuck at VCC due to stuck port data_in    ;
+; main_rd_in[20..27]                     ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives3_data|y_val[4]          ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives3_data|y_val[2,3]        ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives3_data|y_val[0,1,5,6]    ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives3_data|x_val[0]          ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives3_data|x_val[1,2]        ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives3_data|x_val[3..6]       ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives3_data|x_val[7]          ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives3_data|up                ; Lost fanout                               ;
+; datapath:lives2_data|y_val[4]          ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives2_data|y_val[2,3]        ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives2_data|y_val[0,1,5,6]    ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives2_data|x_val[0]          ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives2_data|x_val[1..3]       ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives2_data|x_val[4..6]       ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives2_data|x_val[7]          ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives2_data|up                ; Lost fanout                               ;
+; datapath:lives1_data|y_val[4]          ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives1_data|y_val[2,3]        ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives1_data|y_val[0,1,5,6]    ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives1_data|x_val[0]          ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives1_data|x_val[1,2]        ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives1_data|x_val[3]          ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives1_data|x_val[4]          ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives1_data|x_val[5,6]        ; Stuck at GND due to stuck port data_in    ;
+; datapath:lives1_data|x_val[7]          ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives1_data|up                ; Lost fanout                               ;
+; datapath:lives3_data|c_out[1]          ; Merged with datapath:lives3_data|c_out[0] ;
+; datapath:lives2_data|c_out[1]          ; Merged with datapath:lives2_data|c_out[0] ;
+; datapath:lives1_data|c_out[1]          ; Merged with datapath:lives1_data|c_out[0] ;
+; main_rd_in[19]                         ; Merged with main_rd_in[14]                ;
+; main_rd_in[5,8]                        ; Merged with main_rd_in[13]                ;
+; main_rd_in[4,7]                        ; Merged with main_rd_in[12]                ;
+; main_rd_in[9]                          ; Merged with main_rd_in[6]                 ;
+; overoff                                ; Lost fanout                               ;
+; datapath:lives3_data|c_out[2]          ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives2_data|c_out[2]          ; Stuck at VCC due to stuck port data_in    ;
+; datapath:lives1_data|c_out[2]          ; Stuck at VCC due to stuck port data_in    ;
+; control:bee5_control|current_state~2   ; Lost fanout                               ;
+; control:bee5_control|current_state~3   ; Lost fanout                               ;
+; control:bee4_control|current_state~2   ; Lost fanout                               ;
+; control:bee4_control|current_state~3   ; Lost fanout                               ;
+; control:bee3_control|current_state~2   ; Lost fanout                               ;
+; control:bee3_control|current_state~3   ; Lost fanout                               ;
+; control:bee2_control|current_state~2   ; Lost fanout                               ;
+; control:bee2_control|current_state~3   ; Lost fanout                               ;
+; control:bee1_control|current_state~2   ; Lost fanout                               ;
+; control:bee1_control|current_state~3   ; Lost fanout                               ;
+; control:bee0_control|current_state~2   ; Lost fanout                               ;
+; control:bee0_control|current_state~3   ; Lost fanout                               ;
+; control:player_control|current_state~2 ; Lost fanout                               ;
+; control:player_control|current_state~3 ; Lost fanout                               ;
+; control:lives3_control|current_state~2 ; Lost fanout                               ;
+; control:lives3_control|current_state~3 ; Lost fanout                               ;
+; control:lives2_control|current_state~2 ; Lost fanout                               ;
+; control:lives2_control|current_state~3 ; Lost fanout                               ;
+; control:lives1_control|current_state~2 ; Lost fanout                               ;
+; control:lives1_control|current_state~3 ; Lost fanout                               ;
+; Total Number of Removed Registers = 97 ;                                           ;
++----------------------------------------+-------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                        ;
++-------------------------------+---------------------------+----------------------------------------+
+; Register name                 ; Reason for Removal        ; Registers Removed due to This Register ;
++-------------------------------+---------------------------+----------------------------------------+
+; datapath:lives3_data|y_val[4] ; Stuck at GND              ; datapath:lives3_data|up                ;
+;                               ; due to stuck port data_in ;                                        ;
+; datapath:lives2_data|y_val[4] ; Stuck at GND              ; datapath:lives2_data|up                ;
+;                               ; due to stuck port data_in ;                                        ;
+; datapath:lives1_data|y_val[4] ; Stuck at GND              ; datapath:lives1_data|up                ;
+;                               ; due to stuck port data_in ;                                        ;
++-------------------------------+---------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -472,7 +581,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 340   ;
+; Total registers                              ; 373   ;
 ; Number of registers using Synchronous Clear  ; 9     ;
 ; Number of registers using Synchronous Load   ; 96    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -487,8 +596,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
-; player_lives[1]                         ; 7       ;
-; player_lives[0]                         ; 6       ;
+; player_lives[1]                         ; 10      ;
+; player_lives[0]                         ; 10      ;
 ; datapath:player_data|up                 ; 16      ;
 ; bee5_dir[3]                             ; 9       ;
 ; datapath:bee5_data|up                   ; 16      ;
@@ -518,31 +627,36 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------+
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |bounce|datapath:player_data|c_out[2]                                                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee0_data|x_val[7]                                                                       ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee0_data|y_val[5]                                                                       ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee1_data|x_val[7]                                                                       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |bounce|datapath:lives3_data|c_out[0]                                                                     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |bounce|datapath:lives2_data|c_out[0]                                                                     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |bounce|datapath:lives1_data|c_out[0]                                                                     ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:player_data|x_val[0]                                                                     ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee0_data|x_val[0]                                                                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee0_data|y_val[2]                                                                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:player_data|y_val[6]                                                                     ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee1_data|x_val[6]                                                                       ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee1_data|y_val[2]                                                                       ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee2_data|x_val[6]                                                                       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee2_data|x_val[7]                                                                       ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee2_data|y_val[0]                                                                       ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee3_data|x_val[5]                                                                       ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee3_data|y_val[1]                                                                       ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee4_data|x_val[5]                                                                       ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee4_data|y_val[2]                                                                       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee3_data|x_val[4]                                                                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee3_data|y_val[2]                                                                       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee4_data|x_val[7]                                                                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee4_data|y_val[4]                                                                       ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee5_data|x_val[7]                                                                       ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee5_data|y_val[1]                                                                       ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |bounce|vga_adapter:VGA|vga_controller:controller|yCounter[9]                                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:player_data|x_val[5]                                                                     ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:player_data|y_val[2]                                                                     ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |bounce|datapath:bee5_data|y_val[2]                                                                       ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |bounce|vga_adapter:VGA|vga_controller:controller|yCounter[6]                                             ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |bounce|datapath:bee0_data|c_out[1]                                                                       ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |bounce|datapath:bee1_data|c_out[0]                                                                       ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |bounce|datapath:bee2_data|c_out[0]                                                                       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |bounce|datapath:bee2_data|c_out[1]                                                                       ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |bounce|datapath:bee3_data|c_out[1]                                                                       ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |bounce|datapath:bee4_data|c_out[1]                                                                       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |bounce|datapath:bee4_data|c_out[0]                                                                       ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |bounce|datapath:bee5_data|c_out[0]                                                                       ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |bounce|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3|result_node[1] ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |bounce|score                                                                                             ;
-; 7:1                ; 15 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |bounce|y[1]                                                                                              ;
-; 13:1               ; 3 bits    ; 24 LEs        ; 21 LEs               ; 3 LEs                  ; No         ; |bounce|color[2]                                                                                          ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |bounce|x[5]                                                                                              ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |bounce|x[2]                                                                                              ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |bounce|y[1]                                                                                              ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |bounce|color[0]                                                                                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------+
 
 
@@ -1309,6 +1423,101 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+-------+----------+--------------+
 
 
++----------------------------------------------------+
+; Port Connectivity Checks: "control:lives3_control" ;
++--------+-------+----------+------------------------+
+; Port   ; Type  ; Severity ; Details                ;
++--------+-------+----------+------------------------+
+; resetn ; Input ; Info     ; Stuck at VCC           ;
+; moved  ; Input ; Info     ; Stuck at GND           ;
++--------+-------+----------+------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "datapath:lives3_data" ;
++------------+-------+----------+------------------+
+; Port       ; Type  ; Severity ; Details          ;
++------------+-------+----------+------------------+
+; resetn     ; Input ; Info     ; Stuck at VCC     ;
+; bee        ; Input ; Info     ; Stuck at GND     ;
+; c_in[1..0] ; Input ; Info     ; Stuck at GND     ;
+; c_in[2]    ; Input ; Info     ; Stuck at VCC     ;
+; c2_in      ; Input ; Info     ; Stuck at GND     ;
+; x_in[2..1] ; Input ; Info     ; Stuck at VCC     ;
+; x_in[6..3] ; Input ; Info     ; Stuck at GND     ;
+; x_in[7]    ; Input ; Info     ; Stuck at VCC     ;
+; x_in[0]    ; Input ; Info     ; Stuck at GND     ;
+; y_in[3..2] ; Input ; Info     ; Stuck at VCC     ;
+; y_in[6..4] ; Input ; Info     ; Stuck at GND     ;
+; y_in[1..0] ; Input ; Info     ; Stuck at GND     ;
+; dir_in     ; Input ; Info     ; Stuck at GND     ;
++------------+-------+----------+------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "control:lives2_control" ;
++--------+-------+----------+------------------------+
+; Port   ; Type  ; Severity ; Details                ;
++--------+-------+----------+------------------------+
+; resetn ; Input ; Info     ; Stuck at VCC           ;
+; moved  ; Input ; Info     ; Stuck at GND           ;
++--------+-------+----------+------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "datapath:lives2_data" ;
++------------+-------+----------+------------------+
+; Port       ; Type  ; Severity ; Details          ;
++------------+-------+----------+------------------+
+; resetn     ; Input ; Info     ; Stuck at VCC     ;
+; bee        ; Input ; Info     ; Stuck at GND     ;
+; c_in[1..0] ; Input ; Info     ; Stuck at GND     ;
+; c_in[2]    ; Input ; Info     ; Stuck at VCC     ;
+; c2_in      ; Input ; Info     ; Stuck at GND     ;
+; x_in[3..1] ; Input ; Info     ; Stuck at VCC     ;
+; x_in[6..4] ; Input ; Info     ; Stuck at GND     ;
+; x_in[7]    ; Input ; Info     ; Stuck at VCC     ;
+; x_in[0]    ; Input ; Info     ; Stuck at GND     ;
+; y_in[3..2] ; Input ; Info     ; Stuck at VCC     ;
+; y_in[6..4] ; Input ; Info     ; Stuck at GND     ;
+; y_in[1..0] ; Input ; Info     ; Stuck at GND     ;
+; dir_in     ; Input ; Info     ; Stuck at GND     ;
++------------+-------+----------+------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "control:lives1_control" ;
++--------+-------+----------+------------------------+
+; Port   ; Type  ; Severity ; Details                ;
++--------+-------+----------+------------------------+
+; resetn ; Input ; Info     ; Stuck at VCC           ;
+; moved  ; Input ; Info     ; Stuck at GND           ;
++--------+-------+----------+------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "datapath:lives1_data" ;
++------------+-------+----------+------------------+
+; Port       ; Type  ; Severity ; Details          ;
++------------+-------+----------+------------------+
+; resetn     ; Input ; Info     ; Stuck at VCC     ;
+; bee        ; Input ; Info     ; Stuck at GND     ;
+; c_in[1..0] ; Input ; Info     ; Stuck at GND     ;
+; c_in[2]    ; Input ; Info     ; Stuck at VCC     ;
+; c2_in      ; Input ; Info     ; Stuck at GND     ;
+; x_in[2..1] ; Input ; Info     ; Stuck at VCC     ;
+; x_in[6..5] ; Input ; Info     ; Stuck at GND     ;
+; x_in[7]    ; Input ; Info     ; Stuck at VCC     ;
+; x_in[4]    ; Input ; Info     ; Stuck at VCC     ;
+; x_in[3]    ; Input ; Info     ; Stuck at GND     ;
+; x_in[0]    ; Input ; Info     ; Stuck at GND     ;
+; y_in[3..2] ; Input ; Info     ; Stuck at VCC     ;
+; y_in[6..4] ; Input ; Info     ; Stuck at GND     ;
+; y_in[1..0] ; Input ; Info     ; Stuck at GND     ;
+; dir_in     ; Input ; Info     ; Stuck at GND     ;
++------------+-------+----------+------------------+
+
+
 +---------------------------------------------+
 ; Port Connectivity Checks: "vga_adapter:VGA" ;
 +--------+-------+----------+-----------------+
@@ -1323,27 +1532,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 119                         ;
-; cycloneiii_ff         ; 340                         ;
+; boundary_port         ; 140                         ;
+; cycloneiii_ff         ; 373                         ;
 ;     ENA               ; 24                          ;
 ;     ENA SCLR          ; 9                           ;
 ;     ENA SLD           ; 96                          ;
-;     plain             ; 211                         ;
-; cycloneiii_lcell_comb ; 1393                        ;
+;     plain             ; 244                         ;
+; cycloneiii_lcell_comb ; 1509                        ;
 ;     arith             ; 709                         ;
 ;         2 data inputs ; 402                         ;
 ;         3 data inputs ; 307                         ;
-;     normal            ; 684                         ;
+;     normal            ; 800                         ;
 ;         0 data inputs ; 10                          ;
-;         1 data inputs ; 61                          ;
-;         2 data inputs ; 120                         ;
-;         3 data inputs ; 139                         ;
-;         4 data inputs ; 354                         ;
+;         1 data inputs ; 60                          ;
+;         2 data inputs ; 166                         ;
+;         3 data inputs ; 168                         ;
+;         4 data inputs ; 396                         ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 9                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.70                        ;
-; Average LUT depth     ; 5.01                        ;
+; Max LUT depth         ; 8.70                        ;
+; Average LUT depth     ; 5.45                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1352,7 +1561,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -1362,7 +1571,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Apr  2 22:40:17 2018
+    Info: Processing started: Tue Apr  3 00:53:01 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bounce -c bounce
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -1379,40 +1588,43 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga_ada
     Info (12023): Found entity 1: vga_address_translator File: /home/mustafa/Desktop/CSCB58P2/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_adapter.v
     Info (12023): Found entity 1: vga_adapter File: /home/mustafa/Desktop/CSCB58P2/vga_adapter/vga_adapter.v Line: 78
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(340): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 340
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(387): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 387
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(433): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 433
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(479): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 479
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(526): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 526
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(573): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 573
-Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(620): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 620
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(264): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 264
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(287): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 287
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(310): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 310
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(503): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 503
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(550): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 550
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(596): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 596
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(642): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 642
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(689): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 689
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(736): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 736
+Warning (10275): Verilog HDL Module Instantiation warning at bounce.v(783): ignored dangling comma in List of Port Connections File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 783
 Info (12021): Found 1 design units, including 1 entities, in source file bounce.v
     Info (12023): Found entity 1: bounce File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 3
 Warning (10236): Verilog HDL Implicit Net warning at bounce.v(108): created implicit net for "bees_collided" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 108
 Info (12127): Elaborating entity "bounce" for the top level hierarchy
-Warning (10240): Verilog HDL Always Construct warning at bounce.v(240): inferring latch(es) for variable "x", which holds its previous value in one or more paths through the always construct File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 240
-Warning (10240): Verilog HDL Always Construct warning at bounce.v(240): inferring latch(es) for variable "y", which holds its previous value in one or more paths through the always construct File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 240
-Warning (10240): Verilog HDL Always Construct warning at bounce.v(240): inferring latch(es) for variable "color", which holds its previous value in one or more paths through the always construct File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 240
+Warning (10240): Verilog HDL Always Construct warning at bounce.v(382): inferring latch(es) for variable "x", which holds its previous value in one or more paths through the always construct File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 382
+Warning (10240): Verilog HDL Always Construct warning at bounce.v(382): inferring latch(es) for variable "y", which holds its previous value in one or more paths through the always construct File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 382
+Warning (10240): Verilog HDL Always Construct warning at bounce.v(382): inferring latch(es) for variable "color", which holds its previous value in one or more paths through the always construct File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 382
 Warning (10034): Output port "LEDR" at bounce.v(34) has no driver File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 34
 Warning (10034): Output port "LEDG" at bounce.v(35) has no driver File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 35
-Info (10041): Inferred latch for "color[0]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "color[1]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "color[2]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "y[0]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "y[1]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "y[2]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "y[3]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "y[4]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "y[5]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "y[6]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "x[0]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "x[1]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "x[2]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "x[3]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "x[4]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "x[5]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "x[6]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
-Info (10041): Inferred latch for "x[7]" at bounce.v(248) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Info (10041): Inferred latch for "color[0]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "color[1]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "color[2]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "y[0]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "y[1]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "y[2]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "y[3]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "y[4]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "y[5]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "y[6]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "x[0]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "x[1]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "x[2]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "x[3]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "x[4]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "x[5]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "x[6]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
+Info (10041): Inferred latch for "x[7]" at bounce.v(390) File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
 Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 84
 Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: /home/mustafa/Desktop/CSCB58P2/vga_adapter/vga_adapter.v Line: 192
 Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: /home/mustafa/Desktop/CSCB58P2/vga_adapter/vga_adapter.v Line: 213
@@ -1461,52 +1673,52 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: /home/mustafa/Desktop/CSCB58P2/vga_adapter/vga_adapter.v Line: 252
-Info (12128): Elaborating entity "rate_divider" for hierarchy "rate_divider:score_rd" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 188
-Warning (10230): Verilog HDL assignment warning at modules.v(179): truncated value with size 32 to match size of target (28) File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 179
-Info (12128): Elaborating entity "hex_display" for hierarchy "hex_display:sc1" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 204
-Info (12128): Elaborating entity "datapath" for hierarchy "datapath:player_data" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 332
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:lives1_data" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 256
 Warning (10230): Verilog HDL assignment warning at modules.v(59): truncated value with size 32 to match size of target (8) File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 59
 Warning (10230): Verilog HDL assignment warning at modules.v(61): truncated value with size 32 to match size of target (8) File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 61
 Warning (10230): Verilog HDL assignment warning at modules.v(63): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 63
 Warning (10230): Verilog HDL assignment warning at modules.v(65): truncated value with size 32 to match size of target (7) File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 65
-Info (12128): Elaborating entity "control" for hierarchy "control:player_control" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 340
+Info (12128): Elaborating entity "control" for hierarchy "control:lives1_control" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 264
 Warning (10270): Verilog HDL Case Statement warning at modules.v(149): incomplete case statement has no default case item File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 149
 Info (10264): Verilog HDL Case Statement information at modules.v(149): all case item expressions in this case statement are onehot File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 149
-Warning (13012): Latch x[7] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Info (12128): Elaborating entity "rate_divider" for hierarchy "rate_divider:score_rd" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 328
+Warning (10230): Verilog HDL assignment warning at modules.v(179): truncated value with size 32 to match size of target (28) File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 179
+Info (12128): Elaborating entity "hex_display" for hierarchy "hex_display:sc1" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 344
+Warning (13012): Latch x[7] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch x[6] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch x[6] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch x[5] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch x[5] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch y[6] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch y[6] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch y[5] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch y[5] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch y[4] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch y[4] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch y[3] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch y[3] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch y[2] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch y[2] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch y[1] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch y[1] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch y[0] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch y[0] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch color[2] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch color[2] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch x[0] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch x[0] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch x[1] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch x[1] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch x[2] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch x[2] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch x[3] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch x[3] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch x[4] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch x[4] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch color[1] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch color[1] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
-Warning (13012): Latch color[0] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 248
+Warning (13012): Latch color[0] has unsafe behavior File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 390
     Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:player_data|writeEn File: /home/mustafa/Desktop/CSCB58P2/modules.v Line: 18
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 34
@@ -1535,14 +1747,18 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDG[5]" is stuck at GND File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 35
     Warning (13410): Pin "LEDG[6]" is stuck at GND File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 35
     Warning (13410): Pin "LEDG[7]" is stuck at GND File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 35
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 36
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 37
+    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 37
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 38
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 38
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 39
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 51
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 14 registers lost all their fanouts during netlist optimizations.
+Info (17049): 24 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/mustafa/Desktop/CSCB58P2/output_files/bounce.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 10 input pin(s) that do not drive logic
+Warning (21074): Design contains 9 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[6]" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 32
     Warning (15610): No output dependent on input pin "SW[7]" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 32
     Warning (15610): No output dependent on input pin "SW[8]" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 32
@@ -1552,18 +1768,17 @@ Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[12]" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 32
     Warning (15610): No output dependent on input pin "SW[13]" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 32
     Warning (15610): No output dependent on input pin "SW[14]" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 32
-    Warning (15610): No output dependent on input pin "SW[15]" File: /home/mustafa/Desktop/CSCB58P2/bounce.v Line: 32
-Info (21057): Implemented 1548 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1690 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
-    Info (21059): Implemented 96 output pins
-    Info (21061): Implemented 1419 logic cells
+    Info (21059): Implemented 117 output pins
+    Info (21061): Implemented 1540 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 96 warnings
-    Info: Peak virtual memory: 1020 megabytes
-    Info: Processing ended: Mon Apr  2 22:40:29 2018
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:26
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 102 warnings
+    Info: Peak virtual memory: 1030 megabytes
+    Info: Processing ended: Tue Apr  3 00:53:15 2018
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:27
 
 
 +------------------------------------------+

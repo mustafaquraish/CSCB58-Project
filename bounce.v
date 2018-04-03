@@ -9,9 +9,9 @@ module bounce
         LEDR,
         LEDG,
         HEX0,
-//        HEX1,
-//        HEX2,
-//        HEX3,
+        HEX1,
+        HEX2,
+        HEX3,
         HEX4,
         HEX5,
         HEX6,
@@ -34,9 +34,9 @@ module bounce
     output 	[17:0]  LEDR;
     output 	[7:0]   LEDG;
     output 	[6:0]   HEX0;
-//    output 	[6:0]  HEX1;
-//    output 	[6:0]  HEX2;
-//    output 	[6:0]  HEX3;
+    output 	[6:0]  HEX1;
+    output 	[6:0]  HEX2;
+    output 	[6:0]  HEX3;
     output 	[6:0]  HEX4;
     output 	[6:0]  HEX5;
     output 	[6:0]  HEX6;
@@ -142,7 +142,7 @@ module bounce
                 player_reset = 1'b0;
             
             // Otherwise if collided
-            else if ((walls_collided || bees_collided) && player_slow)
+            else if ((walls_collided || bees_collided) && player_slow && ~over)
                 // The following is just checking logic for all lives.
                 begin
                     if (player_lives[1:0] == 2'b00)
@@ -168,8 +168,148 @@ module bounce
                         end
                 end 
     end
-    
 
+    //////////////////////////////////// GAME OVER ///////////////////////////////////////////////////////////
+
+    // Turn on all LEDS when game over
+    // assign LEDR[17] = over;
+    // assign LEDR[16] = over;
+    // assign LEDR[15] = over;
+    // assign LEDR[14] = over;
+    // assign LEDR[13] = over;
+    // assign LEDR[12] = over;
+    // assign LEDR[11] = over;
+    // assign LEDR[10] = over;
+    // assign LEDR[9] = over;
+    // assign LEDR[8] = over;
+    // assign LEDR[7] = over;
+    // assign LEDR[6] = over;
+    // assign LEDR[5] = over;
+    // assign LEDR[4] = over;
+    // assign LEDR[3] = over;
+    // assign LEDR[2] = over;
+    // assign LEDR[1] = over;
+    // assign LEDR[0] = over;
+
+    // assign LEDG[7] = over;
+    // assign LEDG[7] = over;
+    // assign LEDG[5] = over;
+    // assign LEDG[4] = over;
+    // assign LEDG[3] = over;
+    // assign LEDG[2] = over;
+    // assign LEDG[1] = over;
+    // assign LEDG[0] = over;
+
+    wire [6:0] hex0;
+    wire [6:0] hex1;
+    wire [6:0] hex2;
+    wire [6:0] hex3;
+    wire [6:0] hex4;
+    wire [6:0] hex5;
+    wire [6:0] hex6;
+    wire [6:0] hex7;
+
+    assign HEX0 = over ? 7'b0101111 : hex0;
+    assign HEX1 = over ? 7'b0000110 : 7'b1111111;
+    assign HEX2 = over ? 7'b1000001 : 7'b1111111;
+    assign HEX3 = over ? 7'b1000000 : 7'b1111111;
+    assign HEX4 = over ? 7'b0000110 : hex4;
+    assign HEX5 = over ? 7'b1101010 : hex5;
+    assign HEX6 = over ? 7'b0001000 : hex6;
+    assign HEX7 = over ? 7'b1000010 : hex7;
+
+    reg over = 1'b0;
+    reg overoff = 1'b0;
+
+    always @(posedge CLOCK_50)
+        if (game_over) over = 1'b1;
+        else if (SW[15] && ~overoff) 
+            begin
+                over = 1'b0;
+                overoff = 1'b1;
+            end
+        else if (SW[15] && overoff) 
+            begin
+                over = 1'b0;
+                overoff = 1'b0;
+            end
+
+    ///////////////////////////////////// LIVES DRAW /////////////////////////////////////////////////////////
+
+    wire lives1_slow = rate_out == 28'd1000;
+    wire lives2_slow = rate_out == 28'd900;
+    wire lives3_slow = rate_out == 28'd800;
+
+    wire lives1_clear, lives1_update, lives1_done, lives1_waiting;
+    wire lives1_rdout, lives1_writeEn;
+    wire [7:0] lives1_x;
+    wire [6:0] lives1_y;
+    wire [2:0] lives1_c;
+
+    // Instansiate datapath for Lives 1
+    datapath lives1_data(
+        // Inputs
+        .clk(CLOCK_50), .resetn(1'b1), .done(lives1_done), .update(lives1_update), .clear(lives1_clear),  .bee(1'b0),
+        .waiting(lives1_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd140), .y_in(7'd12), .dir_in(4'b000),
+        // Outputs
+        .x_out(lives1_x), .y_out(lives1_y), .c_out(lives1_c), .writeEn(lives1_writeEn)
+    );
+
+    // Instansiate FSM control Lives 1
+    control lives1_control(
+        // Inputs 
+        .clk(CLOCK_50), .slowClk(lives1_slow), .resetn(1'b1), .moved(1'b0),
+        // Outputs
+        .update(lives1_update), .clear(lives1_clear), .done(lives1_done), .waiting(lives1_waiting),
+    );
+
+    wire lives2_clear, lives2_update, lives2_done, lives2_waiting;
+    wire lives2_rdout, lives2_writeEn;
+    wire [7:0] lives2_x;
+    wire [6:0] lives2_y;
+    wire [2:0] lives2_c;
+
+    // Instansiate datapath for Lives 2
+    datapath lives2_data(
+        // Inputs
+        .clk(CLOCK_50), .resetn(1'b1), .done(lives2_done), .update(lives2_update), .clear(lives2_clear),  .bee(1'b0),
+        .waiting(lives2_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd132), .y_in(7'd12), .dir_in(4'b000),
+        // Outputs
+        .x_out(lives2_x), .y_out(lives2_y), .c_out(lives2_c), .writeEn(lives2_writeEn)
+    );
+
+    // Instansiate FSM control Lives 2
+    control lives2_control(
+        // Inputs 
+        .clk(CLOCK_50), .slowClk(lives2_slow), .resetn(1'b1), .moved(1'b0),
+        // Outputs
+        .update(lives2_update), .clear(lives2_clear), .done(lives2_done), .waiting(lives2_waiting),
+    );
+
+    wire lives3_clear, lives3_update, lives3_done, lives3_waiting;
+    wire lives3_rdout, lives3_writeEn;
+    wire [7:0] lives3_x;
+    wire [6:0] lives3_y;
+    wire [2:0] lives3_c;
+
+    // Instansiate datapath for Lives 3
+    datapath lives3_data(
+        // Inputs
+        .clk(CLOCK_50), .resetn(1'b1), .done(lives3_done), .update(lives3_update), .clear(lives3_clear),  .bee(1'b0),
+        .waiting(lives3_waiting), .c_in(3'b100), .c2_in(3'b000), .x_in(8'd124), .y_in(7'd12), .dir_in(4'b000),
+        // Outputs
+        .x_out(lives3_x), .y_out(lives3_y), .c_out(lives3_c), .writeEn(lives3_writeEn)
+    );
+
+    // Instansiate FSM control Lives 3
+    control lives3_control(
+        // Inputs 
+        .clk(CLOCK_50), .slowClk(lives3_slow), .resetn(1'b1), .moved(1'b0),
+        // Outputs
+        .update(lives3_update), .clear(lives3_clear), .done(lives3_done), .waiting(lives3_waiting),
+    );
+
+    
     ////////////////////////////////////// SCORE  /////////////////////////////////////////////////////////////
 
 
@@ -193,7 +333,7 @@ module bounce
     begin
         if (game_over)
             score = 1'b0;
-        else if (sctime)
+        else if (sctime && ~over)
             score = score + 1'b1;
             
         if (score >= high_score)
@@ -201,12 +341,12 @@ module bounce
     end
      
     // Display Score
-    hex_display sc1(.IN(score[3:0]), .OUT(HEX4));
-    hex_display sc2(.IN(score[7:4]), .OUT(HEX5));
+    hex_display sc1(.IN(score[3:0]), .OUT(hex4));
+    hex_display sc2(.IN(score[7:4]), .OUT(hex5));
      
     // Display high score
-    hex_display highsc1(.IN(high_score[3:0]), .OUT(HEX6));
-    hex_display highsc2(.IN(high_score[7:4]), .OUT(HEX7));
+    hex_display highsc1(.IN(high_score[3:0]), .OUT(hex6));
+    hex_display highsc2(.IN(high_score[7:4]), .OUT(hex7));
      
 
     ////////////////////////////////////// RATE DIVIDER /////////////////////////////////////////////////////////////
@@ -244,49 +384,70 @@ module bounce
             begin
                 x = player_x;
                 y = player_y;
-                color = player_c;
+                color = (~over) ? player_c : 3'b111;
                 writeEn = 1'b1;
             end 
         else if (bee0_writeEn)
             begin
                 x = bee0_x;
                 y = bee0_y;
-                color = bee0_enable ? bee0_c : 3'b111;
+                color = (bee0_enable && ~over) ? bee0_c : 3'b111;
                 writeEn = 1'b1;
             end 
         else if (bee1_writeEn)
             begin
                 x = bee1_x;
                 y = bee1_y;
-                color = bee1_enable ? bee1_c : 3'b111;
+                color = (bee1_enable && ~over) ? bee1_c : 3'b111;
                 writeEn = 1'b1;
             end
         else if (bee2_writeEn)
             begin
                 x = bee2_x;
                 y = bee2_y;
-                color = bee2_enable ? bee2_c : 3'b111;
+                color = (bee2_enable && ~over) ? bee2_c : 3'b111;
                 writeEn = 1'b1;
             end
         else if (bee3_writeEn)
             begin
                 x = bee3_x;
                 y = bee3_y;
-                color = bee3_enable ? bee3_c : 3'b111;
+                color = (bee3_enable && ~over) ? bee3_c : 3'b111;
                 writeEn = 1'b1;
             end 
         else if (bee4_writeEn)
             begin
                 x = bee4_x;
                 y = bee4_y;
-                color = bee4_enable ? bee4_c : 3'b111;
+                color = (bee4_enable && ~over) ? bee4_c : 3'b111;
                 writeEn = 1'b1;
             end 
         else if (bee5_writeEn)
             begin
                 x = bee5_x;
                 y = bee5_y;
-                color = bee5_enable ? bee5_c : 3'b111;
+                color = (bee5_enable && ~over) ? bee5_c : 3'b111;
+                writeEn = 1'b1;
+            end 
+        else if (lives1_writeEn)
+            begin
+                x = lives1_x;
+                y = lives1_y;
+                color = (player_lives >= 2'b00 && ~over) ? lives1_c : 3'b111;
+                writeEn = 1'b1;
+            end
+        else if (lives2_writeEn)
+            begin
+                x = lives2_x;
+                y = lives2_y;
+                color = (player_lives >= 2'b01 && ~over) ? lives2_c : 3'b111;
+                writeEn = 1'b1;
+            end 
+        else if (lives3_writeEn)
+            begin
+                x = lives3_x;
+                y = lives3_y;
+                color = (player_lives == 2'b10 && ~over) ? lives3_c : 3'b111;
                 writeEn = 1'b1;
             end 
     end
@@ -304,14 +465,14 @@ module bounce
     reg [27:0] player_offset  = 28'd0; 
     
     wire [3:0] player_dir;
-    assign player_dir = 4'b1111 ^ KEY[3:0];
+    assign player_dir = over ? 4'b000 : 4'b1111 ^ KEY[3:0];
 
     wire player_slow;
     assign player_slow = rate_out == player_offset;
          
     reg [2:0] player_color_in = 3'b001;
 
-    hex_display liveshex(.IN(player_lives), .OUT(HEX0));
+    hex_display liveshex(.IN(player_lives), .OUT(hex0));
     
      always @(player_lives)
      begin
