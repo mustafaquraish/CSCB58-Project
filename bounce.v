@@ -496,16 +496,16 @@ module bounce
 
      reg [7:0] rand_x = 8'd80;
      reg [6:0] rand_y = 7'd60;
-     always @(CLOCK_50)
+     always @(posedge CLOCK_50)
      begin
-        if (rand_x < 8'd147)
+        if (rand_x < 8'd120)
             rand_x = rand_x + 1;
-        else if (rand_x == 8'd147)
-            rand_x = 8'd9;
-        if (rand_y < 7'd107)
+        else if (rand_x >= 8'd120)
+            rand_x = 8'd29;
+        if (rand_y < 7'd87)
             rand_y = rand_y + 1;
-        else if (rand_y == 7'd107)
-            rand_y = 7'd29;
+        else if (rand_y >= 7'd87)
+            rand_y = 7'd49;
      end
 
 
@@ -515,7 +515,7 @@ module bounce
     datapath player_data(
         // Inputs
         .clk(CLOCK_50), .resetn(~player_reset), .done(player_done), .update(player_update), .clear(player_clear),  .bee(1'b0),
-        .waiting(player_waiting), .c_in(player_color_in), .c2_in(3'b000), .x_in(player_x_in), .y_in(player_y_in), .dir_in(player_dir),
+        .waiting(player_waiting), .c_in(player_color_in), .c2_in(3'b000), .x_in(rand_x), .y_in(rand_y), .dir_in(player_dir),
         // Outputs
         .x_out(player_x), .y_out(player_y), .c_out(player_c), .writeEn(player_writeEn)
     );
