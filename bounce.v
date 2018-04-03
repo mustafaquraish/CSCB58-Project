@@ -41,7 +41,7 @@ module bounce
     output 	[6:0]  HEX5;
     output 	[6:0]  HEX6;
     output 	[6:0]  HEX7;
-      
+
     // Declare your inputs and outputs here
     // Do not change the following outputs
     output			VGA_CLK;   				//	VGA Clock
@@ -56,13 +56,13 @@ module bounce
     // Unused.
     // wire resetn;
     // assign resetn = SW[17];
-    
+
     // Create the colour, x, y and writeEn wires that are inputs to the controller.
     reg [2:0] color;
     reg [7:0] x;
     reg [6:0] y;
     reg writeEn;
-    
+
     // Create an Instance of a VGA controller - there can be only one!
     // Define the number of colours as well as the initial background
     // image file (.MIF) for the controller.
@@ -86,7 +86,7 @@ module bounce
         defparam VGA.MONOCHROME = "FALSE";
         defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
         defparam VGA.BACKGROUND_IMAGE = "bees2.mif";
-       
+
     // Put your code here. Your code should produce signals x,y,colour and writeEn/plot
     // for the VGA controller, in addition to any other functionality your design may require.
 
@@ -99,10 +99,10 @@ module bounce
     reg [7:0] score = 8'd0;
     reg [7:0] high_score = 8'd0;
 
-    // Checking collisions with borders	 
+    // Checking collisions with borders
     wire walls_collided = 	(player_x >= 8'd152) || (player_x <= 7'd4)
                                 || (player_y == 7'd112) || (player_y == 7'd24);
-                                
+
     // Checking collisions with bees
     // But only the enabled ones
     assign bees_collided =
@@ -130,7 +130,7 @@ module bounce
         &&  (player_y >= bee5_y - 2'd3) && (player_y <= bee5_y + 2'd3)
           && bee5_enable);
 
-    
+
     // Main logic here
     always @(posedge CLOCK_50)
         begin
@@ -140,7 +140,7 @@ module bounce
             // This is to make sure reset isn't left on.
             if (player_reset && player_slow)
                 player_reset = 1'b0;
-            
+
             // Otherwise if collided
             else if ((walls_collided || bees_collided) && player_slow && ~over)
                 // The following is just checking logic for all lives.
@@ -166,7 +166,7 @@ module bounce
                             player_reset = 1'b1;
                             player_lives = 2'b10;
                         end
-                end 
+                end
     end
 
     //////////////////////////////////// GAME OVER ///////////////////////////////////////////////////////////
@@ -209,7 +209,7 @@ module bounce
     wire [6:0] hex6;
     wire [6:0] hex7;
 
-    assign HEX0 = over ? 7'b0101111 : hex0;  
+    assign HEX0 = over ? 7'b0101111 : hex0;
     assign HEX1 = over ? 7'b0000110 : 7'b1111111;
     assign HEX2 = over ? 7'b1000001 : 7'b1111111;
     assign HEX3 = over ? 7'b1000000 : 7'b1111111;
@@ -222,14 +222,14 @@ module bounce
     reg overoff = 1'b0;
 
     always @(posedge CLOCK_50)
-        if (game_over) 
+        if (game_over)
             begin
                 over = 1'b1;
                 overoff = 1'b0;
             end
         else if (SW[15])
                 overoff = 1'b1;
-        else if (~SW[15] && overoff) 
+        else if (~SW[15] && overoff)
             begin
                 over = 1'b0;
                 overoff = 1'b0;
@@ -263,7 +263,7 @@ module bounce
 
     // Instansiate FSM control Lives 1
     control lives1_control(
-        // Inputs 
+        // Inputs
         .clk(CLOCK_50), .slowClk(lives1_slow), .resetn(1'b1), .moved(1'b0),
         // Outputs
         .update(lives1_update), .clear(lives1_clear), .done(lives1_done), .waiting(lives1_waiting),
@@ -288,7 +288,7 @@ module bounce
 
     // Instansiate FSM control Lives 2
     control lives2_control(
-        // Inputs 
+        // Inputs
         .clk(CLOCK_50), .slowClk(lives2_slow), .resetn(1'b1), .moved(1'b0),
         // Outputs
         .update(lives2_update), .clear(lives2_clear), .done(lives2_done), .waiting(lives2_waiting),
@@ -313,18 +313,18 @@ module bounce
 
     // Instansiate FSM control Lives 3
     control lives3_control(
-        // Inputs 
+        // Inputs
         .clk(CLOCK_50), .slowClk(lives3_slow), .resetn(1'b1), .moved(1'b0),
         // Outputs
         .update(lives3_update), .clear(lives3_clear), .done(lives3_done), .waiting(lives3_waiting),
     );
 
-    
+
     ////////////////////////////////////// SCORE  /////////////////////////////////////////////////////////////
 
 
     // These are the wires used in the rate divider
-    // That handles the interval for scoring	
+    // That handles the interval for scoring
     wire [27:0] score_rdout;
     wire sctime;
     assign sctime = (score_rdout == 28'd0);
@@ -343,21 +343,21 @@ module bounce
     begin
         if (game_over)
             score = 1'b0;
-        else if (sctime && ~over)
+        else if (sctime && ~over && (| SW[5:0]))
             score = score + 1'b1;
-            
+
         if (score >= high_score)
             high_score = score;
     end
-     
+
     // Display Score
     hex_display sc1(.IN(score[3:0]), .OUT(hex4));
     hex_display sc2(.IN(score[7:4]), .OUT(hex5));
-     
+
     // Display high score
     hex_display highsc1(.IN(high_score[3:0]), .OUT(hex6));
     hex_display highsc2(.IN(high_score[7:4]), .OUT(hex7));
-     
+
 
     ////////////////////////////////////// RATE DIVIDER /////////////////////////////////////////////////////////////
 
@@ -380,13 +380,13 @@ module bounce
 
     // Instantiate Rate divider game speed
     rate_divider bee0_rd(
-        .clk(CLOCK_50), 
-        .load_val(main_rd_in), 
+        .clk(CLOCK_50),
+        .load_val(main_rd_in),
         .out(rate_out)
     );
 
     ////////////////////////////////////// WHICH ONE DRAWS ///////////////////////////////////////////////////////////
-    
+
     // Handles sending the appropriate input to the VGA
     always @(*) begin
     writeEn = 1'b0;
@@ -396,14 +396,14 @@ module bounce
                 y = player_y;
                 color = (~over) ? player_c : 3'b111;
                 writeEn = 1'b1;
-            end 
+            end
         else if (bee0_writeEn)
             begin
                 x = bee0_x;
                 y = bee0_y;
                 color = (bee0_enable && ~over) ? bee0_c : 3'b111;
                 writeEn = 1'b1;
-            end 
+            end
         else if (bee1_writeEn)
             begin
                 x = bee1_x;
@@ -424,21 +424,21 @@ module bounce
                 y = bee3_y;
                 color = (bee3_enable && ~over) ? bee3_c : 3'b111;
                 writeEn = 1'b1;
-            end 
+            end
         else if (bee4_writeEn)
             begin
                 x = bee4_x;
                 y = bee4_y;
                 color = (bee4_enable && ~over) ? bee4_c : 3'b111;
                 writeEn = 1'b1;
-            end 
+            end
         else if (bee5_writeEn)
             begin
                 x = bee5_x;
                 y = bee5_y;
                 color = (bee5_enable && ~over) ? bee5_c : 3'b111;
                 writeEn = 1'b1;
-            end 
+            end
         else if (lives1_writeEn)
             begin
                 x = lives1_x;
@@ -452,38 +452,38 @@ module bounce
                 y = lives2_y;
                 color = (player_lives >= 2'b01 && ~over) ? lives2_c : 3'b111;
                 writeEn = 1'b1;
-            end 
+            end
         else if (lives3_writeEn)
             begin
                 x = lives3_x;
                 y = lives3_y;
                 color = (player_lives == 2'b10 && ~over) ? lives3_c : 3'b111;
                 writeEn = 1'b1;
-            end 
+            end
     end
 
     /////////////////////////////////////////// PLAYER INSTANTIATION //////////////////////////////////////////////////////
-    
+
     wire player_clear, player_update, player_done, player_waiting;
     wire player_rdout, player_writeEn;
     wire [7:0] player_x;
     wire [6:0] player_y;
     wire [2:0] player_c;
-     
+
     reg [7:0] player_x_in = 8'd80;
     reg [6:0] player_y_in = 7'd60;
-    reg [27:0] player_offset  = 28'd0; 
-    
+    reg [27:0] player_offset  = 28'd0;
+
     wire [3:0] player_dir;
     assign player_dir = over ? 4'b000 : 4'b1111 ^ KEY[3:0];
 
     wire player_slow;
     assign player_slow = rate_out == player_offset;
-         
+
     reg [2:0] player_color_in = 3'b001;
 
     hex_display liveshex(.IN(player_lives + 1'b1), .OUT(hex0));
-    
+
      always @(player_lives)
      begin
          case (player_lives)
@@ -493,8 +493,24 @@ module bounce
              2'b11: player_color_in = 3'b001;
          endcase
      end
-    
-    
+
+     reg [7:0] rand_x = 8'd80;
+     reg [6:0] rand_y = 7'd60;
+     always @(CLOCK_50)
+     begin
+        if (rand_x < 8'd147)
+            rand_x = rand_x + 1;
+        else if (rand_x == 8'd147)
+            rand_x = 8'd9;
+        if (rand_y < 7'd107)
+            rand_y = rand_y + 1;
+        else if (rand_y == 7'd107)
+            rand_y = 7'd29;
+     end
+
+
+
+
     // Instansiate datapath for Player
     datapath player_data(
         // Inputs
@@ -506,30 +522,30 @@ module bounce
 
     // Instansiate FSM control Player
     control player_control(
-        // Inputs 
+        // Inputs
         .clk(CLOCK_50), .slowClk(player_slow), .resetn(~player_reset), .moved(| player_dir),
         // Outputs
         .update(player_update), .clear(player_clear), .done(player_done), .waiting(player_waiting),
     );
-     
-    
+
+
     /////////////////////////////////////////// BEE 0 INSTANTIATION //////////////////////////////////////////////////////
-    
+
     wire bee0_clear, bee0_update, bee0_done, bee0_waiting;
     wire bee0_rdout, bee0_writeEn;
     wire [7:0] bee0_x;
     wire [6:0] bee0_y;
     wire [2:0] bee0_c;
-     
+
     reg [7:0] bee0_x_in = 8'd30;
     reg [6:0] bee0_y_in = 7'd48;
     reg [3:0] bee0_dir   = 4'b1010;
-    reg [27:0] bee0_offset  = 28'd100; 
+    reg [27:0] bee0_offset  = 28'd100;
 
     wire bee0_slow;
     assign bee0_slow = rate_out == bee0_offset;
 
-    // Can enable/disable the bee. 
+    // Can enable/disable the bee.
     wire bee0_enable;
     assign bee0_enable = SW[0];
 
@@ -541,7 +557,7 @@ module bounce
         if      (bee0_y == 7'd112)  bee0_dir = {bee0_dir[3], 2'b01, bee0_dir[0]};
         else if (bee0_y == 7'd24)    bee0_dir = {bee0_dir[3], 2'b10, bee0_dir[0]};
     end
-    
+
     // Instansiate datapath for Bee 0
     datapath bee0_data(
         // Inputs
@@ -553,14 +569,14 @@ module bounce
 
     // Instansiate FSM control Bee 0
     control bee0_control(
-        // Inputs 
+        // Inputs
         .clk(CLOCK_50), .slowClk(bee0_slow), .resetn(1'b1), .moved(| bee0_dir),
         // Outputs
         .update(bee0_update), .clear(bee0_clear), .done(bee0_done), .waiting(bee0_waiting),
     );
 
     /////////////////////////////////////////// BEE 1 INSTANTIATION //////////////////////////////////////////////////////
-    
+
     wire bee1_clear, bee1_update, bee1_done, bee1_waiting;
     wire bee1_rdout, bee1_writeEn;
     wire [7:0] bee1_x;
@@ -575,7 +591,7 @@ module bounce
     wire bee1_slow;
     assign bee1_slow = rate_out == bee1_offset;
 
-    // Can enable/disable the bee. 
+    // Can enable/disable the bee.
     wire bee1_enable;
     assign bee1_enable = SW[1];
 
@@ -587,7 +603,7 @@ module bounce
         if      (bee1_y == 7'd112)  bee1_dir = {bee1_dir[3], 2'b01, bee1_dir[0]};
         else if (bee1_y == 7'd24)    bee1_dir = {bee1_dir[3], 2'b10, bee1_dir[0]};
     end
-    
+
     // Instansiate datapath for Bee 1
     datapath bee1_data(
         // Inputs
@@ -599,14 +615,14 @@ module bounce
 
     // Instansiate FSM control Bee 1
     control bee1_control(
-        // Inputs 
+        // Inputs
         .clk(CLOCK_50), .slowClk(bee1_slow), .resetn(1'b1), .moved(| bee1_dir),
         // Outputs
         .update(bee1_update), .clear(bee1_clear), .done(bee1_done), .waiting(bee1_waiting),
     );
 
     /////////////////////////////////////////// BEE 2 INSTANTIATION //////////////////////////////////////////////////////
-    
+
     wire bee2_clear, bee2_update, bee2_done, bee2_waiting;
     wire bee2_rdout, bee2_writeEn;
     wire [7:0] bee2_x;
@@ -617,10 +633,10 @@ module bounce
     reg [6:0] bee2_y_in = 7'd89;
     reg [3:0] bee2_dir   = 4'b0011;
     reg [27:0] bee2_offset = 28'd300;
-    
+
     wire bee2_slow;
     assign bee2_slow = rate_out == bee2_offset;
-    
+
     // Can enable/disable the bee.
     wire bee2_enable;
     assign bee2_enable = SW[2];
@@ -633,7 +649,7 @@ module bounce
         if      (bee2_y == 7'd112)  bee2_dir = {bee2_dir[3], 2'b01, bee2_dir[0]};
         else if (bee2_y == 7'd24)    bee2_dir = {bee2_dir[3], 2'b10, bee2_dir[0]};
     end
-    
+
     // Instansiate datapath for Bee 2
     datapath bee2_data(
         // Inputs
@@ -645,14 +661,14 @@ module bounce
 
     // Instansiate FSM control Bee 2
     control bee2_control(
-        // Inputs 
+        // Inputs
         .clk(CLOCK_50), .slowClk(bee2_slow), .resetn(1'b1), .moved(| bee2_dir),
         // Outputs
         .update(bee2_update), .clear(bee2_clear), .done(bee2_done), .waiting(bee2_waiting),
     );
 
     /////////////////////////////////////////// BEE 3 INSTANTIATION //////////////////////////////////////////////////////
-    
+
     wire bee3_clear, bee3_update, bee3_done, bee3_waiting;
     wire bee3_rdout, bee3_writeEn;
     wire [7:0] bee3_x;
@@ -664,10 +680,10 @@ module bounce
     reg [6:0] bee3_y_in = 7'd100;
     reg [3:0] bee3_dir   = 4'b0101;
     reg [27:0] bee3_offset = 28'd400;
-     
+
     wire bee3_slow;
     assign bee3_slow = rate_out == bee3_offset;
-    
+
     // Can enable/disable the bee.
     wire bee3_enable;
     assign bee3_enable = SW[3];
@@ -680,7 +696,7 @@ module bounce
         if      (bee3_y == 7'd112)  bee3_dir = {bee3_dir[3], 2'b01, bee3_dir[0]};
         else if (bee3_y == 7'd24)    bee3_dir = {bee3_dir[3], 2'b10, bee3_dir[0]};
     end
-    
+
     // Instansiate datapath for Bee 3
     datapath bee3_data(
         // Inputs
@@ -692,14 +708,14 @@ module bounce
 
     // Instansiate FSM control Bee 3
     control bee3_control(
-        // Inputs 
+        // Inputs
         .clk(CLOCK_50), .slowClk(bee3_slow), .resetn(1'b1), .moved(| bee3_dir),
         // Outputs
         .update(bee3_update), .clear(bee3_clear), .done(bee3_done), .waiting(bee3_waiting),
     );
 
     /////////////////////////////////////////// BEE 4 INSTANTIATION //////////////////////////////////////////////////////
-    
+
     wire bee4_clear, bee4_update, bee4_done, bee4_waiting;
     wire bee4_rdout, bee4_writeEn;
     wire [7:0] bee4_x;
@@ -711,10 +727,10 @@ module bounce
     reg [6:0] bee4_y_in = 7'd56;
     reg [3:0] bee4_dir   = 4'b0101;
     reg [27:0] bee4_offset = 28'd500;
-     
+
     wire bee4_slow;
     assign bee4_slow = rate_out == bee4_offset;
-    
+
     // Can enable/disable the bee.
     wire bee4_enable;
     assign bee4_enable = SW[4];
@@ -727,7 +743,7 @@ module bounce
         if      (bee4_y == 7'd112)  bee4_dir = {bee4_dir[3], 2'b01, bee4_dir[0]};
         else if (bee4_y == 7'd24)    bee4_dir = {bee4_dir[3], 2'b10, bee4_dir[0]};
     end
-    
+
     // Instansiate datapath for Bee 4
     datapath bee4_data(
         // Inputs
@@ -739,14 +755,14 @@ module bounce
 
     // Instansiate FSM control Bee 4
     control bee4_control(
-        // Inputs 
+        // Inputs
         .clk(CLOCK_50), .slowClk(bee4_slow), .resetn(1'b1), .moved(| bee4_dir),
         // Outputs
         .update(bee4_update), .clear(bee4_clear), .done(bee4_done), .waiting(bee4_waiting),
     );
 
 /////////////////////////////////////////// BEE 5 INSTANTIATION //////////////////////////////////////////////////////
-    
+
     wire bee5_clear, bee5_update, bee5_done, bee5_waiting;
     wire bee5_rdout, bee5_writeEn;
     wire [7:0] bee5_x;
@@ -758,10 +774,10 @@ module bounce
     reg [6:0] bee5_y_in = 7'd29;
     reg [3:0] bee5_dir   = 4'b1100;
     reg [27:0] bee5_offset = 28'd600;
-     
+
     wire bee5_slow;
     assign bee5_slow = rate_out == bee5_offset;
-    
+
     // Can enable/disable the bee.
     wire bee5_enable;
     assign bee5_enable = SW[5];
@@ -774,7 +790,7 @@ module bounce
         if      (bee5_y == 7'd112)  bee5_dir = {bee5_dir[3], 2'b01, bee5_dir[0]};
         else if (bee5_y == 7'd25)    bee5_dir = {bee5_dir[3], 2'b10, bee5_dir[0]};
     end
-    
+
     // Instansiate datapath for Bee 5
     datapath bee5_data(
         // Inputs
@@ -786,10 +802,10 @@ module bounce
 
     // Instansiate FSM control Bee 5
     control bee5_control(
-        // Inputs 
+        // Inputs
         .clk(CLOCK_50), .slowClk(bee5_slow), .resetn(1'b1), .moved(| bee5_dir),
         // Outputs
         .update(bee5_update), .clear(bee5_clear), .done(bee5_done), .waiting(bee5_waiting),
     );
-    
+
 endmodule

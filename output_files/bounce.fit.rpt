@@ -1,5 +1,5 @@
 Fitter report for bounce
-Tue Apr  3 14:00:21 2018
+Tue Apr  3 16:37:24 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -73,7 +73,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Tue Apr  3 14:00:21 2018       ;
+; Fitter Status                      ; Successful - Tue Apr  3 16:37:24 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; bounce                                      ;
 ; Top-level Entity Name              ; bounce                                      ;
@@ -5690,32 +5690,32 @@ Info (176353): Automatically promoted node writeEn~1  File: /home/sunyuan/Docume
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_quf1:auto_generated|decode_lsa:decode2|w_anode118w[2] File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/db/decode_lsa.tdf Line: 34
         Info (176357): Destination node vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_quf1:auto_generated|decode_lsa:decode2|w_anode126w[2]~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/db/decode_lsa.tdf Line: 35
-Info (176353): Automatically promoted node Equal11  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 530
+Info (176353): Automatically promoted node Equal11  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 546
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node control:bee0_control|Selector2~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/modules.v Line: 132
         Info (176357): Destination node control:bee0_control|Selector0~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/modules.v Line: 132
-Info (176353): Automatically promoted node Equal14  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 576
+Info (176353): Automatically promoted node Equal14  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 592
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node control:bee1_control|Selector2~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/modules.v Line: 132
         Info (176357): Destination node control:bee1_control|Selector0~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/modules.v Line: 132
-Info (176353): Automatically promoted node Equal17  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 622
+Info (176353): Automatically promoted node Equal17  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 638
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node control:bee2_control|Selector2~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/modules.v Line: 132
         Info (176357): Destination node control:bee2_control|Selector0~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/modules.v Line: 132
-Info (176353): Automatically promoted node Equal20  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 669
+Info (176353): Automatically promoted node Equal20  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 685
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node control:bee3_control|Selector2~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/modules.v Line: 132
         Info (176357): Destination node control:bee3_control|Selector0~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/modules.v Line: 132
-Info (176353): Automatically promoted node Equal23  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 716
+Info (176353): Automatically promoted node Equal23  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 732
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node control:bee4_control|Selector2~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/modules.v Line: 132
         Info (176357): Destination node control:bee4_control|Selector0~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/modules.v Line: 132
-Info (176353): Automatically promoted node Equal26  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 763
+Info (176353): Automatically promoted node Equal26  File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 779
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node control:bee5_control|Selector2~0 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/modules.v Line: 132
@@ -6146,7 +6146,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:05
-Info (11888): Total time spent on timing analysis during the Fitter is 1.42 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 1.43 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -6157,10 +6157,10 @@ Warning (169177): 1 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2
     Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at Y2 File: /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/bounce.v Line: 31
 Info (144001): Generated suppressed messages file /home/sunyuan/Documents/uoft/CSCB58/proj/CSCB58P2/output_files/bounce.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 403 warnings
-    Info: Peak virtual memory: 1454 megabytes
-    Info: Processing ended: Tue Apr  3 14:00:22 2018
+    Info: Peak virtual memory: 1459 megabytes
+    Info: Processing ended: Tue Apr  3 16:37:25 2018
     Info: Elapsed time: 00:00:31
-    Info: Total CPU time (on all processors): 00:00:34
+    Info: Total CPU time (on all processors): 00:00:35
 
 
 +----------------------------+
