@@ -1,12 +1,12 @@
 # CSCB58 Project
 
-# What is this?
+## What is this?
 
 This is a game we created as part of a project for CSCB58 Winter 2018. It is coded in Verilog HDL, and is originally meant to run on the Altera DE2-115 FPGA Board. Also uses a VGA Display.
 
 ---
 
-# Who made this?
+## Who made this?
 
 This was made by our team of 4
 - Mustafa Quraish
@@ -16,7 +16,7 @@ This was made by our team of 4
 
 ---
 
-# Controls
+## Controls
 
 *Directions similar to Vim, for the familiar*
 
@@ -46,7 +46,7 @@ This was made by our team of 4
 
 ---
 
-# Running the Game
+## Running the Game
 
 If you have the same board used in the making of this project, you can simply write the precompiled `bounce.sof` in the output_files folder.
 
@@ -54,7 +54,7 @@ If not, clone the repo, open the project in Quartus with `bounce.qpf` and import
 
 ---
 
-# Online version
+## Online version
 
 If you don't have an FPGA or don't want to mess around with Quartus, I've developed an online version of the game in JavaScript. It keeps all the graphics, colors, and everything else intact, except that the score needs to be displayed on the screen because it was done on the Hex Display.
 
