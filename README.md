@@ -44,11 +44,15 @@ This was made by our team of 4
 
 `HEX7, HEX6` - High Score
 
+---
+
 # Running the Game
 
 If you have the same board used in the making of this project, you can simply write the precompiled `bounce.sof` in the output_files folder.
 
 If not, clone the repo, open the project in Quartus with `bounce.qpf` and import your pin assignment files. Be warned, the top-level module is quite large as we didn't get enough time to seperate everything out into modules, so it may take a couple minutes refactoring if your inputs are named differently on another board.
+
+---
 
 # Online version
 
